@@ -1,0 +1,1 @@
+ALTER TABLE `ost_user` ADD `phone` VARCHAR(50) NOT NULL DEFAULT '0' AFTER `name`;

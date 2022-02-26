@@ -1,0 +1,33 @@
+<tag1>Agent Productivity Report</tag1>
+<tag3>Agent Name - Joseph Munir</tag3>
+<tag3>Date: 08-02-2022-08-02-2022</tag3>
+<tag1>Work Times</tag1>
+<tag2>Login Time</tag2>, <tag2>Log Out Time</tag2>, <tag2>Time Duration</tag2>
+<tag1>Break Times Summary</tag1>
+<tag2>CRM Status</tag2>, <tag2>Time Difference Summary</tag2>
+, - 
+, - 
+, - 
+, - 
+<tag1>Answered Calls</tag1>
+<tag2>Call Type</tag2>, <tag2>No of Calls</tag2>, <tag2>On Call Time</tag2>, <tag2>Busy Time</tag2>
+INBOUND,2, 00:05:04, -00:05:04
+<tag1>Drop Calls</tag1>
+<tag2>Call Type</tag2>, <tag2>No of Drop Calls</tag2>
+INBOUND,1
+<tag1>Break Times</tag1>
+<tag2>CRM Status</tag2>, <tag2>Start Time</tag2>, <tag2>End Time</tag2>, <tag2>Time Difference</tag2>
+<tag1>ACW Times</tag1>
+<tag2>ACW</tag2>, <tag2>Start Time</tag2>, <tag2>End Time</tag2>, <tag2>Duration</tag2>
+ACW, 2022-02-08 09:38:39 AM, 2022-02-08 10:28:37 AM, 00:49:58
+ACW, 2022-02-08 10:28:37 AM, 2022-02-08 10:38:48 AM, 00:10:11
+<tag1>Work Timing Distribution</tag1>
+Work Time (A):, 00:00:00
+Break Time(B):, 00:00:00
+Effective Work Time Available (C):, 00:00:00
+ACW Time (D):, 01:00:09
+On Call Time (E):, 00:05:04
+Busy Time (F):, 00:05:04
+Work Time Utilized (G):, 01:05:13
+Free Time (H):, -2:54:47
+

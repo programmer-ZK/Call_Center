@@ -1,0 +1,54 @@
+CAMPAIGN NAME ,Tele Transact CallsCAMPAIGN NATURE ,Call_back_serviceCAMPAIGN CURRENT STATUS ,ActiveNUMBER OF ASSOCIATED AGENTS ,2CAMPAIGN START DATE TIME ,2013-08-22CAMPAIGN END DATE TIME,2013-12-31TOTAL NUMBERS,60DURATION IN DAYS,131TOTAL QUESTIONS,1
+NAME, CNIC , CALLER ID , STATUS , AMOUNT , CITY , IC , SOURCE , OTHER , ATTEMPTS , CALL DATE TIME , CUSTOMER ID , ACCOUNT NUMBER , WORKCODES , AGENT NAME , DETAIL ,
+
+	RANA AHMED HUMAYUN	,	00009205-1	,	03008295518	,	699706.45	,	Not Registered	,	Redemption	,		,	USIF	,	1-Aug-13	,	1	,	2013-08-27 16:39:18	,		,		,	 Call Status |  NOT Contacted |  Potential	,	Shakeeb	,		,		
+	TANVEER ANJUM SETHI	,	00006100-1	,	03005931101	,	18680.26	,	Not Registered	,	Redemption	,		,	USF	,	1-Aug-13	,	2	,	2013-08-27 13:32:56	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	SHERAZ AHMED	,	00005000-1	,	03459491130	,	993.69	,	Not Registered	,	Redemption	,		,	UISF	,	5-Aug-13	,	1	,	2013-08-27 13:32:16	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	BUSHRA TABASSUM	,	00004159-1	,	03002277810	,	50000	,	Not Registered	,	Redemption	,		,	UISF	,	13-Aug-13	,	1	,	2013-08-27 13:31:09	,		,		,	 Information/Inquiry |  Procedures	,	Farhan	,		,		
+	AHMED ANTARA SIDDIQUI	,	00003597-1	,	03005102665	,	500000	,	Not Registered	,	Conversion	,		,	UISF	,	13-Aug-13	,	1	,	2013-08-27 13:30:37	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	KHWAJA JALAL-UD-DIN	,	00003535-1	,	03008285653	,	4400000	,	Not Registered	,	Redemption	,		,	ULPF	,	2-Aug-13	,	1	,	2013-08-27 13:26:42	,		,		,	 Maintenance |  Tele-transact registration	,	Shakeeb	,		,		
+	ANIS DANISH	,	00003443-1	,	03008259425	,	6406	,	Not Registered	,	Redemption	,		,	ULPF	,	1-Aug-13	,	1	,	2013-08-27 13:22:52	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	RAUF NUMAN	,	00001964-1	,	03004587182	,	500000	,	Not Registered	,	Redemption	,		,	ULPF	,	20-Aug-13	,	1	,	2013-08-27 13:09:04	,		,		,	 Call Status |  Powered Off	,	Shakeeb	,		,		
+	DARSHAN LAL	,	00001795-1	,	03003408882	,	15000	,	Not Registered	,	Conversion	,		,	USF	,	15-Aug-13	,	1	,	2013-08-27 13:00:49	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	YASIR AHMED FARHAN	,	00008662-1	,	03335131551	,	212000	,	Not Registered	,	Redemption	,		,	ULPF	,	2-Aug-13	,	1	,	2013-08-27 12:59:31	,		,		,	 Call Status |  CALL Later	,	Shakeeb	,		,		
+	SOHAIL RAZA BHOJANI	,	00008649-1	,	03362233753	,	1000000	,	Not Registered	,	Redemption	,		,	ULPF	,	6-Aug-13	,	1	,	2013-08-27 12:54:45	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	MAZHAR-UL-HASSAN LARI	,	00008608-1	,	03333369315	,	547713.73	,	Not Registered	,	Redemption	,		,	ULPF	,	7-Aug-13	,	1	,	2013-08-27 12:51:51	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	AHSAN JAVED	,	00008591-1	,	03002800481	,	30000	,	Not Registered	,	Redemption	,		,	ULPF	,	6-Aug-13	,	1	,	2013-08-27 12:48:58	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	NAEEM AHMED	,	00008465-1	,	03215001199	,	390000	,	Not Registered	,	Redemption	,		,	ULPF	,	7-Aug-13	,	1	,	2013-08-27 12:35:50	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	QAISRA MAHMOOD	,	00007592-1	,	03214382524	,	13605.16	,	Not Registered	,	Redemption	,		,	USSF	,	15-Aug-13	,	1	,	2013-08-27 11:24:48	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	TEHREEM AAMIR	,	00006186-1	,	03213751492	,	15000	,	Not Registered	,	Conversion	,		,	UISF	,	15-Aug-13	,	1	,	2013-08-27 11:22:31	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	MUHAMMAD ADIL JAH	,	00006150-2	,	03222223020	,	32390	,	Not Registered	,	Redemption	,		,	UIPP-P	,	2-Aug-13	,	1	,	2013-08-27 11:20:54	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	ZULFIQAR ALAVI	,	00006142-1	,	03008240884	,	1000000	,	Not Registered	,	Redemption	,		,	ULPF	,	13-Aug-13	,	1	,	2013-08-27 10:30:03	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	IMRAN ZAHOOR	,	00003732-1	,	03009540770	,	803150.27	,	Not Registered	,	Redemption	,		,	ULPF	,	19-Aug-13	,	1	,	2013-08-27 10:27:46	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	SYED MUJAHID HUSSAIN NAQVI	,	00003538-1	,	03332330703	,	300000	,	Not Registered	,	Redemption	,		,	USF	,	15-Aug-13	,	1	,	2013-08-26 14:46:40	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	NASEER AHMED	,	00004066-1	,	03452747808	,	500	,	Not Registered	,	Conversion	,		,	USF	,	19-Aug-13	,	1	,	2013-08-26 14:42:20	,		,		,	 Information/Inquiry |  Procedures |  Call Status |  Not Interested	,	Shakeeb	,		,		
+	TANVEER ANJUM SETHI	,	00006100-1	,	03005931101	,	18680.26	,	Not Registered	,	Redemption	,		,	USF	,	1-Aug-13	,	2	,	2013-08-27 13:32:56	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	SHERAZ AHMED	,	00005000-1	,	03459491130	,	993.69	,	Not Registered	,	Redemption	,		,	UISF	,	5-Aug-13	,	2	,	2013-08-27 13:32:16	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	BUSHRA TABASSUM	,	00004159-1	,	03002277810	,	50000	,	Not Registered	,	Redemption	,		,	UISF	,	13-Aug-13	,	2	,	2013-08-27 13:31:09	,		,		,	 Information/Inquiry |  Procedures	,	Farhan	,		,		
+	AHMED ANTARA SIDDIQUI	,	00003597-1	,	03005102665	,	500000	,	Not Registered	,	Conversion	,		,	UISF	,	13-Aug-13	,	1	,	2013-08-27 13:30:37	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	KHWAJA JALAL-UD-DIN	,	00003535-1	,	03008285653	,	4400000	,	Not Registered	,	Redemption	,		,	ULPF	,	2-Aug-13	,	1	,	2013-08-27 13:26:42	,		,		,	 Maintenance |  Tele-transact registration	,	Shakeeb	,		,		
+	ANIS DANISH	,	00003443-1	,	03008259425	,	6406	,	Not Registered	,	Redemption	,		,	ULPF	,	1-Aug-13	,	2	,	2013-08-27 13:22:52	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	RAUF NUMAN	,	00001964-1	,	03004587182	,	500000	,	Not Registered	,	Redemption	,		,	ULPF	,	20-Aug-13	,	2	,	2013-08-27 13:09:04	,		,		,	 Call Status |  Powered Off	,	Shakeeb	,		,		
+	DARSHAN LAL	,	00001795-1	,	03003408882	,	15000	,	Not Registered	,	Conversion	,		,	USF	,	15-Aug-13	,	2	,	2013-08-27 13:00:49	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	YASIR AHMED FARHAN	,	00008662-1	,	03335131551	,	212000	,	Not Registered	,	Redemption	,		,	ULPF	,	2-Aug-13	,	1	,	2013-08-27 12:59:31	,		,		,	 Call Status |  CALL Later	,	Shakeeb	,		,		
+	SOHAIL RAZA BHOJANI	,	00008649-1	,	03362233753	,	1000000	,	Not Registered	,	Redemption	,		,	ULPF	,	6-Aug-13	,	1	,	2013-08-27 12:54:45	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	MAZHAR-UL-HASSAN LARI	,	00008608-1	,	03333369315	,	547713.73	,	Not Registered	,	Redemption	,		,	ULPF	,	7-Aug-13	,	1	,	2013-08-27 12:51:51	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	AHSAN JAVED	,	00008591-1	,	03002800481	,	30000	,	Not Registered	,	Redemption	,		,	ULPF	,	6-Aug-13	,	1	,	2013-08-27 12:48:58	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	NAEEM AHMED	,	00008465-1	,	03215001199	,	390000	,	Not Registered	,	Redemption	,		,	ULPF	,	7-Aug-13	,	1	,	2013-08-27 12:35:50	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	QAISRA MAHMOOD	,	00007592-1	,	03214382524	,	13605.16	,	Not Registered	,	Redemption	,		,	USSF	,	15-Aug-13	,	1	,	2013-08-27 11:24:48	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	TEHREEM AAMIR	,	00006186-1	,	03213751492	,	15000	,	Not Registered	,	Conversion	,		,	UISF	,	15-Aug-13	,	1	,	2013-08-27 11:22:31	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	MUHAMMAD ADIL JAH	,	00006150-2	,	03222223020	,	32390	,	Not Registered	,	Redemption	,		,	UIPP-P	,	2-Aug-13	,	1	,	2013-08-27 11:20:54	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	ZULFIQAR ALAVI	,	00006142-1	,	03008240884	,	1000000	,	Not Registered	,	Redemption	,		,	ULPF	,	13-Aug-13	,	1	,	2013-08-27 10:30:03	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	IMRAN ZAHOOR	,	00003732-1	,	03009540770	,	803150.27	,	Not Registered	,	Redemption	,		,	ULPF	,	19-Aug-13	,	1	,	2013-08-27 10:27:46	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	SYED MUJAHID HUSSAIN NAQVI	,	00003538-1	,	03332330703	,	300000	,	Not Registered	,	Redemption	,		,	USF	,	15-Aug-13	,	1	,	2013-08-26 14:46:40	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	NASEER AHMED	,	00004066-1	,	03452747808	,	500	,	Not Registered	,	Conversion	,		,	USF	,	19-Aug-13	,	1	,	2013-08-26 14:42:20	,		,		,	 Information/Inquiry |  Procedures |  Call Status |  Not Interested	,	Shakeeb	,		,		
+	SHERAZ AHMED	,	00005000-1	,	03459491130	,	993.69	,	Not Registered	,	Redemption	,		,	UISF	,	5-Aug-13	,	2	,	2013-08-27 13:32:16	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	BUSHRA TABASSUM	,	00004159-1	,	03002277810	,	50000	,	Not Registered	,	Redemption	,		,	UISF	,	13-Aug-13	,	2	,	2013-08-27 13:31:09	,		,		,	 Information/Inquiry |  Procedures	,	Farhan	,		,		
+	AHMED ANTARA SIDDIQUI	,	00003597-1	,	03005102665	,	500000	,	Not Registered	,	Conversion	,		,	UISF	,	13-Aug-13	,	2	,	2013-08-27 13:30:37	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	KHWAJA JALAL-UD-DIN	,	00003535-1	,	03008285653	,	4400000	,	Not Registered	,	Redemption	,		,	ULPF	,	2-Aug-13	,	2	,	2013-08-27 13:26:42	,		,		,	 Maintenance |  Tele-transact registration	,	Shakeeb	,		,		
+	ANIS DANISH	,	00003443-1	,	03008259425	,	6406	,	Not Registered	,	Redemption	,		,	ULPF	,	1-Aug-13	,	3	,	2013-08-27 13:22:52	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	RAUF NUMAN	,	00001964-1	,	03004587182	,	500000	,	Not Registered	,	Redemption	,		,	ULPF	,	20-Aug-13	,	3	,	2013-08-27 13:09:04	,		,		,	 Call Status |  Powered Off	,	Shakeeb	,		,		
+	DARSHAN LAL	,	00001795-1	,	03003408882	,	15000	,	Not Registered	,	Conversion	,		,	USF	,	15-Aug-13	,	3	,	2013-08-27 13:00:49	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	IMRAN ZAHOOR	,	00003732-1	,	03009540770	,	803150.27	,	Not Registered	,	Redemption	,		,	ULPF	,	19-Aug-13	,	2	,	2013-08-27 10:27:46	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	SYED MUJAHID HUSSAIN NAQVI	,	00003538-1	,	03332330703	,	300000	,	Not Registered	,	Redemption	,		,	USF	,	15-Aug-13	,	2	,	2013-08-26 14:46:40	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	NASEER AHMED	,	00004066-1	,	03452747808	,	500	,	Not Registered	,	Conversion	,		,	USF	,	19-Aug-13	,	1	,	2013-08-26 14:42:20	,		,		,	 Information/Inquiry |  Procedures |  Call Status |  Not Interested	,	Shakeeb	,		,		

@@ -1,0 +1,203 @@
+<html><body><div id="mid-col" class="mid-col">
+<div class="box">
+                <h4 class="white rounded_by_jQuery_corners" style="padding: 0px;"><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(240, 240, 240);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="padding: 5px 10px 10px;">Call Ceneter Login &amp; logoff Time</div></h4>
+        <div class="box-container rounded_by_jQuery_corners" style="overflow: hidden; padding: 0px;"><div style="padding: 0px 10px;">
+              <table class="table-short">
+                        <thead>
+                                <tr>
+                                <td colspan="12" class="paging"><div class="paging_block">&nbsp;<b>1</b>&nbsp;<a href="/Octopus/call_center_scheduling.php?1=1&amp;fdate=01-01-2018&amp;tdate=19-01-2022&amp;pgno=2&amp;campaign_id=">2</a><a href="/Octopus/call_center_scheduling.php?1=1&amp;fdate=01-01-2018&amp;tdate=19-01-2022&amp;pgno=3&amp;campaign_id=">3</a><a href="/Octopus/call_center_scheduling.php?1=1&amp;fdate=01-01-2018&amp;tdate=19-01-2022&amp;pgno=4&amp;campaign_id=">4</a><a href="/Octopus/call_center_scheduling.php?1=1&amp;fdate=01-01-2018&amp;tdate=19-01-2022&amp;pgno=5&amp;campaign_id=">5</a><a href="/Octopus/call_center_scheduling.php?1=1&amp;fdate=01-01-2018&amp;tdate=19-01-2022&amp;pgno=6&amp;campaign_id=">6</a><a href="/Octopus/call_center_scheduling.php?1=1&amp;fdate=01-01-2018&amp;tdate=19-01-2022&amp;pgno=7&amp;campaign_id=">7</a><a href="/Octopus/call_center_scheduling.php?1=1&amp;fdate=01-01-2018&amp;tdate=19-01-2022&amp;pgno=8&amp;campaign_id=">8</a><a href="/Octopus/call_center_scheduling.php?1=1&amp;fdate=01-01-2018&amp;tdate=19-01-2022&amp;pgno=9&amp;campaign_id=">9</a><a href="/Octopus/call_center_scheduling.php?1=1&amp;fdate=01-01-2018&amp;tdate=19-01-2022&amp;pgno=10&amp;campaign_id=">10</a><a href="/Octopus/call_center_scheduling.php?1=1&amp;fdate=01-01-2018&amp;tdate=19-01-2022&amp;pgno=2&amp;campaign_id=">Next »</a>&nbsp;&nbsp;1 of 27 Pages</div></td>
+                                </tr>
+                                <tr>
+                                       <td class="col-head">Status</td>
+					<td class="col-first">Date Time</td>
+				
+     
+                                </tr>
+                        </thead>
+
+                        <tfoot>
+                       
+                        </tfoot>
+                        <tbody>
+                                 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">13-04-2018 09:10:52 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">13-04-2018 09:11:46 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">13-04-2018 09:12:50 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">13-04-2018 09:13:10 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">13-04-2018 09:14:38 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">26-05-2018 09:50:56 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">26-05-2018 09:51:08 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">07-06-2018 02:08:32 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">07-06-2018 02:09:25 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">28-06-2018 01:23:48 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">28-06-2018 01:24:02 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">22-01-2019 06:42:19 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">22-01-2019 06:42:38 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">23-01-2019 09:23:14 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">23-01-2019 09:23:17 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">23-01-2019 09:32:47 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">23-01-2019 09:32:51 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">24-01-2019 08:05:37 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">24-01-2019 08:05:48 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">04-09-2020 07:33:00 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">04-09-2020 07:33:40 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">04-09-2020 07:38:35 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">04-09-2020 08:08:12 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">18-09-2020 04:22:28 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">02-10-2020 06:45:31 PM</td>
+				
+					</tr>
+				 
+			
+                        </tbody>
+                </table>
+	
+</div><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div></div>
+</div></html></body>

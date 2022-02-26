@@ -1,0 +1,393 @@
+<html><body><!--? if(isset($_REQUEST["search_date"]) && !empty($_REQUEST["search_date"])) {  ?-->
+	<h4 class="white rounded_by_jQuery_corners" style="padding: 0px;"><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(240, 240, 240);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="padding: 5px 10px 10px;">Agent Productivity Report  <br> Agent Name -  <br> Department-  <br> Date: 09-02-2022-09-02-2022</div></h4>
+<br>
+ 
+             
+        
+          
+	<br>
+	<h4 class="white rounded_by_jQuery_corners" style="padding: 0px;"><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(240, 240, 240);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="padding: 5px 10px 10px;">Working Times</div></h4>
+      		  
+        <div class="box-container rounded_by_jQuery_corners" style="padding: 0px;"><div style="padding: 0px 10px;">  		
+      
+		<table class="table-short">
+      			<thead>
+					<tr>
+	                	<td colspan="12" class="paging"></td>
+        		    </tr>
+      				<tr>
+					   <td class="col-head2">Agent Name</td>
+	        	        <td class="col-head2">Online Time</td>
+		                <td class="col-head2">Offline Time</td>
+						<td class="col-head2">Time Duration</td>
+						
+					</tr>
+      			</thead>
+				      			<tbody>
+				      			</tbody>
+      		</table>  	
+
+        
+      	</div><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+		
+		<br>
+<!-- ******************************  Agent Break Times SUM ************************** -->
+ 
+		 <h4 class="white rounded_by_jQuery_corners" style="padding: 0px;"><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(240, 240, 240);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="padding: 5px 10px 10px;">Break Times Summary</div></h4>
+		 		<div class="box-container rounded_by_jQuery_corners" style="padding: 0px;"><div style="padding: 0px 10px;">  		
+      	
+	<table class="table-short">
+      			<thead>
+					<tr>
+	                	<td colspan="12" class="paging"></td>
+        		    </tr>
+      				<tr>
+	        	        <td class="col-head2">CRM Status</td>
+						<td class="col-head2">Time Difference</td>						
+						
+					</tr>
+      			</thead>
+				      			<tbody>
+																																	<tr class="odd">
+                        <td class="col-first">
+						Namaz Break 
+						</td>			
+						<td class="col-first">-</td>
+					</tr>
+									<tr class="odd">
+                        <td class="col-first">
+						Lunch Break 
+						</td>			
+						<td class="col-first">-</td>
+					</tr>
+									<tr class="odd">
+                        <td class="col-first">
+						Tea Break 
+						</td>			
+						<td class="col-first">00:30:14</td>
+					</tr>
+									<tr class="odd">
+                        <td class="col-first">
+						Auxiliary Break 
+						</td>			
+						<td class="col-first">00:37:58</td>
+					</tr>
+				      			</tbody>
+      		</table>  	
+      	</div><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+	
+		
+		<br>		
+<!-- ******************************  Agent On Call and Busy Times ************************** -->
+
+		 <h4 class="white rounded_by_jQuery_corners" style="padding: 0px;"><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(240, 240, 240);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="padding: 5px 10px 10px;">Answered Calls</div></h4>
+		<div class="box-container rounded_by_jQuery_corners" style="padding: 0px;"><div style="padding: 0px 10px;">  	
+
+      	
+	<table class="table-short">
+      			<thead>
+					<tr>
+	                	<td colspan="12" class="paging"></td>
+        		    </tr>
+      				<tr>
+					 <td class="col-head2">Agent Name</td>
+	        	        <td class="col-head2">Call Type</td>
+						<td class="col-head2">No of Calls</td>
+						<!--<td class="col-head2">Drop Calls</td>-->
+		                <td class="col-head2">On Call Time</td>
+						<td class="col-head2">Busy Time</td>
+					</tr>
+      			</thead>
+				      			<tbody>
+				      				<tr class="odd">
+					
+					<td class="col-first">Joseph Munir </td>
+					
+                      	<td class="col-first">INBOUND </td>
+						<td class="col-first">2 </td>
+						<!--<td class="col-first">0 </td>-->
+						<td class="col-first">00:09:15 </td>
+						<td class="col-first">-00:09:15 </td>				
+
+					</tr>
+				      				<tr class="odd">
+					
+					<td class="col-first">Maham Sattar </td>
+					
+                      	<td class="col-first">INBOUND </td>
+						<td class="col-first">2 </td>
+						<!--<td class="col-first">0 </td>-->
+						<td class="col-first">00:05:59 </td>
+						<td class="col-first">-00:05:59 </td>				
+
+					</tr>
+				      			</tbody>
+      		</table>  	
+      	</div><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+		<br>
+			<br>
+
+
+<!-- ******************************  Agent On Call and Busy Times ************************** -->
+
+
+
+
+		 <h4 class="white rounded_by_jQuery_corners" style="padding: 0px;"><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(240, 240, 240);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="padding: 5px 10px 10px;">Drop Calls</div></h4>
+
+		<div class="box-container rounded_by_jQuery_corners" style="padding: 0px;"><div style="padding: 0px 10px;">  	
+
+
+
+      	
+
+	<table class="table-short">
+
+      			<thead>
+
+					<tr>
+
+	                	<td colspan="12" class="paging"></td>
+
+        		    </tr>
+
+      				<tr>
+
+					 <td class="col-head2">Agent Name</td>
+
+	        	        <td class="col-head2">Call Type</td>
+
+						<td class="col-head2">No of Drop Calls</td>
+
+						<!--<td class="col-head2">Drop Calls</td>-->
+
+					</tr>
+
+      			</thead>
+
+				
+      			<tbody>
+
+				
+      				<tr class="odd">
+
+					
+
+					<td class="col-first">Syed Khurram </td>
+
+					
+
+                      	<td class="col-first">INBOUND </td>
+
+						<td class="col-first">1 </td>
+
+					</tr>
+
+				
+      				<tr class="odd">
+
+					
+
+					<td class="col-first">Hamza Ali </td>
+
+					
+
+                      	<td class="col-first">INBOUND </td>
+
+						<td class="col-first">1 </td>
+
+					</tr>
+
+				
+      			</tbody>
+
+      		</table>  	
+
+      	</div><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+
+		<br>
+
+		
+	<br>
+
+
+		<!-- ******************************  Agent Break Times ************************** -->
+ 
+		 <h4 class="white rounded_by_jQuery_corners" style="padding: 0px;"><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(240, 240, 240);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="padding: 5px 10px 10px;">Break Times</div></h4>
+		 
+		 <table class="table-short" style="background-color:#FFFFFF; margin-left:0px;width:auto;">
+      			<thead>
+					<tr>
+	                	<td colspan="12" class="paging"></td>
+        		    </tr>
+      				<tr>
+					  <td class="col-head2">Agent</td>
+	        	        <td class="col-head2">CRM Status</td>
+		                <td class="col-head2">Start Time</td>
+						<td class="col-head2">End Time</td>
+						<td class="col-head2">Time Difference</td>						
+						
+					</tr>
+      			</thead>
+		 </table>
+		<div class="box-container rounded_by_jQuery_corners" style="overflow-y: auto; height: 350px; padding: 0px;"><div style="height: 350px; padding: 0px 10px;">  		
+
+      
+		<table class="table-short">
+		<!--<thead>
+					<tr>
+	                	<td colspan="12" class="paging"><?php// echo($paging_block);?></td>
+        		    </tr>
+      				<tr>
+	        	        <td class="col-head2">CRM Status</td>
+		                <td class="col-head2">Start Time</td>
+						<td class="col-head2">End Time</td>
+						<td class="col-head2">Time Difference</td>						
+						
+					</tr>
+      			</thead>-->
+				      			<tbody>
+								      				<tr class="odd">
+					
+					
+					<td class="col-first">Shanila </td>
+                        <td class="col-first">Auxiliary Break </td>
+						<td class="col-first">2022-02-09 09:14:23 AM </td>
+						<td class="col-first">2022-02-09 09:18:01 AM </td>				
+						<td class="col-first">00:03:38 </td>
+
+					</tr>
+								      				<tr class="odd">
+					
+					
+					<td class="col-first">Shanila </td>
+                        <td class="col-first">Tea Break </td>
+						<td class="col-first">2022-02-09 09:18:01 AM </td>
+						<td class="col-first">2022-02-09 09:18:03 AM </td>				
+						<td class="col-first">00:00:02 </td>
+
+					</tr>
+								      				<tr class="odd">
+					
+					
+					<td class="col-first">Ubaid Anees </td>
+                        <td class="col-first">Auxiliary Break </td>
+						<td class="col-first">2022-02-09 09:24:49 AM </td>
+						<td class="col-first">2022-02-09 09:59:09 AM </td>				
+						<td class="col-first">00:34:20 </td>
+
+					</tr>
+								      				<tr class="odd">
+					
+					
+					<td class="col-first">Syed Khurram </td>
+                        <td class="col-first">Tea Break </td>
+						<td class="col-first">2022-02-09 09:59:00 AM </td>
+						<td class="col-first">2022-02-09 10:19:25 AM </td>				
+						<td class="col-first">00:20:25 </td>
+
+					</tr>
+								      				<tr class="odd">
+					
+					
+					<td class="col-first">Joseph Munir </td>
+                        <td class="col-first">Tea Break </td>
+						<td class="col-first">2022-02-09 09:59:20 AM </td>
+						<td class="col-first">2022-02-09 10:09:07 AM </td>				
+						<td class="col-first">00:09:47 </td>
+
+					</tr>
+				      			</tbody>
+      		</table>  	
+      	</div><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+	<br>
+		<!-- ******************************  Agent Assignment Times ************************** -->
+
+		 <h4 class="white rounded_by_jQuery_corners" style="padding: 0px;"><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(240, 240, 240);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="padding: 5px 10px 10px;">ACW Times</div></h4>
+		 
+		 <table class="table-short" style="background-color:#FFFFFF; margin-left:0px;width:auto;">
+      			<thead>
+					<tr>
+	                	<td colspan="12" class="paging"></td>
+        		    </tr>
+      				<tr>	<td class="col-head2">Agent</td>
+	        	      			<td class="col-head2">ACW</td>
+				              <td class="col-head2">Start Time</td>
+					<td class="col-head2">End Time</td>
+					<td class="col-head2">Duration</td>
+					</tr>
+      			</thead>
+		</table>
+		 
+		<div class="box-container rounded_by_jQuery_corners" style="overflow-y: auto; height: 200px; padding: 0px;"><div style="height: 200px; padding: 0px 10px;">  		
+
+      	
+	<table class="table-short">
+
+				      			<tbody>
+				      			</tbody>
+      		</table>  	
+      	</div><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+		
+<!-- *********************************************************************************** -->
+	
+
+                <br>
+                          <h4 class="white rounded_by_jQuery_corners" style="padding: 0px;"><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(240, 240, 240);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="padding: 5px 10px 10px;">Work Timing Distribution</div></h4>
+<div class="box-container rounded_by_jQuery_corners" style="padding: 0px;"><div style="padding: 0px 10px;">
+
+<table>
+
+					<tbody><tr class="odd"><td>Work Time (A): </td><td><b>00:00:00 </b></td></tr>
+                <tr class="odd"><td>Break Time(B):</td><td><b>01:08:12</b></td></tr>
+                <tr class="odd"><td>Effective Work Time Available (C):&nbsp;</td><td><b>-2:51:48</b></td></tr>
+                                <tr class="odd"><td>ACW Time (D):</td><td><b>00:00:00</b></td></tr>
+                                <tr class="odd"><td>On Call Time (E):</td><td><b>00:15:14</b></td></tr>
+                                <tr class="odd"><td>Busy Time (F):</td><td><b>00:15:14</b></td></tr>
+                <tr class="odd"><td>Work Time Utilized (G):</td><td>    <b>00:15:14</b> </td></tr>
+                <tr class="odd"><td>Free Time (H):</td><td><b>02:36:34</b></td></tr>
+				
+					
+					<!--<tr class="odd"><td>Hold Time (I):</td><td><b>-->
+					
+				
+				
+
+        </tbody></table>
+
+         
+</div><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>          <br>
+      
+
+
+
+<form name="xForm2" id="xForm2" action="/Octopus/agent-pd-stats.php" method="post" class="middle-forms cmxform" onsubmit="">
+
+  <div style="float:right; margin-top:-5px;">
+	<a onclick="getHtml4Excel()" href="javascript:document.xForm2.submit();" style="display:inline-block; background:#b5824f; border-radius:10px; text-decoration:none; height:21px; padding:1px 0 1px 15px; margin:15px 0 0 20px; color:#fff; font-weight:bold;
+font-size:9pt;">
+		 <span style="display:block; padding:0 15px 0 0; line-height:21px;"></span>
+	</a>
+	  <input type="hidden" value="export" id="export" name="export">
+  	  <input type="hidden" id="gethtml1" name="gethtml1">
+  </div>
+
+
+
+
+<form action="/Octopus/agent-pd-stats.php" method="post" class="middle-forms cmxform" name="xForm3" id="xForm3" onsubmit="">
+
+	<div style="float:right; margin-right:-15px;">
+		 <a class="button" href="javascript:document.xForm3.submit();">
+		 <span>Export PDF</span>
+		 </a>
+		<input type="hidden" value="export_pdf" id="export_pdf" name="export_pdf">
+		
+		<input type="hidden" value="" id="stringData" name="stringData">
+                                
+
+                                   
+                               
+                 
+	</div>
+</html></body>

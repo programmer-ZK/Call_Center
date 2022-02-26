@@ -1,0 +1,53 @@
+exten => _XXXXXX,1,NoOp(${UNIQUEID} - ${DATETIME} - ${CALLERID} => ${EXTEN})
+exten => _XXXXXX,2,Dial(SIP/${EXTEN},5,mTt)
+exten => _XXXXXX,3,Gotoif($["x${BLINDTRANSFER}"="x"]?4:5)
+exten => _XXXXXX,4,Hangup
+exten => _XXXXXX,5,Set(tx=${BLINDTRANSFER:0:7})
+exten => _XXXXXX,6,Set(CALLERID(all)=RET_${EXTEN} <${CALLERID(num)}>)
+exten => _XXXXXX,7,Dial(${tx},,mTt)
+exten => _XXXXXX,8,Hangup
+
+exten => _XXXXXX,103,Set(tx=${BLINDTRANSFER:0:7})
+exten => _XXXXXX,104,Wait(5)
+exten => _XXXXXX,105,Set(CALLERID(all)=ERR_${EXTEN} <${CALLERID(num)}>)
+exten => _XXXXXX,106,Dial(${tx},,mTt)
+exten => _XXXXXX,107,Hangup
+
+
+;exten => 111001,1,AGI(usr_agi/call_center/transfer_check.agi,${EXTEN},${CALLERID(num)},${UNIQUEID},${CONNECTEDLINE(num,i)})
+exten => 111001,1,AGI(usr_agi/call_center/transfer_check.agi,${CALLERID(num)},${UNIQUEID},${LANG},${CDR("channel")},${EXTEN},${CONNECTEDLINE(num,i)})
+exten => 111001,n,GotoIf($["${IDIALSTATUS}" = "BUSY"]?111001,5:111001,3)
+exten => 111001,n,Dial(SIP/111001,15,tmgfCM(Transfer,${UNIQUEID},${EXTEN}))
+exten => 111001,n,Goto(transfer-${DIALSTATUS},1)
+exten => 111001,n,Goto(transfer-${IDIALSTATUS},1)
+
+exten => 111002,1,AGI(usr_agi/call_center/transfer_check.agi,${CALLERID(num)},${UNIQUEID},${LANG},${CDR("channel")},${EXTEN},${CONNECTEDLINE(num,i)})
+exten => 111002,n,GotoIf($["${IDIALSTATUS}" = "BUSY"]?111002,5:111002,3)
+exten => 111002,n,Dial(SIP/111002,15,tmgfCM(Transfer,${UNIQUEID},${EXTEN}))
+exten => 111002,n,Goto(transfer-${DIALSTATUS},1)
+exten => 111002,n,Goto(transfer-${IDIALSTATUS},1)
+
+;exten => 111003,1,StopMixMonitor()
+exten => 111003,1,AGI(usr_agi/call_center/transfer_check.agi,${CALLERID(num)},${UNIQUEID},${LANG},${CDR("channel")},${EXTEN},${CONNECTEDLINE(num,i)})
+exten => 111003,n,GotoIf($["${IDIALSTATUS}" = "BUSY"]?111003,5:111003,3)
+exten => 111003,n,Dial(SIP/111003,15,tmgfCM(Transfer,${UNIQUEID},${EXTEN}))
+exten => 111003,n,Goto(transfer-${DIALSTATUS},1)
+exten => 111003,n,Goto(transfer-${IDIALSTATUS},1)
+
+exten => 111004,1,AGI(usr_agi/call_center/transfer_check.agi,${CALLERID(num)},${UNIQUEID},${LANG},${CDR("channel")},${EXTEN},${CONNECTEDLINE(num,i)})
+exten => 111004,n,GotoIf($["${IDIALSTATUS}" = "BUSY"]?111004,5:111004,3)
+exten => 111004,n,Dial(SIP/111004,15,tmgfCM(Transfer,${UNIQUEID},${EXTEN}))
+exten => 111004,n,Goto(transfer-${DIALSTATUS},1)
+exten => 111004,n,Goto(transfer-${IDIALSTATUS},1)
+
+exten => 111005,1,AGI(usr_agi/call_center/transfer_check.agi,${CALLERID(num)},${UNIQUEID},${LANG},${CDR("channel")},${EXTEN},${CONNECTEDLINE(num,i)})
+exten => 111005,n,GotoIf($["${IDIALSTATUS}" = "BUSY"]?111005,5:111005,3)
+exten => 111005,n,Dial(SIP/111005,15,tmgfCM(Transfer,${UNIQUEID},${EXTEN}))
+exten => 111005,n,Goto(transfer-${DIALSTATUS},1)
+exten => 111005,n,Goto(transfer-${IDIALSTATUS},1)
+
+exten => 111006,1,AGI(usr_agi/call_center/transfer_check.agi,${CALLERID(num)},${UNIQUEID},${LANG},${CDR("channel")},${EXTEN},${CONNECTEDLINE(num,i)})
+exten => 111006,n,GotoIf($["${IDIALSTATUS}" = "BUSY"]?111006,5:111006,3)
+exten => 111006,n,Dial(SIP/111006,15,tmgfCM(Transfer,${UNIQUEID},${EXTEN}))
+exten => 111006,n,Goto(transfer-${DIALSTATUS},1)
+exten => 111006,n,Goto(transfer-${IDIALSTATUS},1)

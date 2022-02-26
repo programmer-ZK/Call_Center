@@ -1,0 +1,13 @@
+Channel: DAHDI/g1/<caller_id>
+MaxRetries: 1
+WaitTime: 30
+Context: call_center
+Extension: 9111
+Priority: 1
+CallerID: <caller_id>
+Archive: Yes
+Set: RECEIVER=<caller_id>
+Set: AGENT_EXTEN=<agent_exten>
+Set: ADMIN_ID=<agent_id>
+Set: IVR_SERVICE=<key_selection>
+Set: LANG=<lang>

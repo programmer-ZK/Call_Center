@@ -1,0 +1,30 @@
+Channel: SIP/03333455600@TCL
+MaxRetries:0
+WaitTime: 80
+Context: call_center
+Extension: 9111
+Priority: 1
+CallerID: 03333455600
+Archive: Yes
+Set: RECEIVER=03333455600
+Set: AGENT_EXTEN=111007
+Set: ADMIN_ID=9072
+Set: IVR_SERVICE=0
+Set: LANG=ur
+Set: CALL_TYPE=OUTBOUND
+Set: CAMPAIGN_ID=<campaign_id>
+Channel: SIP/03333455600@TCL
+MaxRetries:0
+WaitTime: 80
+Context: call_center
+Extension: 9111
+Priority: 1
+CallerID: 03333455600
+Archive: Yes
+Set: RECEIVER=03333455600
+Set: AGENT_EXTEN=111007
+Set: ADMIN_ID=9072
+Set: IVR_SERVICE=0
+Set: LANG=ur
+Set: CALL_TYPE=OUTBOUND
+Set: CAMPAIGN_ID=<campaign_id>

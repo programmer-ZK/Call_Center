@@ -1,0 +1,70 @@
+<html><body><div id="mid-col" class="mid-col">
+<div class="box">
+                <h4 class="white rounded_by_jQuery_corners" style="padding: 0px;"><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(240, 240, 240);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(246, 246, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(233, 233, 233);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(227, 227, 227);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(225, 225, 225);"></div></div></div><div style="padding: 5px 10px 10px;">Call Ceneter Login &amp; logoff Time</div></h4>
+        <div class="box-container rounded_by_jQuery_corners" style="overflow: hidden; padding: 0px;"><div style="padding: 0px 10px;">
+              <table class="table-short">
+                        <thead>
+                                <tr>
+                                <td colspan="12" class="paging"></td>
+                                </tr>
+                                <tr>
+                                       <td class="col-head">Status</td>
+					<td class="col-first">Date Time</td>
+				
+     
+                                </tr>
+                        </thead>
+
+                        <tfoot>
+                       
+                        </tfoot>
+                        <tbody>
+                                 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">11-12-2021 02:22:20 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">11-12-2021 02:22:26 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">11-12-2021 02:23:40 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">11-12-2021 02:24:04 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925000</td>
+
+<td height="50px" class="col-first">11-12-2021 02:39:30 PM</td>
+				
+					</tr>
+				 
+                                <tr class="odd">
+                             <td height="50px" class="col-first">925111</td>
+
+<td height="50px" class="col-first">11-12-2021 02:39:42 PM</td>
+				
+					</tr>
+				 
+			
+                        </tbody>
+                </table>
+	
+</div><div style="font-size: 1px; background-color: rgb(255, 255, 255);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div></div>
+</div></html></body>

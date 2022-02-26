@@ -1,0 +1,4 @@
+10.100.50.32||2015-12-04 12:15:03|Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36||http://10.100.50.56/convex_crm/index.php
+10.100.50.32||2015-12-04 12:15:04|Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36||http://10.100.50.56/convex_crm/login.php
+10.100.50.32|http://10.100.50.56/convex_crm/login.php|2015-12-04 12:15:14|Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36||http://10.100.50.56/convex_crm/login.php
+10.100.50.32|http://10.100.50.56/convex_crm/cms/scp/index.php|2015-12-04 13:59:19|Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36||http://10.100.50.56/convex_crm/login.php

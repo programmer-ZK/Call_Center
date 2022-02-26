@@ -1,0 +1,32 @@
+CAMPAIGN NAME ,New TestCAMPAIGN NATURE ,Call_back_serviceCAMPAIGN CURRENT STATUS ,ActiveNUMBER OF ASSOCIATED AGENTS ,1CAMPAIGN START DATE TIME ,2013-08-29CAMPAIGN END DATE TIME,2013-08-30TOTAL NUMBERS,30DURATION IN DAYS,1TOTAL QUESTIONS,4
+NAME, CNIC , CALLER ID , STATUS , AMOUNT , CITY , IC , SOURCE , OTHER , ATTEMPTS , CALL DATE TIME , CUSTOMER ID , ACCOUNT NUMBER , WORKCODES , AGENT NAME , DETAIL ,1,2,3,4
+
+	B	,	V	,	03218768886	,	2	,	2	,	2	,	2	,	2	,	2-Jan-00	,	1	,	2013-08-29 14:01:15	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+	C	,	C	,	03332997916	,	3	,	3	,	3	,	3	,	3	,	3-Jan-00	,	1	,	2013-08-29 13:59:57	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-29 13:58:35	,		,		,	 Call Status |  NOT Contacted	,	Shakeeb	,		,		

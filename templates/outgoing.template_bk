@@ -1,0 +1,15 @@
+Channel: SIP/<caller_id>@TCL
+MaxRetries:0
+WaitTime: 80
+Context: call_center
+Extension: 9111
+Priority: 1
+CallerID: <caller_id>
+Archive: Yes
+Set: RECEIVER=<caller_id>
+Set: AGENT_EXTEN=<agent_exten>
+Set: ADMIN_ID=<agent_id>
+Set: IVR_SERVICE=<key_selection>
+Set: LANG=<lang>
+Set: CALL_TYPE=<call_type>
+Set: CAMPAIGN_ID=<campaign_id>

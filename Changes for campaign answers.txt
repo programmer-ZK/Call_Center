@@ -1,0 +1,78 @@
+CLASSES :
+
+
+CAMPAIGN
+
+
+	function id_get2($campaign_id){
+        global $db_conn; global $db_prefix;
+        $sql = "SELECT  *,campaign_id FROM ".$db_prefix."_campaign ORDER BY campaign_id DESC";
+        $rs = $db_conn->Execute($sql);
+       //echo("<br>".$sql); exit;
+        return $rs;
+    }
+
+
+function campaign_name($id)
+	{
+	global $db_conn; global $db_prefix;global $site_root;
+		$sql ="SELECT campaign_name FROM cc_campaign WHERE campaign_id='".$id."' ";
+		//echo $sql;exit;
+		$rs = $db_conn->Execute($sql);
+		
+		return $rs;
+	}
+	
+
+
+
+
+
+
+AGENT
+
+
+
+function customer_info($campaign_id)
+{ global $db_conn; global $db_prefix;
+       
+		$sql = "SELECT name,caller_id,id  FROM cc_campaign_detail WHERE campaign_id='$campaign_id'";
+		//echo $sql;exit;
+        $rs = $db_conn->Execute($sql);
+		//echo $rs->fields["tRec"];
+        return $rs;
+    }	
+	
+
+
+
+
+function campaign_answers_data($campaign_id)
+{ global $db_conn; global $db_prefix;
+  
+		$sql = "SELECT DISTINCT(question) FROM cc_campaign_answers WHERE campaign_id='$campaign_id' group by question ";
+		//echo $sql;exit;
+        $rs = $db_conn->Execute($sql);
+        return $rs;
+    }	
+
+
+
+
+
+function campaign_answers_data2($campaign_id,$question,$name,$caller_id)
+{ global $db_conn; global $db_prefix;
+  
+		$sql = "SELECT answer FROM cc_campaign_answers WHERE campaign_id='$campaign_id' and question LIKE '$question' and unique_id=(select  distinct(unique_id) from cc_campaign_detail where campaign_id='$campaign_id' ";
+		
+		if ($name != ''){
+		
+		$sql .="and name='$name') ";
+		}
+		else {
+		$sql .="and caller_id='$caller_id') ";
+		}
+		//echo $sql;exit;
+        $rs = $db_conn->Execute($sql);
+        return $rs;
+    }

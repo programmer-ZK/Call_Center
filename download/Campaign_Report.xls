@@ -1,0 +1,328 @@
+<html><body><div id="mid-col" class="mid-col">
+	<div class="box">
+
+	
+	<h4 style="padding: 0px;" class="white rounded_by_jQuery_corners"><div style="font-size: 1px; background-color: rgb(232, 232, 221);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(181, 183, 176);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(103, 108, 107);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(67, 72, 75);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(145, 148, 144);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(181, 183, 176);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(103, 108, 107);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(67, 72, 75);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div></div><div style="padding: 5px 10px 10px;">
+	 	Campaign Details	</div></h4>
+	<div style="padding: 0px;" class="box-container rounded_by_jQuery_corners"><div style="padding: 10px 10px 5px;">  		
+				<table class="table-short">
+					<thead>
+					
+					
+						<tr>
+							  <td colspan="12" class="paging"></td>
+        		        </tr>
+						
+						<tr class="odd">
+						<td class="col-first">Campaign Name :</td>
+						<td class="col-first">Dormant Accounts with UBL</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						</tr>
+				
+						<tr class="odd">
+						<td class="col-first">Campaign Nature :</td>
+						<td class="col-first">Call_back_service</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						</tr>
+						
+						
+						
+						<tr class="odd">
+						<td class="col-first">Campaign Current Status :</td>
+						<td class="col-first">ACTIVE</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						</tr>
+						
+						<tr class="odd">
+						<td class="col-first">Associated Agents :</td>
+						<td class="col-first">5</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						</tr>
+						
+						
+   												<tr class="odd">
+						<td class="col-first">Agent &amp; status :</td>
+						<td class="col-first">Danish  </td>
+						<td class="col-first">Active						</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						</tr>						<tr class="odd">
+						<td class="col-first">Agent &amp; status :</td>
+						<td class="col-first">Shakeeb  </td>
+						<td class="col-first">Active						</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						</tr>						<tr class="odd">
+						<td class="col-first">Agent &amp; status :</td>
+						<td class="col-first">Sohaib  </td>
+						<td class="col-first">Active						</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						</tr>						<tr class="odd">
+						<td class="col-first">Agent &amp; status :</td>
+						<td class="col-first">Farhan  </td>
+						<td class="col-first">Active						</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						</tr>						<tr class="odd">
+						<td class="col-first">Agent &amp; status :</td>
+						<td class="col-first">Jahanzaib  </td>
+						<td class="col-first">Active						</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						</tr>						
+						
+	
+						<tr class="odd">
+						<td class="col-first">Start Date Time &amp; End Date Time :</td>
+						<td class="col-first">2013-09-09</td>
+						<td class="col-first">2013-10-31</td>
+						<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td>
+						</tr>
+						<tr class="odd">
+						<td class="col-first">Total numbers :</td>
+						
+						<td class="col-first">2335						</td>	
+						
+					
+						<td class="col-first" style="padding-left:10px">
+							&nbsp;
+						</td>
+						
+						<!--<td class="col-first">
+					<a href="caller_list.php?campaign_id=32">View</a></td>-->
+						<td class="col-first" style="padding-left:10px">
+							&nbsp;
+						</td>
+						</tr>
+						
+						
+						<tr class="odd">
+						<td class="col-first">Duration in days :</td>
+							
+						<td class="col-first">52						</td>	
+						<td class="col-first" style="padding-left:10px">
+							&nbsp;
+						</td>
+						<td class="col-first" style="padding-left:10px">
+							&nbsp;
+						</td>
+						</tr>
+						
+						
+						<tr class="odd">
+						<td class="col-first">Total Question :</td>
+						
+						<td class="col-first">1						</td>	
+						<td class="col-first" style="padding-left:10px">
+							&nbsp;
+						</td>
+							<td class="col-first" style="padding-left:10px">
+							&nbsp;
+						</td>
+						</tr>
+	
+					</thead>
+				</table>
+				</div><div style="font-size: 1px; background-color: rgb(232, 232, 221);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(254, 254, 253);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(249, 249, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(239, 239, 231);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(244, 244, 238);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(239, 239, 231);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(249, 249, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(254, 254, 253);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+					
+		<br>
+	<h4 style="padding: 0px;" class="white rounded_by_jQuery_corners"><div style="font-size: 1px; background-color: rgb(232, 232, 221);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(181, 183, 176);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(103, 108, 107);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(67, 72, 75);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(145, 148, 144);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(181, 183, 176);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(103, 108, 107);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(67, 72, 75);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div></div><div style="padding: 5px 10px 10px;">
+	 	Call Durations	</div></h4>
+		<div style="padding: 0px;" class="box-container rounded_by_jQuery_corners"><div style="padding: 10px 10px 5px;">  		
+				<table class="table-short">
+					<thead>
+						<tr>
+							  <td colspan="12" class="paging"></td>
+        		        </tr>
+      				</thead>
+					<tbody>
+					<tr class="odd">
+				<td class="col-first">Number of Attempts :</td>
+				<td class="col-first">888 
+				 </td>
+				<td class="col-first" style="padding-left:10px"> &nbsp; </td>	
+	</tr>
+	
+	
+	<tr class="odd">
+				<td class="col-first">Total Talk Time:</td>
+				<td class="col-first">
+				08:46:12</td>
+				
+				<td class="col-first" style="padding-left:10px"> &nbsp; </td>
+	</tr>
+	
+	
+	<tr class="odd">
+				<td class="col-first">Average Talk Time:</td>
+				<!--<td class="col-first">
+				</td>-->
+				<td class="col-first">
+				00:00:35</td>
+				
+				<td class="col-first" style="padding-left:10px"> &nbsp; </td>
+	</tr>
+					
+						
+	<tr class="odd">
+				<td class="col-first">Total Hold Time:</td>
+				<td class="col-first">
+				00:00:00		</td>
+				
+				<td class="col-first" style="padding-left:10px">&nbsp; </td>					
+	</tr>
+	
+	
+	<tr class="odd">
+				<td class="col-first">Average Hold Time:</td>
+				<td class="col-first">
+				00:00:00</td>	
+				
+				<td class="col-first" style="padding-left:10px"> &nbsp; </td>					
+	</tr>
+	
+	
+	<tr class="odd">
+				<td class="col-first">Total Busy Time:</td>
+				<td class="col-first">
+				04:27:46</td>	
+				
+				<td class="col-first" style="padding-left:10px"> &nbsp; </td>					
+	</tr>
+	
+	
+	<tr class="odd">
+				<td class="col-first">Average Busy Time:</td>
+				<td class="col-first">
+				00:00:18</td>	
+				
+				<td class="col-first" style="padding-left:10px"> &nbsp; </td>					
+	</tr>
+					
+					
+					</tbody>
+				</table>
+				</div><div style="font-size: 1px; background-color: rgb(232, 232, 221);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(254, 254, 253);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(249, 249, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(239, 239, 231);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(244, 244, 238);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(239, 239, 231);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(249, 249, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(254, 254, 253);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+	<br>
+	<!-- CALL DURATIONS-->
+	
+		<h4 style="padding: 0px;" class="white rounded_by_jQuery_corners"><div style="font-size: 1px; background-color: rgb(232, 232, 221);"><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(181, 183, 176);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(103, 108, 107);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(67, 72, 75);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(145, 148, 144);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(181, 183, 176);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(103, 108, 107);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(67, 72, 75);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(58, 64, 67);"></div></div></div><div style="padding: 5px 10px 10px;">
+	 	Campaign Analytics	
+	</div></h4>
+	
+	<div style="padding: 0px;" class="box-container rounded_by_jQuery_corners"><div style="padding: 10px 10px 5px;">  		
+				<table class="table-short">
+					<thead>
+					</thead>
+					<tbody><tr class="odd">
+				<td class="col-first">Call status</td>
+				<td class="col-first">Numbers</td>
+<td class="col-first" style="padding-left:10px">&nbsp; </td>						
+	</tr>
+				<tr class="odd">									
+<td class="col-first"> Busy/Waiting  </td>
+<td class="col-first">11		 	</td>
+		 	<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td> </tr>
+		 
+		
+		 			<tr class="odd">									
+<td class="col-first"> Call Dropped/Transferred  </td>
+<td class="col-first">11		 	</td>
+		 	<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td> </tr>
+		 
+		
+		 			<tr class="odd">									
+<td class="col-first"> CALL Later  </td>
+<td class="col-first">43		 	</td>
+		 	<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td> </tr>
+		 
+		
+		 			<tr class="odd">									
+<td class="col-first"> NOT Available  </td>
+<td class="col-first">67		 	</td>
+		 	<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td> </tr>
+		 
+		
+		 			<tr class="odd">									
+<td class="col-first"> NOT Contacted  </td>
+<td class="col-first">342		 	</td>
+		 	<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td> </tr>
+		 
+		
+		 			<tr class="odd">									
+<td class="col-first"> Not Interested  </td>
+<td class="col-first">105		 	</td>
+		 	<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td> </tr>
+		 
+		
+		 			<tr class="odd">									
+<td class="col-first"> Potential  </td>
+<td class="col-first">28		 	</td>
+		 	<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td> </tr>
+		 
+		
+		 			<tr class="odd">									
+<td class="col-first"> Powered Off  </td>
+<td class="col-first">270		 	</td>
+		 	<td class="col-first" style="padding-left:10px">
+							 &nbsp;
+						</td> </tr>
+		 
+		
+		 					</tbody><tbody></tbody></table>
+				
+			
+			
+   
+    <br>
+	
+	
+	
+	
+	</div><div style="font-size: 1px; background-color: rgb(232, 232, 221);"><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(254, 254, 253);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(249, 249, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(239, 239, 231);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(244, 244, 238);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(239, 239, 231);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(249, 249, 246);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(254, 254, 253);"><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+	
+	</div>
+	
+	</div></html></body>

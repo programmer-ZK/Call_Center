@@ -1,0 +1,15 @@
+exten => _XXXXXX,1,NoOp(${UNIQUEID} - ${DATETIME} - ${CALLERID} => ${EXTEN})
+exten => _XXXXXX,2,NoOp(${BLINDTRANSFER})
+exten => _XXXXXX,3,Dial(SIP/${EXTEN},5,mTt)
+exten => _XXXXXX,4,Gotoif($["x${BLINDTRANSFER}"="x"]?5:6)
+exten => _XXXXXX,5,Hangup
+exten => _XXXXXX,6,Set(tx=${BLINDTRANSFER:0:10})
+exten => _XXXXXX,7,Set(CALLERID(all)=RET_${EXTEN} <${CALLERID(num)}>)
+exten => _XXXXXX,8,Dial(${tx},,mTt)
+exten => _XXXXXX,9,Hangup
+
+exten => _XXXXXX,103,Set(tx=${BLINDTRANSFER:0:10})
+exten => _XXXXXX,104,Wait(5)
+exten => _XXXXXX,105,Set(CALLERID(all)=ERR_${EXTEN} <${CALLERID(num)}>)
+exten => _XXXXXX,106,Dial(${tx},,mTt)
+exten => _XXXXXX,107,Hangup

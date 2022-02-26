@@ -1,0 +1,27 @@
+DELIMITER $$
+
+ 
+
+USE `m3techcc`$$
+
+ 
+
+DROP VIEW IF EXISTS `cc_vu_cam_analytics`$$
+
+ 
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `cc_vu_cam_analytics` AS (
+
+SELECT
+
+  `cc_vu_queue_stats`.`unique_id` AS `unique_id`,
+
+  `cc_vu_queue_stats`.`talk_time` AS `talktime`
+
+FROM `cc_vu_queue_stats`)$$
+
+ 
+
+DELIMITER ;
+
+ 

@@ -1,0 +1,39 @@
+CAMPAIGN NAME ,Welcome CallsCAMPAIGN NATURE ,Call_back_serviceCAMPAIGN CURRENT STATUS ,ActiveNUMBER OF ASSOCIATED AGENTS ,2CAMPAIGN START DATE TIME ,2013-08-22CAMPAIGN END DATE TIME,2013-12-31TOTAL NUMBERS,73DURATION IN DAYS,131TOTAL QUESTIONS,10
+NAME, CNIC , CALLER ID , STATUS , AMOUNT , CITY , IC , SOURCE , OTHER , ATTEMPTS , CALL DATE TIME , CUSTOMER ID , ACCOUNT NUMBER , WORKCODES , AGENT NAME , DETAIL ,Other feedback  if any?,Ticket number  if generated?,What is your Sales Agent Name?,Are you aware of all the Risk Factors/ Disclaimers (No fixed Returns)?,Were you clarified that there are no fixed/guaranteed returns?,Are you aware of the applicability of the Sales Load on your transaction?,Were you been provided Satisfactory Product Information?,Did you receive Transaction Alerts (email/SMS)?,Did you receive Online Credentials?,Did you receive Welcome Pack?
+
+	RIAZ AHMAD SHAD	,	00020333-1	,	03004020814	,	1350000	,	SALE	,	13499.153	,	SHOAIB AHMED	,	UFBF	,	17-Feb-11	,	1	,	2013-08-26 17:27:29	,		,		,	 Call Status |  Busy/Waiting	,	Jahanzaib	,		,		
+	RAMEEZ ABDUL QADIR	,	00028652-1	,	03453114773	,	29000	,	SALE	,	942.79	,	BILAL AYUB	,	USSF	,	20-Aug-13	,	1	,	2013-08-26 17:25:38	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+	NASEER AHMED	,	00004066-1	,	03452747808	,	495	,	CONVERSION_IN	,	6.55	,	TASHFEEN HASSAN	,	UGF	,	26-Jul-06	,	1	,	2013-08-26 17:24:40	,		,		,	 Information/Inquiry |  Procedures	,	Jahanzaib	,	Already called	,		
+	IRFAN	,	00028648-1	,	03212648683	,	60000	,	SALE	,	799.21	,	AHSAN JAVED (NEW)	,	UISF	,	20-Aug-13	,	1	,	2013-08-26 17:10:49	,		,		,	 Information/Inquiry |  Procedures	,	Jahanzaib	,	Already called	,		
+	IMRAN MAHMUD	,	00017209-1	,	03028433543	,	99006.71	,	CONVERSION_IN	,	1634.13	,	AMEER ALI	,	USSF	,	20-Aug-13	,	1	,	2013-08-26 15:14:29	,		,		,	 Information/Inquiry |  Procedures	,	Jahanzaib	,	Already called	,		
+	MUHAMMAD NASIR KHAN	,	00028634-1	,	03452012585	,	500000	,	SALE	,	6660.12	,	ABDUL BASIT MALIK	,	UISF	,	20-Aug-13	,	1	,	2013-08-26 14:16:23	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,		
+	MUHAMMAD MEHMOOD SULEMAN	,	00024968-2	,	03216683757	,	1000	,	SALE	,	40.4	,	M. IKHLAS KHAN	,	UIRSF	,	20-Aug-13	,	1	,	2013-08-26 14:11:52	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,		
+	MUHAMMAD ISHAQUE SOOMRO	,	00028650-1	,	03333992020	,	10000	,	SALE	,	133.2	,	S. HASSAN JAVED	,	UISF	,	20-Aug-13	,	1	,	2013-08-26 14:07:17	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+	MUHAMMAD ARIF	,	00028377-1	,	03216346296	,	4000	,	SALE	,	129.96	,	HASAN TARIQ	,	USSF	,	19-Aug-13	,	1	,	2013-08-26 14:02:56	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,	 Yes, Yes,Yes,Yes,Yes, Yes,Yes, , , 	
+	M.MASHKOOR ASLAM	,	00026181-1	,	03146051490	,	25500	,	SALE	,	339.67	,		,	UISF	,	20-Aug-13	,	1	,	2013-08-26 12:49:03	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,	Yes, Yes,Yes,Yes,Yes, Yes,Yes, , , 	
+	AMRAIZ KHAN	,	00023308-1	,	03215701982	,	504.73	,	CONVERSION_IN	,	16.4	,	AZHAR IQBAL (ATTOCK)	,	USSF	,	19-Aug-13	,	1	,	2013-08-26 15:06:45	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,	N/A, N/A,Yes,Yes,Yes,Yes,Yes, , , 	
+	AHMED SIDDIQUE AWAN	,	00028651-1	,	03334707316	,	20000	,	SALE	,	649.87	,	AMEER ALI	,	USF	,	20-Aug-13	,	1	,	2013-08-26 15:01:47	,		,		,	 Information/Inquiry |  Procedures	,	Jahanzaib	,	reapted data	,		
+	ABDUL HAKEEM	,	00028641-1	,	03361252870	,	35000	,	SALE	,	1414	,	NAYYAR	,	URSF	,	19-Aug-13	,	1	,	2013-08-26 14:57:01	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,	No, Yes,Yes,Yes,Yes, Yes,Yes, , , 	
+	IRFAN	,	00028648-1	,	03212648683	,	60000	,	SALE	,	799.21	,	AHSAN JAVED (NEW)	,	UISF	,	20-Aug-13	,	2	,	2013-08-26 17:10:49	,		,		,	 Information/Inquiry |  Procedures	,	Jahanzaib	,	Already called	,		
+	IMRAN MAHMUD	,	00017209-1	,	03028433543	,	99006.71	,	CONVERSION_IN	,	1634.13	,	AMEER ALI	,	USSF	,	20-Aug-13	,	2	,	2013-08-26 15:14:29	,		,		,	 Information/Inquiry |  Procedures	,	Jahanzaib	,	Already called	,		
+	AMRAIZ KHAN	,	00023308-1	,	03215701982	,	504.73	,	CONVERSION_IN	,	16.4	,	AZHAR IQBAL (ATTOCK)	,	USSF	,	19-Aug-13	,	2	,	2013-08-26 15:06:45	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,	N/A, N/A,Yes,Yes,Yes,Yes,Yes, , , 	
+	AHMED SIDDIQUE AWAN	,	00028651-1	,	03334707316	,	20000	,	SALE	,	649.87	,	AMEER ALI	,	USF	,	20-Aug-13	,	2	,	2013-08-26 15:01:47	,		,		,	 Information/Inquiry |  Procedures	,	Jahanzaib	,	reapted data	,		
+	ABDUL HAKEEM	,	00028641-1	,	03361252870	,	35000	,	SALE	,	1414	,	NAYYAR	,	URSF	,	19-Aug-13	,	2	,	2013-08-26 14:57:01	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,	No, Yes,Yes,Yes,Yes, Yes,Yes, , , 	
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+		,		,	0	,		,		,		,		,		,		,	1	,	2013-08-26 14:55:35	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+	MUHAMMAD NASIR KHAN	,	00028634-1	,	03452012585	,	500000	,	SALE	,	6660.12	,	ABDUL BASIT MALIK	,	UISF	,	20-Aug-13	,	1	,	2013-08-26 14:16:23	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,		
+	MUHAMMAD MEHMOOD SULEMAN	,	00024968-2	,	03216683757	,	1000	,	SALE	,	40.4	,	M. IKHLAS KHAN	,	UIRSF	,	20-Aug-13	,	1	,	2013-08-26 14:11:52	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,		
+	MUHAMMAD ISHAQUE SOOMRO	,	00028650-1	,	03333992020	,	10000	,	SALE	,	133.2	,	S. HASSAN JAVED	,	UISF	,	20-Aug-13	,	1	,	2013-08-26 14:07:17	,		,		,	 Call Status |  NOT Contacted	,	Jahanzaib	,		,		
+	MUHAMMAD ARIF	,	00028377-1	,	03216346296	,	4000	,	SALE	,	129.96	,	HASAN TARIQ	,	USSF	,	19-Aug-13	,	1	,	2013-08-26 14:02:56	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,	 Yes, Yes,Yes,Yes,Yes, Yes,Yes, , , 	
+	M.MASHKOOR ASLAM	,	00026181-1	,	03146051490	,	25500	,	SALE	,	339.67	,		,	UISF	,	20-Aug-13	,	1	,	2013-08-26 12:49:03	,		,		,	 Campaign |  Welcome Calls	,	Jahanzaib	,		,	Yes, Yes,Yes,Yes,Yes, Yes,Yes, , , 	

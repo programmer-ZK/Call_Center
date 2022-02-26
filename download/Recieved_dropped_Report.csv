@@ -1,0 +1,13 @@
+<tag1>Received Calls Stats</tag1>
+<tag2>Caller ID</tag2>, <tag2>Customer ID</tag2>, <tag2>Wait In Queue</tag2>, 			<tag2>Agent Name</tag2>, <tag2>Date</tag2>, <tag2>Time</tag2>, <tag2>Duration</tag2>
+03378201354, , 00:00:08, Maham Sattar, 2022-02-09, 10:34:01, 00:00:35
+701, , 00:00:06, Joseph Munir, 2022-02-09, 10:20:28, 00:01:53
+726, , 00:00:06, Maham Sattar, 2022-02-09, 10:20:04, 00:02:14
+726, , 00:00:09, Joseph Munir, 2022-02-09, 09:35:58, 00:07:22
+726, , 00:00:05, Maham Sattar, 2022-02-09, 09:21:53, 00:03:45
+<tag1>Drop Calls Stats</tag1>
+<tag2>Caller ID</tag2>, <tag2>Wait In Queue</tag2>, <tag2>Agent Name</tag2>, <tag2>Date</tag2>, <tag2>Time</tag2>
+2138771555, 00:00:08, Syed Khurram, 2022-02-09, 09:53:18
+00922138771555, 00:00:27, Hamza Ali, 2022-02-09, 09:52:10
+<tag1>Off Time Calls Stats</tag1>
+

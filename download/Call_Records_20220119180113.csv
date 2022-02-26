@@ -1,0 +1,5 @@
+<tag1>CDR STATS</tag1>
+<tag2>Caller ID</tag2>, <tag2>Call Status</tag2>, <tag2>Call Type</tag2>, <tag2>Date</tag2>, <tag2>Time</tag2>, <tag2>Duration</tag2>, <tag2>Agent Name</tag2>, <tag2>Agent ID</tag2>, <tag2>Rec Filename</tag2>
+"3002","ANSWERED","","01-07-2022","07:24:32 PM","00:00:08","3001","9097",\N
+"3002","ANSWERED","","01-07-2022","07:10:21 PM","00:00:03","3001","9097",\N
+"3002","ANSWERED","","01-07-2022","07:09:33 PM","00:00:02","3001","9097",\N

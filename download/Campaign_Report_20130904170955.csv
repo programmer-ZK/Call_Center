@@ -1,0 +1,17 @@
+CAMPAIGN NAME ,New TestCAMPAIGN NATURE ,Call_back_serviceCAMPAIGN CURRENT STATUS ,CompletedNUMBER OF ASSOCIATED AGENTS ,1CAMPAIGN START DATE TIME ,2013-08-29CAMPAIGN END DATE TIME,2013-08-30TOTAL NUMBERS,35DURATION IN DAYS,1TOTAL QUESTIONS,5
+NAME, CNIC , CALLER ID , STATUS , AMOUNT , CITY , IC , SOURCE , OTHER , ATTEMPTS , CALL DATE TIME , CUSTOMER ID , ACCOUNT NUMBER , WORKCODES , AGENT NAME , DETAIL ,3,5-NEw,2,1,4
+
+	M	,	M	,	03453366890	,	13	,	13	,	13	,	13	,	13	,	13	,	1	,	2013-08-29 15:26:05	,		,		,	 Call Status |  Busy/Waiting	,	Shakeeb	,		,	NeitherAgreeorDisagree, l;k;lk,Yes, jhgjh,Good	
+	M	,	M	,	03453366890	,	13	,	13	,	13	,	13	,	13	,	13	,	1	,	2013-08-29 15:26:05	,		,		,	 Call Status |  Busy/Waiting	,	Shakeeb	,		,	NeitherAgreeorDisagree, l;k;lk,Yes, jhgjh,Good	
+	A	,	A	,	03018236696	,	1	,	1	,	1	,	1	,	1	,	1-Jan-00	,	1	,	2013-08-29 15:23:51	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	I	,	I	,	03018236696	,	9	,	9	,	9	,	9	,	9	,	9	,	1	,	2013-08-29 15:23:51	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	A	,	A	,	03018236696	,	1	,	1	,	1	,	1	,	1	,	1-Jan-00	,	1	,	2013-08-29 15:23:51	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	I	,	I	,	03018236696	,	9	,	9	,	9	,	9	,	9	,	9	,	1	,	2013-08-29 15:23:51	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	B	,	B	,	03218768886	,	2	,	2	,	2	,	2	,	2	,	2-Jan-00	,	1	,	2013-08-29 15:22:17	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,	Agree,Yes, hfhgf,Good, hgfhg	
+	J	,	J	,	03218768886	,	10	,	10	,	10	,	10	,	10	,	10	,	1	,	2013-08-29 15:22:17	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,	Agree,Yes, hfhgf,Good, hgfhg	
+	C	,	C	,	03332997916	,	3	,	3	,	3	,	3	,	3	,	3-Jan-00	,	1	,	2013-08-29 15:21:05	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		
+	K	,	K	,	03002316696	,	11	,	11	,	11	,	11	,	11	,	11	,	3	,	2013-08-29 15:06:40	,		,		,	 Call Status |  Powered Off	,	Shakeeb	,		,	Good, kjh,Yes,NeitherAgreeorDisagree, kjhkjh	
+	D	,	D	,	03462732346	,	4	,	4	,	4	,	4	,	4	,	4-Jan-00	,	1	,	2013-08-29 14:27:17	,		,		,	 Call Status |  Potential	,	Shakeeb	,		,	StronglyDisagree,No,  n kn,VeryPoor	
+	A	,	B	,	03018236696	,	1	,	1	,	1	,	1	,	1	,	1-Jan-00	,	2	,	2013-08-29 15:23:51	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,		
+	B	,	V	,	03218768886	,	2	,	2	,	2	,	2	,	2	,	2-Jan-00	,	3	,	2013-08-29 15:22:17	,		,		,	 Information/Inquiry |  Procedures	,	Shakeeb	,		,	Agree,Yes, hfhgf,Good, hgfhg	
+	C	,	C	,	03332997916	,	3	,	3	,	3	,	3	,	3	,	3-Jan-00	,	2	,	2013-08-29 15:21:05	,		,		,	 Call Status |  Not Interested	,	Shakeeb	,		,		

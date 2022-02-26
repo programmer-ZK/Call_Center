@@ -1,0 +1,20 @@
+Nature of Calls
+Call Type,Number of Calls,Percent
+INBOUND,32,100.0000
+Total: ,32,
+Drop Calls: 5
+Abandoned Calls: 5
+Total Talk Time
+Call Type,Talk Time
+INBOUND,00:49:23,
+Total: ,00:49:23,
+AVG Total Talk Time
+Call Type,Talk Time
+INBOUND,00:01:33,
+Average Queue Time: 00:00:28.1111
+Pins Generated
+Pin Type,No of Pins,Percent
+Total: ,0,
+Transactions Executed
+Transaction Type,No of Transactions,Percent
+Total: ,0,

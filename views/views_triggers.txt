@@ -1,0 +1,319 @@
+
+1 View:cc_vu_queue_stats
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cc_vu_queue_stats` AS (
+select  `q`.`id` AS `id`,  `q`.`call_datetime` AS `call_datetime`,  cast(`q`.`call_datetime` as date) AS `call_date`,  cast(`q`.`call_datetime` as time) AS `call_time`,  `q`.`call_status` AS `call_status`,  `q`.`userfield` AS `userfield`,  `q`.`lang` AS `lang`,  `q`.`ivr_selection` AS `ivr_selection`,  `q`.`unique_id` AS `unique_id`,  `q`.`caller_id` AS `caller_id`,  `q`.`customer_id` AS `customer_id`,  `q`.`account_no` AS `account_no`,  `q`.`enqueue_datetime` AS `enqueue_datetime`,  `q`.`dequeue_datetime` AS `dequeue_datetime`,  `q`.`staff_id` AS `staff_id`,  `q`.`staff_start_datetime` AS `staff_start_datetime`,  `q`.`staff_end_datetime` AS `staff_end_datetime`,  `q`.`status` AS `status`,  `q`.`update_datetime` AS `update_datetime`,  `q`.`call_type` AS `call_type`,  timediff(`q`.`staff_end_datetime`,`q`.`call_datetime`) AS `call_duration`,  timediff(`q`.`dequeue_datetime`,`q`.`enqueue_datetime`) AS `enqueue_duration`,  timediff(`q`.`staff_end_datetime`,`q`.`staff_start_datetime`) AS `talk_time`,  `a`.`full_name` AS `full_name` from (`cc_queue_stats` `q`  join `cc_admin` `a`) where ((`q`.`staff_id` = `a`.`admin_id`)  and (`q`.`call_datetime` is not null)))
+
+
+
+
+2 View: cc_answers_view
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`ccadmin`@`%` SQL SECURITY DEFINER VIEW `cc_answers_view` AS (
+select  `cc_campaign_answers`.`unique_id` AS `unique_id`,  group_concat(`cc_campaign_answers`.`answer` order by `cc_campaign_answers`.`question` ASC separator ',') AS `answer` from `cc_campaign_answers` where (`cc_campaign_answers`.`unique_id` <> _latin1'') group by `cc_campaign_answers`.`unique_id`)
+
+3 VIEW : cc_vu_workcodes
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`ccadmin`@`%` SQL SECURITY DEFINER VIEW `cc_vu_workcodes` AS (
+select  `cc_call_workcodes`.`id` AS `id`,  `cc_call_workcodes`.`unique_id` AS `unique_id`,  `cc_call_workcodes`.`caller_id` AS `caller_id`,  `cc_call_workcodes`.`detail` AS `detail`,  `cc_call_workcodes`.`status` AS `status`,  `cc_call_workcodes`.`staff_id` AS `staff_id`,  `cc_call_workcodes`.`staff_updated_date` AS `staff_updated_date`,  group_concat(distinct `cc_call_workcodes`.`workcodes` separator ' | ') AS `workcodes` from `cc_call_workcodes` group by `cc_call_workcodes`.`staff_updated_date` order by `cc_call_workcodes`.`staff_updated_date` desc)
+
+
+4 View: cc_campaign_all
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`ccadmin`@`%` SQL SECURITY DEFINER VIEW `cc_campaign_all` AS (
+select  `q`.`id` AS `id`,  `q`.`call_datetime` AS `call_datetime`,  cast(`q`.`call_datetime` as date) AS `call_date`,  cast(`q`.`call_datetime` as time) AS `call_time`,  `q`.`call_status` AS `call_status`,  `q`.`userfield` AS `userfield`,  `q`.`lang` AS `lang`,  `q`.`ivr_selection` AS `ivr_selection`,  `q`.`unique_id` AS `unique_id`,  `q`.`caller_id` AS `caller_id`,  `q`.`customer_id` AS `customer_id`,  `q`.`account_no` AS `account_no`,  `q`.`enqueue_datetime` AS `enqueue_datetime`,  `q`.`dequeue_datetime` AS `dequeue_datetime`,  `q`.`staff_id` AS `staff_id`,  `q`.`staff_start_datetime` AS `staff_start_datetime`,  `q`.`staff_end_datetime` AS `staff_end_datetime`,  `q`.`status` AS `status`,  `q`.`update_datetime` AS `update_datetime`,  `q`.`call_type` AS `call_type`,  `q`.`call_duration` AS `call_duration`,  `q`.`enqueue_duration` AS `enqueue_duration`,  `q`.`talk_time` AS `talk_time`,  `a`.`workcodes` AS `workcodes`,  `q`.`full_name` AS `full_name`,  `a`.`detail` AS `detail` from (`cc_vu_queue_stats` `q`  join `cc_vu_workcodes` `a`) where (`q`.`unique_id` = `a`.`unique_id`))
+
+
+
+5 View : cc_vu_call_wc
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`ccadmin`@`%` SQL SECURITY DEFINER VIEW `cc_vu_call_wc` AS (
+select distinct  `cc_call_workcodes`.`unique_id` AS `unique_id`,  group_concat(distinct `cc_call_workcodes`.`workcodes` separator '|') AS `workcodes`,  `cc_call_workcodes`.`detail` AS `detail` from `cc_call_workcodes` group by `cc_call_workcodes`.`unique_id`)
+
+
+6 View : cc_vu_cam_analytics
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cc_vu_cam_analytics` AS (
+select  `cc_vu_queue_stats`.`unique_id` AS `unique_id`,  `cc_vu_queue_stats`.`talk_time` AS `talktime` from `cc_vu_queue_stats`)
+
+
+7 View: cc_vu_hold_time
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`ccadmin`@`%` SQL SECURITY DEFINER VIEW `cc_vu_hold_time` AS (
+select  `cc_hold_calls`.`unique_id` AS `unique_id`,  `cc_hold_calls`.`staff_id` AS `staff_id`,  `cc_hold_calls`.`start_datetime` AS `start_datetime`,  `cc_hold_calls`.`end_datetime` AS `end_datetime`,  `cc_hold_calls`.`update_datetime` AS `update_datetime`,  `cc_queue_stats`.`call_type` AS `call_type` from (`cc_hold_calls`  join `cc_queue_stats`) where (`cc_hold_calls`.`unique_id` = `cc_queue_stats`.`unique_id`))
+
+8 View cc_vu_latest
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`ccadmin`@`%` SQL SECURITY DEFINER VIEW `cc_vu_latest` AS (
+select  `q`.`unique_id` AS `unique_id`,  `q`.`call_datetime` AS `call_datetime`,  `q`.`customer_id` AS `customer_id`,  `q`.`account_no` AS `account_no`,  `q`.`workcodes` AS `workcodes`,  `q`.`full_name` AS `full_name`,  `q`.`detail` AS `detail`,  `a`.`answer` AS `answer` from (`cc_campaign_all` `q`  left join `cc_answers_view` `a`  on ((`q`.`unique_id` = `a`.`unique_id`))))
+
+9 View cc_vu_new
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`ccadmin`@`%` SQL SECURITY DEFINER VIEW `cc_vu_new` AS (
+select  `q`.`id` AS `id`,  `q`.`call_datetime` AS `call_datetime`,  cast(`q`.`call_datetime` as date) AS `call_date`,  cast(`q`.`call_datetime` as time) AS `call_time`,  `q`.`call_status` AS `call_status`,  `q`.`userfield` AS `userfield`,  `q`.`lang` AS `lang`,  `q`.`ivr_selection` AS `ivr_selection`,  `q`.`unique_id` AS `unique_id`,  `q`.`caller_id` AS `caller_id`,  `q`.`customer_id` AS `customer_id`,  `q`.`account_no` AS `account_no`,  `q`.`enqueue_datetime` AS `enqueue_datetime`,  `q`.`dequeue_datetime` AS `dequeue_datetime`,  `q`.`staff_id` AS `staff_id`,  `q`.`staff_start_datetime` AS `staff_start_datetime`,  `q`.`staff_end_datetime` AS `staff_end_datetime`,  `q`.`status` AS `status`,  `q`.`update_datetime` AS `update_datetime`,  `q`.`call_type` AS `call_type`,  `cd`.`campaign_id` AS `campaign_id`,  timediff(`q`.`staff_end_datetime`,`q`.`call_datetime`) AS `call_duration`,  timediff(`q`.`dequeue_datetime`,`q`.`enqueue_datetime`) AS `enqueue_duration`,  timediff(`q`.`staff_end_datetime`,`q`.`staff_start_datetime`) AS `talk_time`,  `a`.`full_name` AS `full_name` from ((`cc_queue_stats` `q`  join `cc_admin` `a`)  join `cc_campaign_detail` `cd`) where ((`q`.`staff_id` = `a`.`admin_id`)  and (`q`.`call_datetime` is not null)  and (`q`.`call_type` = _latin1'CAMPAIGN')  and (`q`.`unique_id` = `cd`.`unique_id`)))
+
+10 View cc_vu_new2
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`ccadmin`@`%` SQL SECURITY DEFINER VIEW `cc_vu_new2` AS (
+select  `hc`.`unique_id` AS `unique_id`,  `hc`.`staff_id` AS `staff_id`,  `hc`.`start_datetime` AS `start_datetime`,  `hc`.`end_datetime` AS `end_datetime`,  `cd`.`campaign_id` AS `campaign_id` from (`cc_hold_calls` `hc`  join `cc_campaign_detail` `cd`) where (`hc`.`unique_id` = `cd`.`unique_id`))
+
+11 View  cc_vu_pins_report
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cc_vu_pins_report` AS (
+select `cc_user_pin`.`unique_id` AS `unique_id`,_utf8'NEW' AS `pin_type`,`cc_user_pin`.`update_datetime` AS `update_datetime` from `cc_user_pin` where (`cc_user_pin`.`status` = 1)) union all (select `cc_user_pin_change`.`unique_id` AS `unique_id`,_utf8'CHANGE' AS `pin_type`,`cc_user_pin_change`.`update_datetime` AS `update_datetime` from `cc_user_pin_change` where (`cc_user_pin_change`.`status` = 1)) union all (select `cc_user_pin_reset`.`unique_id` AS `unique_id`,_utf8'RESET' AS `pin_type`,`cc_user_pin_reset`.`update_datetime` AS `update_datetime` from `cc_user_pin_reset` where (`cc_user_pin_reset`.`status` = 1))
+
+12 View  cc_vu_status
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`ccadmin`@`%` SQL SECURITY DEFINER VIEW `cc_vu_status` AS (
+select  `cc_call_workcodes`.`id` AS `id`,  `cc_call_workcodes`.`unique_id` AS `unique_id`,  `cc_call_workcodes`.`caller_id` AS `caller_id`,  `cc_call_workcodes`.`workcodes` AS `workcodes`,  `cc_call_workcodes`.`detail` AS `detail`,  `cc_call_workcodes`.`status` AS `status`,  `cc_call_workcodes`.`staff_id` AS `staff_id`,  `cc_call_workcodes`.`staff_updated_date` AS `staff_updated_date`,  `cc_campaign_detail`.`campaign_id` AS `campaign_id` from (`cc_call_workcodes`  join `cc_campaign_detail`) where (ltrim(`cc_call_workcodes`.`workcodes`)in(select  `cc_workcodes_new`.`wc_title` AS `wc_title`  from `cc_workcodes_new`  where (`cc_workcodes_new`.`parent_id` = 62))  and (`cc_call_workcodes`.`unique_id` = `cc_campaign_detail`.`unique_id`)))
+
+
+13 View cc_vu_transactions
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cc_vu_transactions` AS (
+select `cc_redemption`.`unique_id` AS `unique_id`,_utf8'REDEMPTION' AS `trans_type`,`cc_redemption`.`update_datetime` AS `update_datetime` from `cc_redemption` where ((`cc_redemption`.`trans_id` is not null) and (`cc_redemption`.`trans_id` like _latin1'IV%'))) union all (select `cc_conversion`.`unique_id` AS `unique_id`,_utf8'CONVERSION' AS `trans_type`,`cc_conversion`.`update_datetime` AS `update_datetime` from `cc_conversion` where ((`cc_conversion`.`trans_id` is not null) and (`cc_conversion`.`trans_id` like _latin1'IV%')))
+
+14 View cc_xvu_queue_stats
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cc_xvu_queue_stats` AS (
+select  `q`.`id` AS `id`,  `q`.`call_datetime` AS `call_datetime`,  cast(`q`.`call_datetime` as date) AS `call_date`,  cast(`q`.`call_datetime` as time) AS `call_time`,  `q`.`call_status` AS `call_status`,  `q`.`userfield` AS `userfield`,  `q`.`lang` AS `lang`,  `q`.`ivr_selection` AS `ivr_selection`,  `q`.`unique_id` AS `unique_id`,  `q`.`caller_id` AS `caller_id`,  `q`.`customer_id` AS `customer_id`,  `q`.`account_no` AS `account_no`,  `q`.`enqueue_datetime` AS `enqueue_datetime`,  `q`.`dequeue_datetime` AS `dequeue_datetime`,  `q`.`staff_id` AS `staff_id`,  `q`.`staff_start_datetime` AS `staff_start_datetime`,  `q`.`staff_end_datetime` AS `staff_end_datetime`,  `q`.`status` AS `status`,  `q`.`update_datetime` AS `update_datetime`,  `q`.`call_type` AS `call_type`,  timediff(`q`.`staff_end_datetime`,`q`.`call_datetime`) AS `call_duration`,  timediff(`q`.`dequeue_datetime`,`q`.`enqueue_datetime`) AS `enqueue_duration`,  timediff(`q`.`staff_end_datetime`,`q`.`staff_start_datetime`) AS `talk_time`,  (select  `cc_admin`.`full_name` AS `full_name`  from `cc_admin`  where (`cc_admin`.`admin_id` = `q`.`staff_id`)) AS `full_name` from `cc_queue_stats` `q` where (`q`.`call_datetime` is not null))
+
+Remaining  Pending to Create
+
+Note : these views has errors
+VIEW: cc_vu_evaluated_agents
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cc_vu_evaluated_agents` AS (
+SELECT
+  `E`.`unique_id`         AS `unique_id`,
+  `Q`.`group_id`          AS `Qgroup`,
+  `E`.`question_no`       AS `question_no`,
+  `Q`.`question_code`     AS `question_code`,
+  `E`.`points`            AS `Epoints`,
+  `E`.`max_points`        AS `Maxpoints`,
+  `E`.`points_type`       AS `points_type`,
+  `E`.`evaluate_agent_id` AS `evaluate_agent_id`,
+  `E`.`admin_id`          AS `admin_id`,
+  IFNULL(ROUND(((`E`.`points` / `E`.`max_points`) * 100),0),0) AS `Percent`,
+  `E`.`scores`            AS `scores`
+FROM (`cc_evaluation` `E`
+   JOIN `cc_evaluation_questions` `Q`
+     ON ((`E`.`question_no` = `Q`.`id`)))
+ORDER BY `Q`.`id`)
+
+
+cc_vu_evaluated_calls
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cc_vu_evaluated_calls` AS (
+SELECT
+  `S`.`unique_id`            AS `unique_id`,
+  `S`.`call_type`            AS `call_type`,
+  `E`.`no_of_questions`      AS `no_of_questions`,
+  `S`.`staff_id`             AS `staff_id`,
+  `S`.`update_datetime`      AS `update_datetime`,
+  `S`.`staff_end_datetime`   AS `staff_end_datetime`,
+  `S`.`staff_start_datetime` AS `staff_start_datetime`
+FROM (`cc_queue_stats` `S`
+   LEFT JOIN `cc_evaluation_scores` `E`
+     ON ((`S`.`unique_id` = `E`.`unique_id`))))
+	 
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cc_vu_evaluation` AS (
+SELECT
+  `E`.`evaluate_agent_id` AS `evaluate_agent_id`,
+  CAST(`E`.`update_datetime` AS DATE) AS `Edate`,
+  `E`.`question_no`       AS `question_no`,
+  `Q`.`question`          AS `question`,
+  `Q`.`question_code`     AS `question_code`,
+  SUM(`E`.`points`)       AS `Epoints`,
+  COUNT(`Q`.`question`)   AS `Qcount`,
+  SUM(`E`.`max_points`)   AS `Maxpoints`,
+  `Q`.`group_id`          AS `Qgroup`,
+  `E`.`admin_id`          AS `admin_id`,
+  `E`.`points_type`       AS `points_type`,
+  `E`.`unique_id`         AS `unique_id`,
+  CAST(`E`.`call_datetime` AS DATE) AS `CallDate`,
+  ROUND(((SUM(`E`.`points`) / SUM(`E`.`max_points`)) * 100),0) AS `Percent`,
+  (CASE WHEN (CEILING((DAYOFMONTH(CAST(`E`.`call_datetime` AS DATE)) / 7)) > 4) THEN 4 ELSE CEILING((DAYOFMONTH(CAST(`E`.`call_datetime` AS DATE)) / 7)) END) AS `Week`
+FROM (`cc_evaluation_questions` `Q`
+   JOIN `cc_evaluation` `E`
+     ON ((`E`.`question_no` = `Q`.`id`)))
+GROUP BY `E`.`evaluate_agent_id`,CAST(`E`.`call_datetime` AS DATE),`E`.`admin_id`,`Q`.`group_id`,`E`.`question_no`,`E`.`points_type`)
+
+	 
+
+cc_vu_evaluated_agents
+cc_vu_evaluated_calls
+cc_vu_evaluation
+
+
+
+Triggers here
+
+1 Trigger 
+
+DELIMITER $$
+
+USE `CC_Convex`$$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `cc_campaign_detail_trigger`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `cc_campaign_detail_trigger` AFTER UPDATE ON `cc_campaign_detail` 
+    FOR EACH ROW BEGIN
+    IF (OLD.unique_id<>NEW.unique_id) THEN
+    INSERT INTO cc_campaign_detail_logs (SELECT * FROM cc_campaign_detail WHERE id = OLD.id );
+    END IF;
+    END;
+$$
+
+DELIMITER ;
+
+2 Trigger
+DELIMITER $$
+
+USE `CC_Convex`$$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `cc_channel_trigger`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `cc_channel_trigger` BEFORE UPDATE ON `cc_channel_status` 
+    FOR EACH ROW BEGIN
+    INSERT INTO cc_channel_status_logs (SELECT * FROM cc_channel_status WHERE id = OLD.id );
+END;
+$$
+
+DELIMITER ;
+
+3 Trigger
+
+DELIMITER $$
+
+USE `CC_Convex`$$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `cc_outbound_trigger`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `cc_outbound_trigger` BEFORE UPDATE ON `cc_outbound` 
+    FOR EACH ROW BEGIN
+    INSERT INTO cc_outbound_log (SELECT * FROM cc_outbound WHERE id = OLD.id );
+END;
+$$
+
+DELIMITER ;
+
+4 Trigger
+
+DELIMITER $$
+
+USE `CC_Convex`$$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `cc_queue_stats_trigger`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `cc_queue_stats_trigger` BEFORE UPDATE ON `cc_queue_stats` 
+    FOR EACH ROW BEGIN
+    INSERT INTO cc_queue_stats_logs (SELECT * FROM cc_queue_stats WHERE id = OLD.id );
+END;
+$$
+
+DELIMITER ;
+
+5 Trigger
+
+DELIMITER $$
+
+USE `CC_Convex`$$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `cc_schadule_trigger`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `cc_schadule_trigger` AFTER UPDATE ON `cc_schadule_config` 
+    FOR EACH ROW BEGIN
+    INSERT INTO cc_schadule_config_log (SELECT * FROM cc_schadule_config WHERE id = OLD.id );
+END;
+$$
+
+DELIMITER ;
+
+6 Trigger
+
+DELIMITER $$
+
+USE `CC_Convex`$$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `cc_user_pin_change_trigger`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `cc_user_pin_change_trigger` BEFORE UPDATE ON `cc_user_pin_change` 
+    FOR EACH ROW BEGIN
+    INSERT INTO cc_user_pin_change_log (SELECT * FROM cc_user_pin_change WHERE id = OLD.id );
+END;
+$$
+
+DELIMITER ;
+
+7 Trigger
+
+DELIMITER $$
+
+USE `CC_Convex`$$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `cc_user_pin_reset_trigger`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `cc_user_pin_reset_trigger` BEFORE UPDATE ON `cc_user_pin_reset` 
+    FOR EACH ROW BEGIN
+    INSERT INTO cc_user_pin_reset_log (SELECT * FROM cc_user_pin_reset WHERE id = OLD.id );
+END;
+$$
+
+DELIMITER ;
+
+
+8 Trigger
+
+DELIMITER $$
+
+USE `CC_Convex`$$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `cc_user_pin_trigger`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `cc_user_pin_trigger` BEFORE UPDATE ON `cc_user_pin` 
+    FOR EACH ROW BEGIN
+    INSERT INTO cc_user_pin_log (SELECT * FROM cc_user_pin WHERE id = OLD.id );
+END;
+$$
+
+DELIMITER ;
+
+9 Trigger
+
+DELIMITER $$
+
+USE `CC_Convex`$$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `cc_user_pin_verify_trigger`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `cc_user_pin_verify_trigger` BEFORE UPDATE ON `cc_user_pin_verify` 
+    FOR EACH ROW BEGIN
+    INSERT INTO cc_user_pin_verify_log (SELECT * FROM cc_user_pin_verify WHERE id = OLD.id );
+END;
+$$
+
+DELIMITER ;
+
+
+
+
+
+
+
