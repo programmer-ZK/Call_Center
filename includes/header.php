@@ -139,6 +139,8 @@ if ($isIE8) { ?>
 <?php
 }
 ?>
+<?php $rs_agent_name = $admin->get_agent_name($_SESSION[$db_prefix . '_UserId']); ?>
+
 </head>
 
 <body>
@@ -148,8 +150,6 @@ if ($isIE8) { ?>
   </div>
   <script language="javascript1.2" type="text/javascript">
     setInterval("get_agent_status()", 5000);
-    //	setInterval( "get_pin_status()", 5000 );
-    //	setInterval( "CheckHangup()", 5000 );  
   </script>
   <script type="text/javascript" language="javascript1.2">
     function get_pin_status() {
@@ -158,11 +158,9 @@ if ($isIE8) { ?>
       m2postRequest(url);
 
       var ispopupshow = document.getElementById("ispopupshow").value;
-      //alert(ispopupshow);
       if (ispopupshow == 1) {
         popup_show('popup', 'popup_drag', 'popup_exit', 'screen-bottom-right', -20, -20);
       }
-      //popitup('user_hangup.php');
     }
 
     function m2postRequest(strURL) {
@@ -177,17 +175,12 @@ if ($isIE8) { ?>
       xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4) {
           document.getElementById("popup").innerHTML = xmlHttp.responseText;
-          //alert(xmlHttp.responseText);
         }
       }
       xmlHttp.send(strURL);
     }
 
-    function CheckHangup() {
-      //var rnd = Math.random();
-      //var url="ajax_call.php?id="+rnd+"&param_1=CheckHangup";
-      //m3postRequest(url);
-    }
+
 
     function m3postRequest(strURL) {
       var xmlHttp;
@@ -202,7 +195,6 @@ if ($isIE8) { ?>
         if (xmlHttp.readyState == 4) {
           var query_str = xmlHttp.responseText;
           query_str = query_str.replace(/^\s+|\s+$/, '');
-          //alert(query_str.length);
           if (query_str.length != 0) {
             popitup('call_hangup.php?' + query_str);
           }
@@ -216,7 +208,6 @@ if ($isIE8) { ?>
       var rnd = Math.random();
       var status = document.getElementById("status_change").value;
       var url = "ajax_call.php?id=" + rnd + "&param_1=Change_Status&param_2=" + status;
-      //alert(url);
       m4postRequest(url);
     }
 
@@ -251,59 +242,38 @@ if ($isIE8) { ?>
       <div id="header">
         <div id="top">
           <h1><a href="index.php"><img src="<?php echo IMG_PATH; ?>i_logo.png" alt="RNI" style="width: 250px;" /></a></h1>
-          <div id="userbox">Hello <strong><?php echo $_SESSION[$db_prefix . '_UserName']; ?></strong> &nbsp;(
-            <select id="status_change" name="status_change" style="text-transform: uppercase; border: 0 none; color:#000000;  font-size: 85%;" onchange="javascript: change_status();">
-              <!--color: #CEAC0F;-->
-              <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 1) ? "selected=\"selected\"" : ""; ?> value="1" style="color:black;background: none repeat scroll 0 0 transparent; border: 0 nonecolor: #000000; ;  font-size: 100%;">Online</option>
+          <div id="userbox">Hello <strong><?php echo $_SESSION[$db_prefix . '_UserName']; ?></strong>
 
-              <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 2) ? "selected=\"selected\"" : ""; ?> value="2" style="background: none repeat scroll 0 0 transparent; border: 0 none;color: #000000;   font-size: 100%;">Namaz Break</option>
-              <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 3) ? "selected=\"selected\"" : ""; ?> value="3" style="background: none repeat scroll 0 0 transparent; border: 0 none;color: #000000;  font-size: 100%;">Lunch Break</option>
-              <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 4) ? "selected=\"selected\"" : ""; ?> value="4" style="background: none repeat scroll 0 0 transparent; border: 0 none;color: #000000;  font-size: 100%;">Tea Break</option>
-              <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 5) ? "selected=\"selected\"" : ""; ?> value="5" style="background: none repeat scroll 0 0 transparent; border: 0 none;color: #000000;  font-size: 100%;">Auxiliary Time</option>
-              <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 6) ? "selected=\"selected\"" : ""; ?> value="6" style="background: none repeat scroll 0 0 transparent; border: 0 none;color: #000000;  font-size: 100%;">After Call Work (ACW)</option>
-              <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 7) ? "selected=\"selected\"" : ""; ?> value="7" style="background: none repeat scroll 0 0 transparent; border: 0 none; color: #000000; font-size: 100%;">Campaign</option>
+            <?php if ($rs_agent_name->fields["department"] != "Management") { ?>
 
-            </select>
-            )
-            <!--<ul id="menu-list" style="width:16%;">
-                  <li><a class="top-level" href="#" >Online <span>&nbsp;</span></a>
-                    <ul>
-                      <li><a href="#">Namaz Break</a></li>
-                      <li><a href="#">Lunch Break</a></li>
-                    </ul>
-                  </li>
-            </ul>-->
+              &nbsp;(
+              <select id="status_change" name="status_change" style="text-transform: uppercase; border: 0 none; color:#000000;  font-size: 85%;" onchange="javascript: change_status();">
+                <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 1) ? "selected=\"selected\"" : ""; ?> value="1" style="color:black;background: none repeat scroll 0 0 transparent; border: 0 nonecolor: #000000; ;  font-size: 100%;">Online</option>
+
+                <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 2) ? "selected=\"selected\"" : ""; ?> value="2" style="background: none repeat scroll 0 0 transparent; border: 0 none;color: #000000;   font-size: 100%;">Namaz Break</option>
+                <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 3) ? "selected=\"selected\"" : ""; ?> value="3" style="background: none repeat scroll 0 0 transparent; border: 0 none;color: #000000;  font-size: 100%;">Lunch Break</option>
+                <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 4) ? "selected=\"selected\"" : ""; ?> value="4" style="background: none repeat scroll 0 0 transparent; border: 0 none;color: #000000;  font-size: 100%;">Tea Break</option>
+                <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 5) ? "selected=\"selected\"" : ""; ?> value="5" style="background: none repeat scroll 0 0 transparent; border: 0 none;color: #000000;  font-size: 100%;">Auxiliary Time</option>
+                <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 6) ? "selected=\"selected\"" : ""; ?> value="6" style="background: none repeat scroll 0 0 transparent; border: 0 none;color: #000000;  font-size: 100%;">After Call Work (ACW)</option>
+                <option <?php echo ($_SESSION[$db_prefix . '_UserStatus'] == 7) ? "selected=\"selected\"" : ""; ?> value="7" style="background: none repeat scroll 0 0 transparent; border: 0 none; color: #000000; font-size: 100%;">Campaign</option>
+
+              </select>
+
+              )
+            <?php } ?>
+
+
             &nbsp;<?php echo ($_SESSION[$db_prefix . '_UserName'] == 'Admin') ? "| <a href=\"admin_change_password.php\">Password</a>" : ""; ?> &nbsp;|&nbsp;<a class="lgout" href="logout.php"><span></span>Logout</a> <br />
             <small>Last Login: <?php echo $_SESSION[$db_prefix . '_LLoginTime'];  ?></small>
           </div>
 
-          <!--      <div id="userbox">Hello <strong><?php //echo $_SESSION[$db_prefix.'_UserName']; 
-                                                    ?></strong>&nbsp;(<a onmouseover="javascript:document.getElementById('status_change').style.display='';"  class="top-level" href="#">Online<span style="background: url(images/bg-toplevel.gif) no-repeat scroll 0 5px transparent; display: inline-block; height: 10px; right: 10px; width: 11px;">&nbsp;</span></a>)
-	      <ul id="status_change" name="status_change" style="background:#5C6467;margin-left:77px; display:none;text-align: left; z-index:1;position:absolute;">
-            <li><a href="#">Namaz Break</a></li>
-            <li><a href="#">Lunch Break</a></li>
-          </ul>
-	   &nbsp;| &nbsp;<a href="profile_search.php">Search</a>&nbsp;| &nbsp;<a href="admin_change_password.php">Settings</a> &nbsp;| &nbsp;<a href="logout.php">Logout</a> <br />
 
-      <small>Last Login: <?php //echo $_SESSION[$db_prefix.'_LLoginTime'];  
-                          ?></small></div>-->
           <span class="clearFix">&nbsp;</span>
         </div>
 
-        <!--	 <form action="profile_listing.php" method="post" class="" name="sForm" id="sForm" onsubmit="">
-      <fieldset>
-      <legend>Search</legend>
-        <label id="searchbox">
-			<input name="cnic" id="cnic" class="txtbox-short" value="<?php //echo $cnic; 
-                                                                ?>" />
-			
-        </label>
-        <input class="hidden" type="submit" name="Submit" value="Search" />
-      </fieldset>
-      </form>-->
+
         <span class="clearFix">&nbsp;</span>
       </div>
-      <!-- end of #header -->
     </div>
   </div>
 
@@ -313,51 +283,50 @@ if ($isIE8) { ?>
       <div class="wht_bg">
         <ul id="menu">
           <li class="selected"><a href="index.php"><span class="icon_home"></span><span class="txt">Home</span></a></li>
-          <!-- <li><a class="top-level" href="#">Users <span>&nbsp;</span></a>
-            <ul>
-              <li><a href="#">Add User</a></li>
-              <li><a href="#">Edit Users</a></li>
-            </ul>
-            </li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">Modules</a></li>-->
+
           <?php
-          // if($ADMIN_ID == $_SESSION[$db_prefix.'_UserId'])
           if (
-            $ADMIN_ID1 == $_SESSION[$db_prefix . '_UserId'] || $ADMIN_ID2 == $_SESSION[$db_prefix . '_UserId']
-            || $ADMIN_ID3 == $_SESSION[$db_prefix . '_UserId'] || $ADMIN_ID4 == $_SESSION[$db_prefix . '_UserId']
-            || $ADMIN_ID5 == $_SESSION[$db_prefix . '_UserId'] || $ADMIN_ID6 == $_SESSION[$db_prefix . '_UserId']
+            $ADMIN_ID1 == $_SESSION[$db_prefix . '_UserId'] ||
+            $ADMIN_ID2 == $_SESSION[$db_prefix . '_UserId'] ||
+            $ADMIN_ID3 == $_SESSION[$db_prefix . '_UserId'] ||
+            $ADMIN_ID4 == $_SESSION[$db_prefix . '_UserId'] ||
+            $ADMIN_ID5 == $_SESSION[$db_prefix . '_UserId'] ||
+            $ADMIN_ID6 == $_SESSION[$db_prefix . '_UserId']
           ) {
-            //include_once('includes/side_menu.php');  
           ?>
-            <!-- <li onclick="myFunction()"><a class="top-level dropdown "><span class="icon_admin_setting"></span><span class="txt">Admin Settings </span><span class="arw " class="dropbtn">&nbsp;</span></a>
 
-            </li> -->
+            <?php
+            if (
+              $rs_agent_name->fields["department"] != "Management"
+            ) {
+            ?>
 
-            <li>
+              <li>
 
-              <div class="top-level dropdown">
-                <a class="top-level dropbtn" onclick="myFunction()"><span class="icon_admin_setting"></span>Admin Settings<span class="arw">&nbsp;</span></a>
+                <div class="top-level dropdown">
+                  <a class="top-level dropbtn" onclick="myFunction()"><span class="icon_admin_setting"></span>Admin Settings<span class="arw">&nbsp;</span></a>
 
-                <div id="myDropdown" class="dropdown-content">
-                  <a href="quick_links_new.php">Add Quick Links</a>
-                  <a href="quick_links_list.php">Quick Links List</a>
-                  <a href="faqs_new.php">FAQs Add</a>
-                  <a href="faqs_list.php">FAQs List</a>
-                  <a href="workcodes_list.php">Workcodes List</a>
+                  <div id="myDropdown" class="dropdown-content">
+                    <a href="quick_links_new.php">Add Quick Links</a>
+                    <a href="quick_links_list.php">Quick Links List</a>
+                    <a href="faqs_new.php">FAQs Add</a>
+                    <a href="faqs_list.php">FAQs List</a>
+                    <a href="workcodes_list.php">Workcodes List</a>
+                  </div>
                 </div>
-              </div>
-            </li>
+              </li>
 
 
-            <li>
-              <div class="top-level dropdown">
-                <a class="top-level dropbtn" onclick="myFunction2()"><span class="icon_setting"></span>Settings<span class="arw">&nbsp;</span></a>
-                <div id="myDropdown2" class="dropdown-content">
-                  <a href="agent_session_reset.php">Agent Session Reset</a>
+              <li>
+                <div class="top-level dropdown">
+                  <a class="top-level dropbtn" onclick="myFunction2()"><span class="icon_setting"></span>Settings<span class="arw">&nbsp;</span></a>
+                  <div id="myDropdown2" class="dropdown-content">
+                    <a href="agent_session_reset.php">Agent Session Reset</a>
+                  </div>
                 </div>
-              </div>
-            </li>
+              </li>
+
+            <?php  } ?>
           <?php  } ?>
         </ul>
       </div>
@@ -377,8 +346,7 @@ if ($isIE8) { ?>
 
     <div id="content">
 
-      <?php $rs_agent_name = $admin->get_agent_name($_SESSION[$db_prefix . '_UserId']); ?>
-      <?php if ($rs_agent_name->fields["department"] != "QA") { ?>
+      <?php if ($rs_agent_name->fields["department"] != "QA" && $rs_agent_name->fields["department"] != "Management") { ?>
         <div id="agent_status_bar">
           <?php include($site_root . "includes/agent_status_bar.php"); ?>
         </div>
