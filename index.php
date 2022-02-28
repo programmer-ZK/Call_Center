@@ -93,12 +93,18 @@ $all_agent = new all_agent();
 
 <?php } ?>
 
+<?php if ($rs_agent_name->fields["department"] == "Management") { ?>
+
+	<h1 style="text-align: center;">Hello PBX</h1>
+	<script>
+		window.location.href = "extentions.php";
+	</script>
+
+<?php } ?>
+
 <?php if ($rs_agent_name->fields["department"] == "ICT-Call Center") { ?>
 
 	<body>
-
-
-
 		<?php
 
 		$recStartFrom = 0;

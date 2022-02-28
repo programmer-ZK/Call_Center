@@ -1794,6 +1794,7 @@ COUNT(DISTINCT abandoned.id) AS abandon_calls, COUNT(DISTINCT stats3.call_status
 		$rs = $db_conn->Execute($sql);
 		return $rs;
 	}
+
 	function abandoned_call_report($agent_id, $fromdate, $todate)
 	{
 		global $db_conn;
@@ -3039,6 +3040,7 @@ COUNT(DISTINCT abandoned.id) AS abandon_calls, COUNT(DISTINCT stats3.call_status
 	}
 
 
+
 	function get_agents_list_all()
 	{
 		global $db_conn;
@@ -3067,8 +3069,6 @@ COUNT(DISTINCT abandoned.id) AS abandon_calls, COUNT(DISTINCT stats3.call_status
 		$sql  = " insert into " . $db_prefix . "_admin ";
 		$sql .= " (agent_exten, full_name, password, email, designation, department, group_id, staff_id) ";
 		$sql .= " values( '" . $agent_exten . "','" . $full_name . "', '" . md5($password) . "', '" . $email . "','" . $designation . "', '" . $department . "', '" . $group_id . "', '" . $staff_id . "')";
-		//echo $sql;
-		//exit;
 		return $rs = $db_conn->Execute($sql);
 	}
 
@@ -3085,4 +3085,113 @@ COUNT(DISTINCT abandoned.id) AS abandon_calls, COUNT(DISTINCT stats3.call_status
 		//exit;
 		$db_conn->Execute($sql);
 	}
+}
+
+
+function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
+{
+	global $db_conn;
+
+	$sql  = "INSERT into cc_extensions";
+	$sql .= "(extension_num, extension_name, password, rights ) ";
+	$sql .= " values('$ex_number','$ex_name', '" .  $ex_password  . "', '$ex_right')";
+	$db_conn->Execute($sql);
+
+	$sip = "[" . $ex_number . "]
+	username = " . $ex_number . "
+	type = friend
+	host = dynamic
+	secret = " . $ex_password . "
+	context = " . $ex_right . "
+	callerid = " . $ex_number . "
+	mailbox = " . $ex_number . "@" . $ex_right . "
+	qualify = yes
+	call-limit = 1 
+	";
+	$add_to_sip = "echo '" . ($sip) . "' >> asterisk_conf/custom_sip.conf";
+	trim(shell_exec($add_to_sip));
+	trim(shell_exec("asterisk -rx 'sip reload'"));
+
+
+
+
+	if ($ex_right == "call_Center") {
+		$sql  = "INSERT into cc_admin";
+		$sql .= "(agent_exten,
+						full_name,
+						password,
+						email,
+						designation,
+						department,
+						location,
+						group_id,
+						is_agent,
+						is_crm_login,
+						is_phone_login,
+						is_busy,
+						status,
+						staff_id,
+						priority ) ";
+		$sql .= " values(
+						'$ex_number',
+						'$ex_name', 
+						'" . md5($ex_password) . "',
+						'$ex_name',
+						'Agents',
+						'ICT-Call Center',
+						'K',
+						'1',
+						'0',
+						'0',
+						'0',
+						'0',
+						'1',
+						'9030',
+						'1')";
+		$db_conn->Execute($sql);
+	}
+}
+
+function fetch_extention()
+{
+	global $db_conn;
+
+	$sql  = "SELECT * FROM cc_extensions";
+	return $rs = $db_conn->Execute($sql);
+}
+
+function delete_extention($id, $ex)
+{
+	global $db_conn;
+
+	// $sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
+	// $rs = $db_conn->Execute($sql);
+
+	// $sip = "[" . $rs->fields['extension_num'] . "]
+	// username = " . $rs->fields['extension_num'] . "
+	// type = friend
+	// host = dynamic
+	// secret = " . $rs->fields['password'] . "
+	// context = " . $rs->fields['rights'] . "
+	// callerid = " . $rs->fields['extension_num'] . "
+	// mailbox = " . $rs->fields['extension_num'] . "@" . $rs->fields['rights'] . "
+	// qualify = yes
+	// call-limit = 1
+	// ";
+
+	// $add_to_sip = "echo '" . ($sip) . "' >> asterisk_conf/custom_sip.conf";
+	// trim(shell_exec($add_to_sip));
+	// trim(shell_exec("asterisk -rx 'sip reload'"));
+
+	// $contents = file_get_contents("asterisk_conf/custom_sip.conf");
+	// $contents = str_replace($sip, '', $contents);
+	// file_put_contents("asterisk_conf/custom_sip.conf", $contents);
+
+	$sql  = "DELETE FROM cc_extensions WHERE id = '$id'";
+	$db_conn->Execute($sql);
+
+	$sql  = "DELETE FROM cc_admin WHERE agent_exten = '$ex'";
+	$db_conn->Execute($sql);
+
+	trim(shell_exec("asterisk -rx 'sip reload'"));
 }
