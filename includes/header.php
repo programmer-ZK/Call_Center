@@ -110,6 +110,12 @@
   <script src="js/tabs.pack.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
 
+  <script src="js/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="css/sweetalert2.min.css">
+
+  <script src="js/fontawesome.min.js"></script>
+  <link rel="stylesheet" href="css/fontawesome.min.css">
+
 </head>
 
 <script type="text/javascript">
