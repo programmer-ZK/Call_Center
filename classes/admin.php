@@ -3094,7 +3094,7 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 
 	$sql  = "INSERT into cc_extensions";
 	$sql .= "(extension_num, extension_name, password, rights ) ";
-	$sql .= " values('$ex_number','$ex_name', '" .  $ex_password  . "', '$ex_right')";
+	$sql .= " values('$ex_number','$ex_name', '" .  md5($ex_password)  . "', '$ex_right')";
 	$db_conn->Execute($sql);
 
 	$sip = "[" . $ex_number . "]
@@ -3111,9 +3111,6 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 	$add_to_sip = "echo '" . ($sip) . "' >> asterisk_conf/custom_sip.conf";
 	trim(shell_exec($add_to_sip));
 	trim(shell_exec("asterisk -rx 'sip reload'"));
-
-
-
 
 	if ($ex_right == "call_Center") {
 		$sql  = "INSERT into cc_admin";
