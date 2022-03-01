@@ -3110,10 +3110,6 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 	";
 	$add_to_sip = "echo '" . ($sip) . "' >> asterisk_conf/custom_sip.conf";
 	trim(shell_exec($add_to_sip));
-	trim(shell_exec("asterisk -rx 'sip reload'"));
-
-
-
 
 	if ($ex_right == "call_Center") {
 		$sql  = "INSERT into cc_admin";
@@ -3150,6 +3146,7 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 						'1')";
 		$db_conn->Execute($sql);
 	}
+	trim(shell_exec("asterisk -rx 'sip reload'"));
 }
 
 function fetch_extention()
@@ -3157,7 +3154,7 @@ function fetch_extention()
 	global $db_conn;
 
 	$sql  = "SELECT * FROM cc_extensions";
-	return $rs = $db_conn->Execute($sql);
+	return $db_conn->Execute($sql);
 }
 
 function delete_extention($id, $ex)
@@ -3192,6 +3189,66 @@ function delete_extention($id, $ex)
 
 	$sql  = "DELETE FROM cc_admin WHERE agent_exten = '$ex'";
 	$db_conn->Execute($sql);
+
+	trim(shell_exec("asterisk -rx 'sip reload'"));
+}
+
+function update_extention($id, $ex_num, $ex_name, $ex_pass, $ex_right)
+{
+	global $db_conn;
+
+	$sql  = "UPDATE cc_extensions SET ";
+	$sql .= "extension_num='$ex_num',";
+	$sql .= "extension_name='$ex_name',";
+	$sql .= "password='$ex_pass',";
+	$sql .= "rights='$ex_right'";
+	$sql .= "WHERE id = '$id'";
+	$db_conn->Execute($sql);
+
+
+	$sql  = "SELECT *  FROM cc_admin WHERE agent_exten = '$ex_num'";
+	$rs = $db_conn->Execute($sql);
+
+	if ($rs > 0 && $ex_right != "call_Center" ) {
+		$sql  = "DELETE FROM cc_admin WHERE agent_exten = '$ex_num'";
+		$db_conn->Execute($sql);
+	}
+
+	if ($ex_right == "call_Center") {
+		$sql  = "INSERT into cc_admin";
+		$sql .= "(agent_exten,
+						full_name,
+						password,
+						email,
+						designation,
+						department,
+						location,
+						group_id,
+						is_agent,
+						is_crm_login,
+						is_phone_login,
+						is_busy,
+						status,
+						staff_id,
+						priority ) ";
+		$sql .= " values(
+						'$ex_num',
+						'$ex_name', 
+						'" . md5($ex_pass) . "',
+						'$ex_name',
+						'Agents',
+						'ICT-Call Center',
+						'K',
+						'1',
+						'0',
+						'0',
+						'0',
+						'0',
+						'1',
+						'9030',
+						'1')";
+		$db_conn->Execute($sql);
+	}
 
 	trim(shell_exec("asterisk -rx 'sip reload'"));
 }
