@@ -3094,22 +3094,58 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 
 	$sql  = "INSERT into cc_extensions";
 	$sql .= "(extension_num, extension_name, password, rights ) ";
-	$sql .= " values('$ex_number','$ex_name', '" .  $ex_password  . "', '$ex_right')";
+	$sql .= " values('$ex_number', '$ex_name', '" .  $ex_password  . "', '$ex_right')";
 	$db_conn->Execute($sql);
 
-	$sip = "[" . $ex_number . "]
-	username = " . $ex_number . "
-	type = friend
-	host = dynamic
-	secret = " . $ex_password . "
-	context = " . $ex_right . "
-	callerid = " . $ex_number . "
-	mailbox = " . $ex_number . "@" . $ex_right . "
-	qualify = yes
-	call-limit = 1 
-	";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
-	trim(shell_exec($add_to_sip));
+	// All At Once
+	// $sip = "[" . $ex_number . "]
+	// username = " . $ex_number . "
+	// type = friend
+	// host = dynamic
+	// secret = " . $ex_password . "
+	// context = " . $ex_right . "
+	// callerid = " . $ex_number . "
+	// mailbox = " . $ex_number . "@" . $ex_right . "
+	// qualify = yes
+	// call-limit = 1 
+	// ";
+
+
+	// LINE BY LINE
+	// asterisk_conf/custom_sip.conf
+	$sip = "     ";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "[" . $ex_number . "]";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "username = " . $ex_number . "";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "type = friend";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "host = dynamic";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "secret = " . $ex_password . "";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "context = " . $ex_right . "";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "callerid = " . $ex_number . "";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "mailbox = " . $ex_number . "@" . $ex_right . "";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "qualify = yes";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "call-limit = 1";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
 
 	if ($ex_right == "call_Center") {
 		$sql  = "INSERT into cc_admin";
@@ -3146,6 +3182,7 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 						'1')";
 		$db_conn->Execute($sql);
 	}
+
 	trim(shell_exec("asterisk -rx 'sip reload'"));
 }
 
@@ -3170,7 +3207,6 @@ function if_extension_exists($ex_num)
 	if ($rsCount < 1) {
 		return 0;
 	}
-	return $rsCount;
 }
 
 function delete_extention($id, $ex)
@@ -3287,4 +3323,14 @@ function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 	}
 
 	trim(shell_exec("asterisk -rx 'sip reload'"));
+}
+
+function upload_ivr($ex_num)
+{
+	global $db_conn;
+
+	$sql        =     "SELECT * FROM cc_extensions WHERE extension_num = '$ex_num'";
+	$rs         =     $db_conn->Execute($sql);
+	$rsCount    =     $rs->rowCount();
+	
 }

@@ -85,11 +85,12 @@
 <?php $rs_agent_name = $admin->get_agent_name($_SESSION[$db_prefix . '_UserId']); ?>
 
 <div class="box">
-  <!--FOR STRAIGHT CORNERS OLD CLASS INM H4  class="light-blue rounded_by_jQuery_corners" -->
-  <h4 class="light-grey only_heading no_arow" style="-moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px;">Supervisor Menu </h4>
-  <div class="box-container rounded_by_jQuery_corners" style="-moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px;">
+  <?php if ($rs_agent_name->fields["department"] != "Management") { ?>
 
-    <?php if ($rs_agent_name->fields["department"] != "Management") { ?>
+    <!--FOR STRAIGHT CORNERS OLD CLASS INM H4  class="light-blue rounded_by_jQuery_corners" -->
+    <h4 class="light-grey only_heading no_arow" style="-moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px;">Supervisor Menu </h4>
+    <div class="box-container rounded_by_jQuery_corners" style="-moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px;">
+
       <ul class="list-links ui-accordion ui-widget ui-helper-reset" role="tablist">
         <div id="flip7">
           <h4 class="light-grey" style="-moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px;">Call Agent Dashboard</h4>
@@ -161,7 +162,7 @@
 
 
       </ul>
-    <?php } ?>
 
-  </div>
+    </div>
+  <?php } ?>
 </div>
