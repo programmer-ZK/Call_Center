@@ -3108,7 +3108,7 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 	qualify = yes
 	call-limit = 1 
 	";
-	$add_to_sip = "echo '" . ($sip) . "' >> asterisk_conf/custom_sip.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	trim(shell_exec($add_to_sip));
 
 	if ($ex_right == "call_Center") {
@@ -3157,6 +3157,22 @@ function fetch_extention()
 	return $db_conn->Execute($sql);
 }
 
+function if_extension_exists($ex_num)
+{
+	global $db_conn;
+
+	$sql        =     "SELECT * FROM cc_extensions WHERE extension_num = '$ex_num'";
+	$rs         =     $db_conn->Execute($sql);
+	$rsCount    =     $rs->rowCount();
+	if ($rsCount > 0) {
+		return 1;
+	}
+	if ($rsCount < 1) {
+		return 0;
+	}
+	return $rsCount;
+}
+
 function delete_extention($id, $ex)
 {
 	global $db_conn;
@@ -3193,7 +3209,7 @@ function delete_extention($id, $ex)
 	trim(shell_exec("asterisk -rx 'sip reload'"));
 }
 
-function update_extention($id, $ex_num, $ex_name, $ex_pass, $ex_right)
+function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 {
 	global $db_conn;
 
@@ -3206,15 +3222,21 @@ function update_extention($id, $ex_num, $ex_name, $ex_pass, $ex_right)
 	$db_conn->Execute($sql);
 
 
-	$sql  = "SELECT *  FROM cc_admin WHERE agent_exten = '$ex_num'";
-	$rs = $db_conn->Execute($sql);
 
-	if ($rs > 0 && $ex_right != "call_Center" ) {
-		$sql  = "DELETE FROM cc_admin WHERE agent_exten = '$ex_num'";
+
+	// Select : if exist 
+	$sql  = "SELECT * FROM cc_admin WHERE agent_exten = '$ex_prev' LIMIT 1";
+	$rs = $db_conn->Execute($sql);
+	$rsCount = $rs->rowCount();
+
+	// Delete : if exist & right is not equal to call_Center
+	if ($rsCount > 0 && $ex_right != "call_Center") {
+		$sql  = "DELETE FROM cc_admin WHERE agent_exten = '$ex_prev'";
 		$db_conn->Execute($sql);
 	}
 
-	if ($ex_right == "call_Center") {
+	// Insert : if doesn't exist & right is equal to call_Center
+	if ($rsCount < 1 && $ex_right == "call_Center") {
 		$sql  = "INSERT into cc_admin";
 		$sql .= "(agent_exten,
 						full_name,
@@ -3248,6 +3270,20 @@ function update_extention($id, $ex_num, $ex_name, $ex_pass, $ex_right)
 						'9030',
 						'1')";
 		$db_conn->Execute($sql);
+	}
+
+	$md5Pass = md5($ex_pass);
+	$sql2  = "UPDATE cc_admin SET
+	agent_exten = '$ex_num',
+	full_name = '$ex_name',
+	password = '$md5Pass',
+	email = '$ex_name'
+	WHERE agent_exten = '$ex_prev'";
+	$db_conn->Execute($sql2);
+
+
+	// Update : if exist & right is equal to call_Center
+	if ($rsCount > 0 && $ex_right == "call_Center") {
 	}
 
 	trim(shell_exec("asterisk -rx 'sip reload'"));

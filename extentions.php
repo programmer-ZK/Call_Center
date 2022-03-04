@@ -88,10 +88,11 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == "delete") {
 if (isset($_REQUEST['action']) && $_REQUEST['action'] == "update") {
   $id            =    $_REQUEST["id"];
   $ex_num        =    $_REQUEST["ex_num"];
+  $ex_prev       =    $_REQUEST["ex_prev"];
   $ex_name       =    $_REQUEST["ex_name"];
   $ex_pass       =    $_REQUEST["ex_pass"];
-  $ex_right       =    $_REQUEST["ex_right"];
-  update_extention($id, $ex_num, $ex_name, $ex_pass, $ex_right);
+  $ex_right      =    $_REQUEST["ex_right"];
+  update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right);
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -105,6 +106,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
   if (!empty($ex_number) && strlen($ex_number) !=  4) {
     array_push($errors, "Extention Number Should Consists of 4 Digits.");
+  }
+  if (!empty($ex_number) && if_extension_exists($ex_number) == 1) {
+    array_push($errors, "Extention Number Already Exists.");
   }
   if (empty($ex_name)) {
     array_push($errors, "Extention Name is Required.");
@@ -137,7 +141,6 @@ $rs = fetch_extention();
           <h4>Add New Extention</h4>
           <h4 class="white">
             <div>
-
 
               <table class="add_tbl">
                 <tr>
@@ -223,6 +226,7 @@ $rs = fetch_extention();
           $id = $rs->fields['id'];
           $ex = $rs->fields['extension_num'];
         ?>
+          <p style="display: none;" id="ex_num_hidden_<?= $id ?>"><?= $rs->fields['extension_num']; ?></p>
           <tr class="tbl_tr">
             <td uneditable><?= $s_no++ ?></td>
             <td id="ex_num_<?= $id ?>"><?= $rs->fields['extension_num']; ?></td>
@@ -296,6 +300,7 @@ $rs = fetch_extention();
         err = 0;
         id = $(this).val();
         ex_num = $(`#ex_num_${id}`).text();
+        ex_prev = $(`#ex_num_hidden_${id}`).text();
         ex_name = $(`#ex_name_${id}`).text();
         ex_pass = $(`#ex_pass_${id}`).text();
         ex_right = $(`#ex_right_${id}`).val();
@@ -311,6 +316,7 @@ $rs = fetch_extention();
               data: {
                 id: id,
                 ex_num: ex_num,
+                ex_prev: ex_prev,
                 ex_name: ex_name,
                 ex_pass: ex_pass,
                 ex_right: ex_right,
@@ -320,6 +326,7 @@ $rs = fetch_extention();
             .done(function(response) {
               $(`#save_btn_${id}`).css("opacity", "0");
               $(`#ex_right_${id}`).attr("disabled", "true");
+              window.location = "extentions.php";
             })
             .fail(function() {
               swal.fire('Oops...', 'Something went wrong!', 'error');
