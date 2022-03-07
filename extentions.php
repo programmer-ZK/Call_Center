@@ -304,7 +304,6 @@ $rs = fetch_extention();
         ex_name = $(`#ex_name_${id}`).text();
         ex_pass = $(`#ex_pass_${id}`).text();
         ex_right = $(`#ex_right_${id}`).val();
-        console.log(ex_right);
         if (ex_num.length != 4) {
           swal.fire('Oops...', 'Extension Number Should Consists of 4 Digits', 'error');
           err = 1;

@@ -3332,5 +3332,32 @@ function upload_ivr($ex_num)
 	$sql        =     "SELECT * FROM cc_extensions WHERE extension_num = '$ex_num'";
 	$rs         =     $db_conn->Execute($sql);
 	$rsCount    =     $rs->rowCount();
-	
+}
+
+
+function submit_rating($rating, $unique_id, $call_date, $call_duration, $user)
+{
+	global $db_conn;
+
+	$url = "php /var/www/cgi-bin/pushrating.php";
+	$params =  " " . $rating . " " . $unique_id  . " " . $call_date  . " " . $call_duration  . " " . $user;
+
+	$sql        =     "SELECT * FROM cc_rating WHERE unique_id = '$unique_id'";
+	$rs         =     $db_conn->Execute($sql);
+	$rsCount    =     $rs->rowCount();
+
+	if ($rsCount > 0) {
+		$sql  = "UPDATE cc_rating SET ";
+		$sql .= "rating='$rating' WHERE unique_id = '$unique_id' ";
+		$db_conn->Execute($sql);
+	}
+	if ($rsCount < 1) {
+		$sql  = "INSERT into cc_rating ";
+		$sql .= "(unique_id, rating) ";
+		$sql .= " values('$unique_id', '$rating')";
+		$db_conn->Execute($sql);
+	}
+
+	system(`echo sudo $url $params >> asterisk_conf/commands.conf`);
+	system(`sudo $url $params`);
 }

@@ -30,6 +30,32 @@ $user_tools = new user_tools();
 	.dataTables_length {
 		margin-top: 10px;
 	}
+
+	.td {
+		width: 18%;
+		text-align: center;
+		vertical-align: middle;
+		padding-top: 50px;
+	}
+
+	.overlay {
+		display: none;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 999;
+		background: rgba(255, 255, 255, 0.8) url("images/Spinner-1s-200px.gif") center no-repeat;
+	}
+
+	body.loading {
+		overflow: hidden;
+	}
+
+	body.loading .overlay {
+		display: block;
+	}
 </style>
 <script type="text/javascript" language="javascript1.2">
 	function showWorkCode(wc) {
@@ -67,16 +93,26 @@ $tdate        = date('Y-m-d', strtotime($tdate));
 $fdateTime        = date('Y-m-d', strtotime($fdate)) . " " . $static_stime;
 $tdateTime        = date('Y-m-d', strtotime($tdate)) . " " . $static_etime;
 
-echo "<b>"
+if (isset($_REQUEST['action']) && $_REQUEST['action'] == "add") {
+	$rating            =    $_REQUEST["rating"];
+	$unique_id         =    $_REQUEST["unique_id"];
+	$call_date         =    $_REQUEST["call_date"];
+	$call_duration     =    $_REQUEST["call_duration"];
+	$user              =    $_REQUEST["user"];
+
+	$url = "php /var/www/cgi-bin/pushrating.php";
+	$params =  " " . $rating . " " . $unique_id  . " " . $call_date  . " " . $call_duration  . " " . $user;
+
+	submit_rating($rating, $unique_id, $call_date, $call_duration, $user);
+}
+
 ?>
 <?php
 
 $ttl_record = 0;
 
-
 $field = empty($_REQUEST["field"]) ? "call_datetime" : $_REQUEST["field"];
 $order = empty($_REQUEST["order"]) ? "desc" : $_REQUEST["order"];
-
 
 $rs = $reports->iget_records_pdf(addslashes($txtSearch), $recStartFrom, $page_records_limit, $field, $order, $fdateTime, $tdateTime, $search_keyword, $keywords, 1);
 
@@ -121,24 +157,18 @@ $rs = $reports->iget_records_pdf(addslashes($txtSearch), $recStartFrom, $page_re
 							</tr>
 						</thead>
 						<tbody style="text-align: center;">
-							<?php while (!$rs->EOF) {  //date('Ymd',strtotime($rs->fields["call_date"])); 
+							<?php while (!$rs->EOF) {
 							?>
 								<tr class="odd">
+									<p style="display: none;" id="unique_id_<?= $rs->fields["id"] ?>"><?= $rs->fields["unique_id"] ?></p>
 									<?php $split = explode('-', $rs->fields["call_date"]); ?>
-									<td style="width:15%; text-align: center; vertical-align: middle;
-                                    padding-top: 50px;" class="col-first"><a href="call_detail.php?unique_id=<?php echo $rs->fields["unique_id"]; ?>&id=<?php echo $rs->fields["id"]; ?>"><?php echo $rs->fields["caller_id"]; ?></a></td>
-									<td style="width:18%; text-align: center; vertical-align: middle;
-                                    padding-top: 50px;" class="col-first"><?php echo $rs->fields["call_datetime"] // date('d-m-Y', strtotime($rs->fields["call_date"])) //$rs->fields["call_date"]; //;
-																																					?> </td>
-									<td style="width:15%; text-align: center; vertical-align: middle;
-                                    padding-top: 50px;" class="col-first"><?php echo $rs->fields["call_time"]; //date("g:i s", strtotime($rs->fields["call_time"])); 
-																																					?> </td>
-									<td style="width:15%; text-align: center; vertical-align: middle;
-                                    padding-top: 50px;" class="col-first"><?php echo $rs->fields["call_duration"]; ?> </td>
-									<td style="width:15%; text-align: center; vertical-align: middle;
-                                    padding-top: 50px;" class="col-first"><?php echo $rs->fields["full_name"]; ?> </td>
-
-
+									<td class="td" class="col-first">
+										<a href="call_detail.php?unique_id=<?php echo $rs->fields["unique_id"]; ?>&id=<?php echo $rs->fields["id"]; ?>"><?php echo $rs->fields["caller_id"]; ?></a>
+									</td>
+									<td class="td" id="call_date_<?= $rs->fields["id"] ?>" class="col-first"><?php echo $rs->fields["call_datetime"] ?> </td>
+									<td class="td" class="col-first"><?php echo $rs->fields["call_time"]; ?> </td>
+									<td class="td" id="call_duration_<?= $rs->fields["id"] ?>" class="col-first"><?php echo $rs->fields["call_duration"]; ?> </td>
+									<td class="td" class="col-first"><?php echo $rs->fields["full_name"]; ?> </td>
 
 									<td class="col-first" style="padding-top: 35px; padding-bottom: 30px;">
 										<audio controls style="width: 145px; margin: 10px 10px -20px 10px;">
@@ -151,14 +181,15 @@ $rs = $reports->iget_records_pdf(addslashes($txtSearch), $recStartFrom, $page_re
 
 										<td class="col-first d-flex flex-container" style="width: 20%;padding-top: 50px; flex-direction: row; border: none;">
 											<div class="">
-												<select name="rating" id="rating" class="rating">
+												<select name="rating" id="rating_<?= $rs->fields["id"] ?>" class="rating">
+													<option selected disabled>Select</option>
 													<option value="a">A</option>
 													<option value="b">B</option>
 													<option value="c">C</option>
 												</select>
 											</div>
 											<div class="">
-												<a class="button" href="#">
+												<a type="button" id="save_btn_<?= $rs->fields["id"] ?>" class="button save_btn">
 													<span>Submit</span>
 												</a>
 											</div>
@@ -177,8 +208,52 @@ $rs = $reports->iget_records_pdf(addslashes($txtSearch), $recStartFrom, $page_re
 		</div>
 	</form>
 </div>
+
 <script>
 	$(document).ready(function() {
+
+		// Submit Rating
+		$(".save_btn").click(function() {
+			err = 0;
+			id = $(this).attr("id");
+			id = id.split("_");
+			id = id.slice(-1);
+
+			rating = $(`#rating_${id} :selected`).text();
+			unique_id = $(`#unique_id_${id}`).text();
+			call_date = $(`#call_date_${id}`).text();
+			call_duration = $(`#call_duration_${id}`).text();
+			user = "<?= $_SESSION[$db_prefix . '_UserName'] ?>";
+
+			if (rating == 'Select') {
+				swal.fire('Oops...', 'Please Select an Option First!', 'error');
+				err = 1;
+			}
+
+			if (err == 0) {
+				$.ajax({
+						url: "<?php echo $_SERVER['PHP_SELF']; ?>",
+						type: 'POST',
+						data: {
+							rating: rating,
+							unique_id: unique_id,
+							call_date: call_date,
+							call_duration: call_duration,
+							user: user,
+							action: "add"
+						},
+					})
+					.done(function(response) {
+						// window.location = "icdr-stats.php";
+						swal.fire('Done!', 'Rating Submited', 'success');
+					})
+					.fail(function() {
+						swal.fire('Oops...', 'Something went wrong!', 'error');
+					});
+			}
+		});
+
+
 		$('#tbl').DataTable({
 			"order": [
 				[1, "desc"]
