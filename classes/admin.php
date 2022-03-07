@@ -3109,7 +3109,8 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 	// qualify = yes
 	// call-limit = 1 
 	// ";
-
+	// $add_to_sip = "echo " . ($sip) . " >> asterisk_conf/custom_sip123.conf";
+	// shell_exec($add_to_sip);
 
 	// LINE BY LINE
 	// asterisk_conf/custom_sip.conf
@@ -3340,8 +3341,8 @@ function submit_rating($rating, $unique_id, $call_date, $call_duration, $user)
 	global $db_conn;
 
 	$url = "php /var/www/cgi-bin/pushrating.php";
-	$params =  " " . $rating . " " . $unique_id  . " " . $call_date  . " " . $call_duration  . " " . $user;
-
+	$params =  `$rating $unique_id $call_date $call_duration $user`;
+	$currentDateTime = date("Y-m-d H:i:s");
 	$sql        =     "SELECT * FROM cc_rating WHERE unique_id = '$unique_id'";
 	$rs         =     $db_conn->Execute($sql);
 	$rsCount    =     $rs->rowCount();
@@ -3357,7 +3358,14 @@ function submit_rating($rating, $unique_id, $call_date, $call_duration, $user)
 		$sql .= " values('$unique_id', '$rating')";
 		$db_conn->Execute($sql);
 	}
+	system(`echo $unique_id $call_date $call_duration $rating $currentDateTime $user  >> asterisk_conf/pushrating.log`);
+	// system(`sudo $url $params`);
+}
 
-	system(`echo sudo $url $params >> asterisk_conf/commands.conf`);
-	system(`sudo $url $params`);
+function fetch_rating($unique_id)
+{
+	global $db_conn;
+
+	$sql  = "SELECT * FROM cc_rating WHERE unique_id = " . $unique_id;
+	return $db_conn->Execute($sql);
 }

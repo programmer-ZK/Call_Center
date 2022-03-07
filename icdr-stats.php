@@ -16,6 +16,7 @@ include_once("classes/user_tools.php");
 $user_tools = new user_tools();
 ?>
 <?php include($site_root . "includes/header.php"); ?>
+
 <style>
 	.flex-container {
 		display: flex;
@@ -38,23 +39,12 @@ $user_tools = new user_tools();
 		padding-top: 50px;
 	}
 
-	.overlay {
-		display: none;
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		z-index: 999;
-		background: rgba(255, 255, 255, 0.8) url("images/Spinner-1s-200px.gif") center no-repeat;
-	}
-
-	body.loading {
-		overflow: hidden;
-	}
-
-	body.loading .overlay {
-		display: block;
+	.buttonload {
+		background-color: #04AA6D;
+		border: none;
+		color: white;
+		padding: 12px 16px;
+		font-size: 16px
 	}
 </style>
 <script type="text/javascript" language="javascript1.2">
@@ -118,6 +108,7 @@ $rs = $reports->iget_records_pdf(addslashes($txtSearch), $recStartFrom, $page_re
 
 ?>
 
+
 <div style="font-family:Arial, Helvetica, sans-serif; color:#1D8895; font-size:22px; font-weight:bold; text-align:center; ">Call Records</div>
 <div>
 	<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" class="middle-forms cmxform" name="xForm" id="xForm">
@@ -157,39 +148,40 @@ $rs = $reports->iget_records_pdf(addslashes($txtSearch), $recStartFrom, $page_re
 							</tr>
 						</thead>
 						<tbody style="text-align: center;">
-							<?php while (!$rs->EOF) {
-							?>
+							<?php while (!$rs->EOF) { ?>
 								<tr class="odd">
 									<p style="display: none;" id="unique_id_<?= $rs->fields["id"] ?>"><?= $rs->fields["unique_id"] ?></p>
 									<?php $split = explode('-', $rs->fields["call_date"]); ?>
 									<td class="td" class="col-first">
-										<a href="call_detail.php?unique_id=<?php echo $rs->fields["unique_id"]; ?>&id=<?php echo $rs->fields["id"]; ?>"><?php echo $rs->fields["caller_id"]; ?></a>
+										<a href="call_detail.php?unique_id=<?= $rs->fields["unique_id"]; ?>&id=<?= $rs->fields["id"]; ?>"><?= $rs->fields["caller_id"]; ?></a>
 									</td>
-									<td class="td" id="call_date_<?= $rs->fields["id"] ?>" class="col-first"><?php echo $rs->fields["call_datetime"] ?> </td>
-									<td class="td" class="col-first"><?php echo $rs->fields["call_time"]; ?> </td>
-									<td class="td" id="call_duration_<?= $rs->fields["id"] ?>" class="col-first"><?php echo $rs->fields["call_duration"]; ?> </td>
-									<td class="td" class="col-first"><?php echo $rs->fields["full_name"]; ?> </td>
+									<td class="td" id="call_date_<?= $rs->fields["id"] ?>" class="col-first"><?= $rs->fields["call_datetime"] ?> </td>
+									<td class="td" class="col-first"><?= $rs->fields["call_time"]; ?> </td>
+									<td class="td" id="call_duration_<?= $rs->fields["id"] ?>" class="col-first"><?= $rs->fields["call_duration"]; ?> </td>
+									<td class="td" class="col-first"><?= $rs->fields["full_name"]; ?> </td>
 
 									<td class="col-first" style="padding-top: 35px; padding-bottom: 30px;">
 										<audio controls style="width: 145px; margin: 10px 10px -20px 10px;">
-											<source src="recording/<?php echo $rs->fields["unique_id"]; ?>.wav"><?php echo $rs->fields["caller_id"]; ?>
+											<source src="recording/<?= $rs->fields["unique_id"]; ?>.wav"><?= $rs->fields["caller_id"]; ?>
 										</audio>
 									</td>
 
 
-									<?php if ($rs_agent_name->fields["department"] == "QA") { ?>
+									<?php if ($rs_agent_name->fields["department"] == "QA") {
+										$get_rating = fetch_rating($rs->fields["unique_id"]);
+									?>
 
 										<td class="col-first d-flex flex-container" style="width: 20%;padding-top: 50px; flex-direction: row; border: none;">
 											<div class="">
 												<select name="rating" id="rating_<?= $rs->fields["id"] ?>" class="rating">
 													<option selected disabled>Select</option>
-													<option value="a">A</option>
-													<option value="b">B</option>
-													<option value="c">C</option>
+													<option value="a" <?= ($get_rating->fields["rating"] == 'A') ? "Selected" : "" ?>>A</option>
+													<option value="b" <?= ($get_rating->fields["rating"] == 'B') ? "Selected" : "" ?>>B</option>
+													<option value="c" <?= ($get_rating->fields["rating"] == 'C') ? "Selected" : "" ?>>C</option>
 												</select>
 											</div>
 											<div class="">
-												<a type="button" id="save_btn_<?= $rs->fields["id"] ?>" class="button save_btn">
+												<a type="button" id="save_btn_<?= $rs->fields["id"] ?>" class="button save_btn buttonload">
 													<span>Submit</span>
 												</a>
 											</div>
@@ -225,12 +217,14 @@ $rs = $reports->iget_records_pdf(addslashes($txtSearch), $recStartFrom, $page_re
 			call_duration = $(`#call_duration_${id}`).text();
 			user = "<?= $_SESSION[$db_prefix . '_UserName'] ?>";
 
+
 			if (rating == 'Select') {
 				swal.fire('Oops...', 'Please Select an Option First!', 'error');
 				err = 1;
 			}
 
 			if (err == 0) {
+				$(`#save_btn_${id}`).html('<i class="fa fa-refresh fa-spin"></i>');
 				$.ajax({
 						url: "<?php echo $_SERVER['PHP_SELF']; ?>",
 						type: 'POST',
@@ -245,6 +239,7 @@ $rs = $reports->iget_records_pdf(addslashes($txtSearch), $recStartFrom, $page_re
 					})
 					.done(function(response) {
 						// window.location = "icdr-stats.php";
+						$(`#save_btn_${id}`).html('<span>Submit</span>');
 						swal.fire('Done!', 'Rating Submited', 'success');
 					})
 					.fail(function() {

@@ -101,16 +101,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "File Name: " . $_FILES["ivr_file"]["name"] . "<br>";
     echo "File Type: " . $_FILES["ivr_file"]["type"] . "<br>";
     echo "File Size: " . ($_FILES["ivr_file"]["size"] / 1024) . " KB<br>";
-    echo "Stored in: " . $_FILES["ivr_file"]["tmp_name"] . " KB<br>";
+    echo "Stored in: " . $_FILES["ivr_file"]["tmp_name"] . " <br>";
   }
 
   // Check if file already exists
   if (file_exists($target_file)) {
-    $date = date("Y-m-d");
-    if (rename($target_file, "'$target_dir'/'$file_type'_'$date'.wav")) {
-      echo "File Rename status: Done <br>";
+    $date = date("Y-m-d_H:i:s");
+    if (rename($target_file, "$target_dir$file_type" . "_" . $date . ".wav")) {
+      echo "File Rename status: Done $target_dir$file_type" . "_" . $date . ".wav <br>";
     } else {
-      echo "File Rename status: Nope <br>";
+      echo "File Rename status: Nope $target_dir$file_type" . "_" . $date . ".wav <br>";
     }
   }
 
@@ -127,7 +127,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   } else {
     if (move_uploaded_file($_FILES["ivr_file"]["tmp_name"],  $target_dir . $file_type . ".wav")) {
       echo "Upload status: Success <br> ";
-      echo "File Name: " .  $file_type . ".wav";
+      echo "File Name: " .  $file_type . ".wav <br>";
+      echo "Dir/File Name: " .  $target_file . "  <br> ";
     } else {
       echo " <br> Upload status: Sorry, there was an error uploading your file.";
     }
@@ -158,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       <div class="file-upload">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-          <input type="file" name="ivr_file">
+          <input type="file" name="ivr_file" required>
           <input type="hidden" name="file_type" value="intro">
           <input type="submit" value="Upload">
         </form>
@@ -176,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       <div class="file-upload">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-          <input type="file" name="ivr_file">
+          <input type="file" name="ivr_file" required>
           <input type="hidden" name="file_type" value="Busy-IVR">
           <input type="submit" value="Upload">
         </form>
@@ -194,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       <div class="file-upload">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-          <input type="file" name="ivr_file">
+          <input type="file" name="ivr_file" required>
           <input type="hidden" name="file_type" value="Bahria-Adv">
           <input type="submit" value="Upload">
         </form>
