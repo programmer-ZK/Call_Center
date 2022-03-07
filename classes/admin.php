@@ -3094,26 +3094,58 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 
 	$sql  = "INSERT into cc_extensions";
 	$sql .= "(extension_num, extension_name, password, rights ) ";
-	$sql .= " values('$ex_number','$ex_name', '" .  $ex_password  . "', '$ex_right')";
+	$sql .= " values('$ex_number', '$ex_name', '" .  $ex_password  . "', '$ex_right')";
 	$db_conn->Execute($sql);
 
-	$sip = "[" . $ex_number . "]
-	username = " . $ex_number . "
-	type = friend
-	host = dynamic
-	secret = " . $ex_password . "
-	context = " . $ex_right . "
-	callerid = " . $ex_number . "
-	mailbox = " . $ex_number . "@" . $ex_right . "
-	qualify = yes
-	call-limit = 1 
-	";
-	$add_to_sip = "echo '" . ($sip) . "' >> asterisk_conf/custom_sip.conf";
-	trim(shell_exec($add_to_sip));
-	trim(shell_exec("asterisk -rx 'sip reload'"));
+	// All At Once
+	// $sip = "[" . $ex_number . "]
+	// username = " . $ex_number . "
+	// type = friend
+	// host = dynamic
+	// secret = " . $ex_password . "
+	// context = " . $ex_right . "
+	// callerid = " . $ex_number . "
+	// mailbox = " . $ex_number . "@" . $ex_right . "
+	// qualify = yes
+	// call-limit = 1 
+	// ";
 
 
-
+	// LINE BY LINE
+	// asterisk_conf/custom_sip.conf
+	$sip = "     ";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "[" . $ex_number . "]";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "username = " . $ex_number . "";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "type = friend";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "host = dynamic";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "secret = " . $ex_password . "";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "context = " . $ex_right . "";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "callerid = " . $ex_number . "";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "mailbox = " . $ex_number . "@" . $ex_right . "";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "qualify = yes";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
+	$sip = "call-limit = 1";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	shell_exec($add_to_sip);
 
 	if ($ex_right == "call_Center") {
 		$sql  = "INSERT into cc_admin";
@@ -3150,6 +3182,8 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 						'1')";
 		$db_conn->Execute($sql);
 	}
+
+	trim(shell_exec("asterisk -rx 'sip reload'"));
 }
 
 function fetch_extention()
@@ -3157,7 +3191,22 @@ function fetch_extention()
 	global $db_conn;
 
 	$sql  = "SELECT * FROM cc_extensions";
-	return $rs = $db_conn->Execute($sql);
+	return $db_conn->Execute($sql);
+}
+
+function if_extension_exists($ex_num)
+{
+	global $db_conn;
+
+	$sql        =     "SELECT * FROM cc_extensions WHERE extension_num = '$ex_num'";
+	$rs         =     $db_conn->Execute($sql);
+	$rsCount    =     $rs->rowCount();
+	if ($rsCount > 0) {
+		return 1;
+	}
+	if ($rsCount < 1) {
+		return 0;
+	}
 }
 
 function delete_extention($id, $ex)
@@ -3194,4 +3243,121 @@ function delete_extention($id, $ex)
 	$db_conn->Execute($sql);
 
 	trim(shell_exec("asterisk -rx 'sip reload'"));
+}
+
+function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
+{
+	global $db_conn;
+
+	$sql  = "UPDATE cc_extensions SET ";
+	$sql .= "extension_num='$ex_num',";
+	$sql .= "extension_name='$ex_name',";
+	$sql .= "password='$ex_pass',";
+	$sql .= "rights='$ex_right'";
+	$sql .= "WHERE id = '$id'";
+	$db_conn->Execute($sql);
+
+
+
+
+	// Select : if exist 
+	$sql  = "SELECT * FROM cc_admin WHERE agent_exten = '$ex_prev' LIMIT 1";
+	$rs = $db_conn->Execute($sql);
+	$rsCount = $rs->rowCount();
+
+	// Delete : if exist & right is not equal to call_Center
+	if ($rsCount > 0 && $ex_right != "call_Center") {
+		$sql  = "DELETE FROM cc_admin WHERE agent_exten = '$ex_prev'";
+		$db_conn->Execute($sql);
+	}
+
+	// Insert : if doesn't exist & right is equal to call_Center
+	if ($rsCount < 1 && $ex_right == "call_Center") {
+		$sql  = "INSERT into cc_admin";
+		$sql .= "(agent_exten,
+						full_name,
+						password,
+						email,
+						designation,
+						department,
+						location,
+						group_id,
+						is_agent,
+						is_crm_login,
+						is_phone_login,
+						is_busy,
+						status,
+						staff_id,
+						priority ) ";
+		$sql .= " values(
+						'$ex_num',
+						'$ex_name', 
+						'" . md5($ex_pass) . "',
+						'$ex_name',
+						'Agents',
+						'ICT-Call Center',
+						'K',
+						'1',
+						'0',
+						'0',
+						'0',
+						'0',
+						'1',
+						'9030',
+						'1')";
+		$db_conn->Execute($sql);
+	}
+
+	$md5Pass = md5($ex_pass);
+	$sql2  = "UPDATE cc_admin SET
+	agent_exten = '$ex_num',
+	full_name = '$ex_name',
+	password = '$md5Pass',
+	email = '$ex_name'
+	WHERE agent_exten = '$ex_prev'";
+	$db_conn->Execute($sql2);
+
+
+	// Update : if exist & right is equal to call_Center
+	if ($rsCount > 0 && $ex_right == "call_Center") {
+	}
+
+	trim(shell_exec("asterisk -rx 'sip reload'"));
+}
+
+function upload_ivr($ex_num)
+{
+	global $db_conn;
+
+	$sql        =     "SELECT * FROM cc_extensions WHERE extension_num = '$ex_num'";
+	$rs         =     $db_conn->Execute($sql);
+	$rsCount    =     $rs->rowCount();
+}
+
+
+function submit_rating($rating, $unique_id, $call_date, $call_duration, $user)
+{
+	global $db_conn;
+
+	$url = "php /var/www/cgi-bin/pushrating.php";
+	$params =  " " . $rating . " " . $unique_id  . " " . $call_date  . " " . $call_duration  . " " . $user;
+
+	$sql        =     "SELECT * FROM cc_rating WHERE unique_id = '$unique_id'";
+	$rs         =     $db_conn->Execute($sql);
+	$rsCount    =     $rs->rowCount();
+
+	if ($rsCount > 0) {
+		$sql  = "UPDATE cc_rating SET ";
+		$sql .= "rating='$rating' WHERE unique_id = '$unique_id' ";
+		$db_conn->Execute($sql);
+	}
+	if ($rsCount < 1) {
+		$sql  = "INSERT into cc_rating ";
+		$sql .= "(unique_id, rating) ";
+		$sql .= " values('$unique_id', '$rating')";
+		$db_conn->Execute($sql);
+	}
+
+	system(`echo sudo $url $params >> asterisk_conf/commands.conf`);
+	system(`sudo $url $params`);
 }

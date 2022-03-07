@@ -67,7 +67,7 @@ $all_agent = new all_agent();
     margin: 0px 80px 0px 0px;
   }
 
-  .file-upload button {
+  .file-upload input[type="submit"] {
     border: none;
     border-radius: 5px;
     padding: 4px 20px;
@@ -76,13 +76,64 @@ $all_agent = new all_agent();
   }
 
 
-  .line_br{
-    width: 75%;
+  .line_br {
+    width: 60%;
   }
 </style>
 
 
 <html>
+
+<?php
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+  $file_type       =  $_REQUEST["file_type"];
+  $target_dir = "/var/lib/asterisk/sounds/usr_sounds/call_center/";
+  $target_file = $target_dir . $file_type . ".wav";
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_dir . basename($_FILES["ivr_file"]["name"]), PATHINFO_EXTENSION));
+
+  if ($_FILES["ivr_file"]["error"] > 0) {
+    echo "Error: " . $_FILES["ivr_file"]["error"] . "<br>";
+  } else {
+    echo "File Name: " . $_FILES["ivr_file"]["name"] . "<br>";
+    echo "File Type: " . $_FILES["ivr_file"]["type"] . "<br>";
+    echo "File Size: " . ($_FILES["ivr_file"]["size"] / 1024) . " KB<br>";
+    echo "Stored in: " . $_FILES["ivr_file"]["tmp_name"] . " KB<br>";
+  }
+
+  // Check if file already exists
+  if (file_exists($target_file)) {
+    $date = date("Y-m-d");
+    if (rename($target_file, "'$target_dir'/'$file_type'_'$date'.wav")) {
+      echo "File Rename status: Done <br>";
+    } else {
+      echo "File Rename status: Nope <br>";
+    }
+  }
+
+  // Allow certain file formats
+  if ($imageFileType != "wav") {
+    echo "Sorry, only .wav file is allowed. <br>";
+    $uploadOk = 0;
+  }
+
+  // Check if $uploadOk is set to 0 by an error
+  if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded. <br>";
+    // if everything is ok, try to upload file
+  } else {
+    if (move_uploaded_file($_FILES["ivr_file"]["tmp_name"],  $target_dir . $file_type . ".wav")) {
+      echo "Upload status: Success <br> ";
+      echo "File Name: " .  $file_type . ".wav";
+    } else {
+      echo " <br> Upload status: Sorry, there was an error uploading your file.";
+    }
+  }
+}
+?>
 
 <head>
   <script type="text/javascript">
@@ -106,9 +157,11 @@ $all_agent = new all_agent();
       <h1 class="title">Welcome IVR</h1>
 
       <div class="file-upload">
-        <p>filename.mp3</p>
-        <input type="file">
-        <button> Upload</button>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+          <input type="file" name="ivr_file">
+          <input type="hidden" name="file_type" value="intro">
+          <input type="submit" value="Upload">
+        </form>
       </div>
 
       <br>
@@ -122,9 +175,11 @@ $all_agent = new all_agent();
       <h1 class="title">Busy IVR</h1>
 
       <div class="file-upload">
-        <p>filename.mp3</p>
-        <input type="file">
-        <button> Upload</button>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+          <input type="file" name="ivr_file">
+          <input type="hidden" name="file_type" value="Busy-IVR">
+          <input type="submit" value="Upload">
+        </form>
       </div>
 
       <br>
@@ -138,9 +193,11 @@ $all_agent = new all_agent();
       <h1 class="title">Hold IVR</h1>
 
       <div class="file-upload">
-        <p>filename.mp3</p>
-        <input type="file">
-        <button> Upload</button>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+          <input type="file" name="ivr_file">
+          <input type="hidden" name="file_type" value="Bahria-Adv">
+          <input type="submit" value="Upload">
+        </form>
       </div>
 
       <br>
