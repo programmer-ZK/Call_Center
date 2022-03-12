@@ -96,43 +96,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $imageFileType = strtolower(pathinfo($target_dir . basename($_FILES["ivr_file"]["name"]), PATHINFO_EXTENSION));
 
   if ($_FILES["ivr_file"]["error"] > 0) {
-    echo "Error: " . $_FILES["ivr_file"]["error"] . "<br>";
+    echo "<b>Error:</b> " . $_FILES["ivr_file"]["error"] . "<br>";
   } else {
-    echo "File Name: " . $_FILES["ivr_file"]["name"] . "<br>";
-    echo "File Type: " . $_FILES["ivr_file"]["type"] . "<br>";
-    echo "File Size: " . ($_FILES["ivr_file"]["size"] / 1024) . " KB<br>";
-    echo "Stored in: " . $_FILES["ivr_file"]["tmp_name"] . " <br>";
+    echo "<b>File Name:</b> " . $_FILES["ivr_file"]["name"] . "<br>";
+    echo "<b>File Type:</b> " . $_FILES["ivr_file"]["type"] . "<br>";
+    echo "<b>File Size:</b> " . ($_FILES["ivr_file"]["size"] / 1024) . " KB<br>";
+    echo "<b>Stored in:</b> " . $_FILES["ivr_file"]["tmp_name"] . " <br>";
   }
 
   // Check if file already exists
   if (file_exists($target_file)) {
     $date = date("Y-m-d_H:i:s");
     if (rename($target_file, "$target_dir$file_type" . "_" . $date . ".wav")) {
-      echo "File Rename status: Done $target_dir$file_type" . "_" . $date . ".wav <br>";
+      echo "<b>File Rename status:</b> Done $target_dir$file_type" . "_" . $date . ".wav <br>";
     } else {
-      echo "File Rename status: Nope $target_dir$file_type" . "_" . $date . ".wav <br>";
+      echo "<b>File Rename status:</b> Nope $target_dir$file_type" . "_" . $date . ".wav <br>";
     }
   }
 
   // Allow certain file formats
   if ($imageFileType != "wav") {
-    echo "Sorry, only .wav file is allowed. <br>";
+    echo "<b>Sorry, only .wav file is allowed. <br>";
     $uploadOk = 0;
   }
 
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded. <br>";
+    echo "<b>Sorry,</b> your file was not uploaded. <br>";
     // if everything is ok, try to upload file
   } else {
     if (move_uploaded_file($_FILES["ivr_file"]["tmp_name"],  $target_dir . $file_type . ".wav")) {
-      echo "Upload status: Success <br> ";
-      echo "File Name: " .  $file_type . ".wav <br>";
-      echo "Dir/File Name: " .  $target_file . "  <br> ";
+      echo "<b>Upload status:</b> Success <br> ";
+      echo "<b>File Name:</b> " .  $file_type . ".wav <br>";
+      echo "<b>Dir/File Name:</b> " .  $target_file . "  <br> ";
     } else {
-      echo " <br> Upload status: Sorry, there was an error uploading your file.";
+      echo " <br> <b>Upload status:</b> Sorry, there was an error uploading your file.";
     }
   }
+	shell_exec('chmod 777 '.$target_dir.$file_type.'.wav');
+  echo "<br>"; 
 }
 ?>
 

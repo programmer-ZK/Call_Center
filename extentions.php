@@ -81,8 +81,8 @@ $errors = array();
 
 if (isset($_REQUEST['action']) && $_REQUEST['action'] == "delete") {
   $id       =  $_REQUEST["id"];
-  $ex       =  $_REQUEST["ex"];
-  delete_extention($id, $ex);
+  $ex_num       =  $_REQUEST["ex_num"];
+  delete_extention($id, $ex_num);
 }
 
 if (isset($_REQUEST['action']) && $_REQUEST['action'] == "update") {
@@ -92,7 +92,9 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == "update") {
   $ex_name       =    $_REQUEST["ex_name"];
   $ex_pass       =    $_REQUEST["ex_pass"];
   $ex_right      =    $_REQUEST["ex_right"];
-  update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right);
+  delete_extention($id, $ex_num);
+  insert_extention($ex_num, $ex_name, $ex_pass, $ex_right);
+  // update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right);
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -224,7 +226,7 @@ $rs = fetch_extention();
         $s_no = 1;
         while (!$rs->EOF) {
           $id = $rs->fields['id'];
-          $ex = $rs->fields['extension_num'];
+          $ex_num = $rs->fields['extension_num'];
         ?>
           <p style="display: none;" id="ex_num_hidden_<?= $id ?>"><?= $rs->fields['extension_num']; ?></p>
           <tr class="tbl_tr">
@@ -244,7 +246,7 @@ $rs = fetch_extention();
 
             </td>
             <td uneditable>
-              <a href="#" onclick="deleteExtension(<?= $id ?>,<?= $ex ?>)">
+              <a href="#" onclick="deleteExtension(<?= $id ?>,<?= $ex_num ?>)">
                 <i class="fa-solid fa-trash"></i>
               </a>
               <button value="<?= $id ?>" type="button" id="save_btn_<?= $id ?>" class="txtbox-short-date save_btn">Save</button>
@@ -341,7 +343,7 @@ $rs = fetch_extention();
     }
 
     // Function to Delete Extension
-    function deleteExtension(id, ex) {
+    function deleteExtension(id, ex_num) {
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -358,7 +360,7 @@ $rs = fetch_extention();
                 type: 'POST',
                 data: {
                   id: id,
-                  ex: ex,
+                  ex_num: ex_num,
                   action: "delete"
                 },
               })

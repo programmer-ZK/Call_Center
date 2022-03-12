@@ -2313,6 +2313,38 @@ COUNT(DISTINCT abandoned.id) AS abandon_calls, COUNT(DISTINCT stats3.call_status
 		//exit;
 		return $rs;
 	}
+		
+	function get_agent_comp_list($alpha = "", $startRec, $totalRec = 80, $field = "full_name", $order = "asc", $fdate, $tdate)
+        {
+
+                global $db_conn;
+                global $db_prefix;
+                $sql = " SELECT  admin.admin_id,admin.full_name,admin.email,admin.agent_exten,admin.is_crm_login,admin.is_phone_login,admin.is_busy,admin.unique_id,queue.caller_id, queue.call_type,  ";
+                $sql .= " ";
+                $sql .= " CASE admin.is_busy
+                                 WHEN '1' THEN TIMEDIFF(TIME(NOW()), TIME(queue.staff_start_datetime))
+                                 WHEN '0' THEN TIMEDIFF(TIME(NOW()), TIME(queue.update_datetime))
+                                 WHEN '2' THEN TIMEDIFF(TIME(NOW()), TIME(queue.update_datetime))
+                                 WHEN '3' THEN TIMEDIFF(TIME(NOW()), TIME(queue.update_datetime))
+                                 END AS t_duration ";
+		$sql .= " FROM " . $db_prefix . "_admin AS admin LEFT OUTER JOIN " . $db_prefix . "_queue_stats AS queue ON admin.unique_id = queue.unique_id where 1=1 ";
+                $sql .= " AND DATE(admin.staff_updated_date) = DATE(NOW()) ";
+                $sql .= " AND designation = 'Agents' ";
+                $sql .= " AND admin.status = 1 ";
+                //$sql .= " AND admin.is_crm_login !=0";
+                //$sql .= " AND admin.is_phone_login !=0";
+                $sql .= " GROUP BY admin.full_name ";
+                //$sql.= " order by admin.$field $order";
+                $sql .= " order by admin.full_name";
+                $sql .= " limit $startRec, $totalRec";
+
+
+                $rs = $db_conn->Execute($sql);         
+                //      echo("<br>".$sql);             
+                //exit;
+                return $rs; 
+        }
+
 
 	function get_queue_stats($alpha = "", $startRec, $totalRec = 80, $field = "staff_updated_date", $order = "asc")
 	{
@@ -3115,37 +3147,37 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 	// LINE BY LINE
 	// asterisk_conf/custom_sip.conf
 	$sip = "     ";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 	$sip = "[" . $ex_number . "]";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 	$sip = "username = " . $ex_number . "";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 	$sip = "type = friend";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 	$sip = "host = dynamic";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 	$sip = "secret = " . $ex_password . "";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 	$sip = "context = " . $ex_right . "";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 	$sip = "callerid = " . $ex_number . "";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 	$sip = "mailbox = " . $ex_number . "@" . $ex_right . "";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 	$sip = "qualify = yes";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 	$sip = "call-limit = 1";
-	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip123.conf";
+	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 
 	if ($ex_right == "call_Center") {
@@ -3184,7 +3216,7 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 		$db_conn->Execute($sql);
 	}
 
-	trim(shell_exec("asterisk -rx 'sip reload'"));
+	shell_exec('/usr/sbin/asterisk -rx "sip reload"');
 }
 
 function fetch_extention()
@@ -3214,28 +3246,18 @@ function delete_extention($id, $ex)
 {
 	global $db_conn;
 
-	// $sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
-	// $rs = $db_conn->Execute($sql);
+	 $sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
+	 $rs = $db_conn->Execute($sql);
 
-	// $sip = "[" . $rs->fields['extension_num'] . "]
-	// username = " . $rs->fields['extension_num'] . "
-	// type = friend
-	// host = dynamic
-	// secret = " . $rs->fields['password'] . "
-	// context = " . $rs->fields['rights'] . "
-	// callerid = " . $rs->fields['extension_num'] . "
-	// mailbox = " . $rs->fields['extension_num'] . "@" . $rs->fields['rights'] . "
-	// qualify = yes
-	// call-limit = 1
-	// ";
+	 $sip = "[" . $rs->fields['extension_num'] . "]\nusername = " . $rs->fields['extension_num'] . "\ntype = friend\nhost = dynamic\nsecret = " . $rs->fields['password'] . "\ncontext = " . $rs->fields['rights'] . "\ncallerid = " . $rs->fields['extension_num'] . "\nmailbox = " . $rs->fields['extension_num'] . "@" . $rs->fields['rights'] . "\nqualify = yes\ncall-limit = 1";
 
-	// $add_to_sip = "echo '" . ($sip) . "' >> asterisk_conf/custom_sip.conf";
-	// trim(shell_exec($add_to_sip));
-	// trim(shell_exec("asterisk -rx 'sip reload'"));
+	 //$add_to_sip = "echo '" . ($sip) . "' >> asterisk_conf/custom_sip.conf";
+	 //shell_exec($add_to_sip);
+	 //shell_exec('/usr/sbin/asterisk -rx "sip reload"'));
 
-	// $contents = file_get_contents("asterisk_conf/custom_sip.conf");
-	// $contents = str_replace($sip, '', $contents);
-	// file_put_contents("asterisk_conf/custom_sip.conf", $contents);
+	 $contents = file_get_contents("asterisk_conf/custom_sip.conf");
+	 $contents = str_replace($sip, '', $contents);
+	 file_put_contents("asterisk_conf/custom_sip.conf", $contents);
 
 	$sql  = "DELETE FROM cc_extensions WHERE id = '$id'";
 	$db_conn->Execute($sql);
@@ -3243,11 +3265,12 @@ function delete_extention($id, $ex)
 	$sql  = "DELETE FROM cc_admin WHERE agent_exten = '$ex'";
 	$db_conn->Execute($sql);
 
-	trim(shell_exec("asterisk -rx 'sip reload'"));
+	shell_exec('/usr/sbin/asterisk -rx "sip reload"');
 }
 
 function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 {
+	
 	global $db_conn;
 
 	$sql  = "UPDATE cc_extensions SET ";
@@ -3323,7 +3346,7 @@ function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 	if ($rsCount > 0 && $ex_right == "call_Center") {
 	}
 
-	trim(shell_exec("asterisk -rx 'sip reload'"));
+	shell_exec('/usr/sbin/asterisk -rx "sip reload"');
 }
 
 function upload_ivr($ex_num)
@@ -3340,7 +3363,7 @@ function submit_rating($rating, $unique_id, $call_date, $call_duration, $user)
 {
 	global $db_conn;
 
-	$url = "php /var/www/cgi-bin/pushrating.php";
+	$url = "/usr/bin/php /var/www/cgi-bin/pushrating.php";
 	$params =  `$rating $unique_id $call_date $call_duration $user`;
 	$currentDateTime = date("Y-m-d H:i:s");
 	$sql        =     "SELECT * FROM cc_rating WHERE unique_id = '$unique_id'";
@@ -3358,8 +3381,9 @@ function submit_rating($rating, $unique_id, $call_date, $call_duration, $user)
 		$sql .= " values('$unique_id', '$rating')";
 		$db_conn->Execute($sql);
 	}
-	system(`echo $unique_id $call_date $call_duration $rating $currentDateTime $user  >> asterisk_conf/pushrating.log`);
-	// system(`sudo $url $params`);
+	$url = $url . " $unique_id $call_date $call_duration $rating $currentDateTime $user";
+	//system($url);
+	shell_exec('/usr/bin/php /var/www/cgi-bin/pushrating.php '.$rating.' '.$unique_id.' '.$call_date.' '.$call_duration.' '.$user);
 }
 
 function fetch_rating($unique_id)
@@ -3368,4 +3392,14 @@ function fetch_rating($unique_id)
 
 	$sql  = "SELECT * FROM cc_rating WHERE unique_id = " . $unique_id;
 	return $db_conn->Execute($sql);
+}
+
+function delete_extention_guide($id, $ex)
+{
+        global $db_conn;
+
+         $sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
+         $rs = $db_conn->Execute($sql);
+	return $rs;	
+
 }

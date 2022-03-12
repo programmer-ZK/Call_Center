@@ -1,10 +1,10 @@
 <?php include_once("includes/config.php"); ?>
 <?php
-$page_name = "agent-stats.php";
+$page_name = "agent-comp-stats.php";
 $page_level = "0";
 $page_group_id = "0";
-$page_title = "Agent Stats";
-$page_menu_title = "Agent Stats";
+$page_title = "Agent Complete Stats";
+$page_menu_title = "Agent Complete Stats";
 ?>
 <?php include_once($site_root . "includes/check.auth.php"); ?>
 <?php
@@ -26,7 +26,7 @@ $tools_admin = new tools_admin();
 $recStartFrom = 0;
 $field = empty($_REQUEST["field"]) ? "staff_updated_date" : $_REQUEST["field"];
 $order = empty($_REQUEST["order"]) ? "asc" : $_REQUEST["order"];
-$rs = $admin->get_agent_list(addslashes($txtSearch), $recStartFrom, $page_records_limit, $field, $order);
+$rs = $admin->get_agent_comp_list(addslashes($txtSearch), $recStartFrom, $page_records_limit, $field, $order);
 ?>
 <?php
 session_start(); // this MUST be at the very top of the page, the only thing before it is <?php 
@@ -44,7 +44,7 @@ if ($id == 'start') {
 	$chek = "checked";
 	if ($_SESSION['number'] == 1) {
 		unset($_SESSION['number']);
-		header("Location: call_center_wallboard.php?id=" . $_GET['id']);
+		header("Location: agent-stats.php?id=" . $_GET['id']);
 	}
 } else {
 	$chek = "";
@@ -58,11 +58,11 @@ if ($id == 'start') {
 				<a class="heading-link clr_heading active" href="javascript:;">
 					<?php echo ($page_title); ?></a>
 
+				<a class="heading-link clr_heading" href="agent-stats.php"><span>Agent Stats</span></a>
+				&nbsp;&nbsp;
 				<a class="heading-link clr_heading" href="call_center_wallboard.php"><span>Call Center Wallboard</span></a>
-				&nbsp;&nbsp;
-				<a class="heading-link clr_heading" href="agent-stats-summary.php"><span>Agent Stats Summary</span></a>
-				&nbsp;&nbsp;
-                                <a class="heading-link clr_heading" href="agent-comp-stats.php"><span>Agent Complete Stats</span></a>
+				 &nbsp;&nbsp;
+                                <a class="heading-link clr_heading" href="agent-stats-summary.php"><span>Agent Stats Summary</span></a>
 
 			</h4>
 			<div class="box-container">
@@ -188,14 +188,6 @@ if ($id == 'start') {
 		</div>
 
 	</div>
-	<?php include($site_admin_root . "queue-stats.php"); ?>
-	<br />
-	<?php include($site_admin_root . "queue_wait_stats.php"); ?>
-	<br />
-	<?php include($site_admin_root . "drop_call_stats.php"); ?>
-	<br />
-	<?php include($site_admin_root . "aband_call_stats.php"); ?>
-
 	</div>
 </form>
 <?php if (!isset($_GET['id'])) { ?>

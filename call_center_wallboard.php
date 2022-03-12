@@ -1,3 +1,4 @@
+
 <?php include_once("includes/config.php"); ?>
 <?php
 $page_name = "call_center_wallboard.php";
@@ -114,6 +115,8 @@ if ($id == 'start') {
         <a class="heading-link clr_heading" href="agent-stats.php"><span>Agent Stats</span></a>
         &nbsp;&nbsp;
         <a class="heading-link clr_heading" href="agent-stats-summary.php"><span>Agent Stats Summary</span></a>
+	&nbsp;&nbsp;
+        <a class="heading-link clr_heading" href="agent-comp-stats.php"><span>Agent Complete Stats</span></a>
       </h4>
       <div class="box-container">
         <table id="tbl1" style="display:inline-block; width:100%; margin-top:10px;">

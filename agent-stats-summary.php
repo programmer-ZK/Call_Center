@@ -44,7 +44,7 @@ if ($id == 'start') {
 	$chek = "checked";
 	if ($_SESSION['number'] == 1) {
 		unset($_SESSION['number']);
-		header("Location: agent-stats.php?id=" . $_GET['id']);
+		header("Location: agent-comp-stats.php?id=" . $_GET['id']);
 	}
 } else {
 	$chek = "";
@@ -57,6 +57,8 @@ $ttl_record=0;
 		<div class="box">
 			<h4 id="np" class="white new_wht">
 				<a class="heading-link clr_heading active" href="javascript:;"><?php echo ($page_title); ?></a>
+				
+				<a class="heading-link clr_heading" href="agent-comp-stats.php"><span>Agent Complete Stats</span></a>
 
 				<a class="heading-link clr_heading" href="agent-stats.php"><span>Agent Stats</span></a>
 
