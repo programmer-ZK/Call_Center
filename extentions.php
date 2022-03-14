@@ -92,9 +92,8 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == "update") {
   $ex_name       =    $_REQUEST["ex_name"];
   $ex_pass       =    $_REQUEST["ex_pass"];
   $ex_right      =    $_REQUEST["ex_right"];
-  delete_extention($id, $ex_num);
-  insert_extention($ex_num, $ex_name, $ex_pass, $ex_right);
-  // update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right);
+
+  update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right);
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -275,11 +274,18 @@ $rs = fetch_extention();
         id = id.split("_");
         id = id.slice(-1);
 
-        $(`#ex_right_${id}`).removeAttr("disabled");
+        ex_right = $(`#ex_right_${id}`).val();
 
-        $(this).on("change paste keyup", function() {
-          $(`#save_btn_${id}`).css("opacity", "1");
-        });
+        if (ex_right != "call_Center") {
+          $(`#ex_right_${id}`).removeAttr("disabled");
+
+          $(this).on("change paste keyup", function() {
+            $(`#save_btn_${id}`).css("opacity", "1");
+          });
+        } else {
+          // swal.fire('Oops...', 'Can\'t Change Call Center Right', 'error');
+        }
+
       });
 
       $(".tbl_tr > td").click(function() {

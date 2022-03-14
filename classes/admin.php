@@ -2313,37 +2313,37 @@ COUNT(DISTINCT abandoned.id) AS abandon_calls, COUNT(DISTINCT stats3.call_status
 		//exit;
 		return $rs;
 	}
-		
-	function get_agent_comp_list($alpha = "", $startRec, $totalRec = 80, $field = "full_name", $order = "asc", $fdate, $tdate)
-        {
 
-                global $db_conn;
-                global $db_prefix;
-                $sql = " SELECT  admin.admin_id,admin.full_name,admin.email,admin.agent_exten,admin.is_crm_login,admin.is_phone_login,admin.is_busy,admin.unique_id,queue.caller_id, queue.call_type,  ";
-                $sql .= " ";
-                $sql .= " CASE admin.is_busy
+	function get_agent_comp_list($alpha = "", $startRec, $totalRec = 80, $field = "full_name", $order = "asc", $fdate, $tdate)
+	{
+
+		global $db_conn;
+		global $db_prefix;
+		$sql = " SELECT  admin.admin_id,admin.full_name,admin.email,admin.agent_exten,admin.is_crm_login,admin.is_phone_login,admin.is_busy,admin.unique_id,queue.caller_id, queue.call_type,  ";
+		$sql .= " ";
+		$sql .= " CASE admin.is_busy
                                  WHEN '1' THEN TIMEDIFF(TIME(NOW()), TIME(queue.staff_start_datetime))
                                  WHEN '0' THEN TIMEDIFF(TIME(NOW()), TIME(queue.update_datetime))
                                  WHEN '2' THEN TIMEDIFF(TIME(NOW()), TIME(queue.update_datetime))
                                  WHEN '3' THEN TIMEDIFF(TIME(NOW()), TIME(queue.update_datetime))
                                  END AS t_duration ";
 		$sql .= " FROM " . $db_prefix . "_admin AS admin LEFT OUTER JOIN " . $db_prefix . "_queue_stats AS queue ON admin.unique_id = queue.unique_id where 1=1 ";
-                $sql .= " AND DATE(admin.staff_updated_date) = DATE(NOW()) ";
-                $sql .= " AND designation = 'Agents' ";
-                $sql .= " AND admin.status = 1 ";
-                //$sql .= " AND admin.is_crm_login !=0";
-                //$sql .= " AND admin.is_phone_login !=0";
-                $sql .= " GROUP BY admin.full_name ";
-                //$sql.= " order by admin.$field $order";
-                $sql .= " order by admin.full_name";
-                $sql .= " limit $startRec, $totalRec";
+		$sql .= " AND DATE(admin.staff_updated_date) = DATE(NOW()) ";
+		$sql .= " AND designation = 'Agents' ";
+		$sql .= " AND admin.status = 1 ";
+		//$sql .= " AND admin.is_crm_login !=0";
+		//$sql .= " AND admin.is_phone_login !=0";
+		$sql .= " GROUP BY admin.full_name ";
+		//$sql.= " order by admin.$field $order";
+		$sql .= " order by admin.full_name";
+		$sql .= " limit $startRec, $totalRec";
 
 
-                $rs = $db_conn->Execute($sql);         
-                //      echo("<br>".$sql);             
-                //exit;
-                return $rs; 
-        }
+		$rs = $db_conn->Execute($sql);
+		//      echo("<br>".$sql);             
+		//exit;
+		return $rs;
+	}
 
 
 	function get_queue_stats($alpha = "", $startRec, $totalRec = 80, $field = "staff_updated_date", $order = "asc")
@@ -3246,18 +3246,18 @@ function delete_extention($id, $ex)
 {
 	global $db_conn;
 
-	 $sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
-	 $rs = $db_conn->Execute($sql);
+	$sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
+	$rs = $db_conn->Execute($sql);
 
-	 $sip = "[" . $rs->fields['extension_num'] . "]\nusername = " . $rs->fields['extension_num'] . "\ntype = friend\nhost = dynamic\nsecret = " . $rs->fields['password'] . "\ncontext = " . $rs->fields['rights'] . "\ncallerid = " . $rs->fields['extension_num'] . "\nmailbox = " . $rs->fields['extension_num'] . "@" . $rs->fields['rights'] . "\nqualify = yes\ncall-limit = 1";
+	$sip = "[" . $rs->fields['extension_num'] . "]\nusername = " . $rs->fields['extension_num'] . "\ntype = friend\nhost = dynamic\nsecret = " . $rs->fields['password'] . "\ncontext = " . $rs->fields['rights'] . "\ncallerid = " . $rs->fields['extension_num'] . "\nmailbox = " . $rs->fields['extension_num'] . "@" . $rs->fields['rights'] . "\nqualify = yes\ncall-limit = 1";
 
-	 //$add_to_sip = "echo '" . ($sip) . "' >> asterisk_conf/custom_sip.conf";
-	 //shell_exec($add_to_sip);
-	 //shell_exec('/usr/sbin/asterisk -rx "sip reload"'));
+	//$add_to_sip = "echo '" . ($sip) . "' >> asterisk_conf/custom_sip.conf";
+	//shell_exec($add_to_sip);
+	//shell_exec('/usr/sbin/asterisk -rx "sip reload"'));
 
-	 $contents = file_get_contents("asterisk_conf/custom_sip.conf");
-	 $contents = str_replace($sip, '', $contents);
-	 file_put_contents("asterisk_conf/custom_sip.conf", $contents);
+	$contents = file_get_contents("asterisk_conf/custom_sip.conf");
+	$contents = str_replace($sip, '', $contents);
+	file_put_contents("asterisk_conf/custom_sip.conf", $contents);
 
 	$sql  = "DELETE FROM cc_extensions WHERE id = '$id'";
 	$db_conn->Execute($sql);
@@ -3270,7 +3270,7 @@ function delete_extention($id, $ex)
 
 function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 {
-	
+
 	global $db_conn;
 
 	$sql  = "UPDATE cc_extensions SET ";
@@ -3280,9 +3280,6 @@ function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 	$sql .= "rights='$ex_right'";
 	$sql .= "WHERE id = '$id'";
 	$db_conn->Execute($sql);
-
-
-
 
 	// Select : if exist 
 	$sql  = "SELECT * FROM cc_admin WHERE agent_exten = '$ex_prev' LIMIT 1";
@@ -3341,7 +3338,6 @@ function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 	WHERE agent_exten = '$ex_prev'";
 	$db_conn->Execute($sql2);
 
-
 	// Update : if exist & right is equal to call_Center
 	if ($rsCount > 0 && $ex_right == "call_Center") {
 	}
@@ -3383,7 +3379,7 @@ function submit_rating($rating, $unique_id, $call_date, $call_duration, $user)
 	}
 	$url = $url . " $unique_id $call_date $call_duration $rating $currentDateTime $user";
 	//system($url);
-	shell_exec('/usr/bin/php /var/www/cgi-bin/pushrating.php '.$rating.' '.$unique_id.' '.$call_date.' '.$call_duration.' '.$user);
+	shell_exec('/usr/bin/php /var/www/cgi-bin/pushrating.php ' . $rating . ' ' . $unique_id . ' ' . $call_date . ' ' . $call_duration . ' ' . $user);
 }
 
 function fetch_rating($unique_id)
@@ -3396,10 +3392,9 @@ function fetch_rating($unique_id)
 
 function delete_extention_guide($id, $ex)
 {
-        global $db_conn;
+	global $db_conn;
 
-         $sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
-         $rs = $db_conn->Execute($sql);
-	return $rs;	
-
+	$sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
+	$rs = $db_conn->Execute($sql);
+	return $rs;
 }
