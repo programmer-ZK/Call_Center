@@ -3180,7 +3180,7 @@ function insert_extention($ex_number, $ex_name, $ex_password, $ex_right)
 	$add_to_sip = "echo " . $sip . " >> asterisk_conf/custom_sip.conf";
 	shell_exec($add_to_sip);
 
-	if ($ex_right == "call_Center") {
+	if ($ex_right == "call_center") {
 		$sql  = "INSERT into cc_admin";
 		$sql .= "(agent_exten,
 						full_name,
@@ -3273,6 +3273,17 @@ function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 
 	global $db_conn;
 
+         $sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
+        $rs = $db_conn->Execute($sql);	
+
+	$sip = "[" . $rs->fields['extension_num'] . "]\nusername = " . $rs->fields['extension_num'] . "\ntype = friend\nhost = dynamic\nsecret = " . $rs->fields['password'] . "\ncontext = " . $rs->fields['rights'] . "\ncallerid = " . $rs->fields['extension_num'] . "\nmailbox = " . $rs->fields['extension_num'] . "@" . $rs->fields['rights'] . "\nqualify = yes\ncall-limit = 1";
+
+        $sip_new = "[" . $ex_num . "]\nusername = " . $ex_num . "\ntype = friend\nhost = dynamic\nsecret = " . $ex_pass . "\ncontext = " . $ex_right . "\ncallerid = " . $ex_num . "\nmailbox = " . $ex_num . "@" . $ex_right . "\nqualify = yes\ncall-limit = 1";
+
+        $contents = file_get_contents("asterisk_conf/custom_sip.conf");
+        $contents = str_replace($sip, $sip_new, $contents);
+        file_put_contents("asterisk_conf/custom_sip.conf", $contents);
+
 	$sql  = "UPDATE cc_extensions SET ";
 	$sql .= "extension_num='$ex_num',";
 	$sql .= "extension_name='$ex_name',";
@@ -3286,14 +3297,14 @@ function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 	$rs = $db_conn->Execute($sql);
 	$rsCount = $rs->rowCount();
 
-	// Delete : if exist & right is not equal to call_Center
-	if ($rsCount > 0 && $ex_right != "call_Center") {
+	// Delete : if exist & right is not equal to call_center
+	if ($rsCount > 0 && $ex_right != "call_center") {
 		$sql  = "DELETE FROM cc_admin WHERE agent_exten = '$ex_prev'";
 		$db_conn->Execute($sql);
 	}
 
 	// Insert : if doesn't exist & right is equal to call_Center
-	if ($rsCount < 1 && $ex_right == "call_Center") {
+	if ($rsCount < 1 && $ex_right == "call_center") {
 		$sql  = "INSERT into cc_admin";
 		$sql .= "(agent_exten,
 						full_name,
@@ -3339,8 +3350,9 @@ function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 	$db_conn->Execute($sql2);
 
 	// Update : if exist & right is equal to call_Center
-	if ($rsCount > 0 && $ex_right == "call_Center") {
+	if ($rsCount > 0 && $ex_right == "call_center") {
 	}
+
 
 	shell_exec('/usr/sbin/asterisk -rx "sip reload"');
 }

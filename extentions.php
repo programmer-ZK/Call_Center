@@ -171,7 +171,7 @@ $rs = fetch_extention();
                       <option selected disabled>Select Right </option>
                       <option value="extensions" <?= ($ex_right == "extensions") ? "selected" : "" ?>>Only Extensions</option>
                       <option value="outside" <?= ($ex_right == "outside") ? "selected" : "" ?>>Complete Outgoing</option>
-                      <option value="call_Center" <?= ($ex_right == "call_Center") ? "selected" : "" ?>>Call Center Agent</option>
+                      <option value="call_center" <?= ($ex_right == "call_center") ? "selected" : "" ?>>Call Center Agent</option>
                     </select>
                   </td>
                   <td style="border: none;">
@@ -239,7 +239,7 @@ $rs = fetch_extention();
                   <option selected disabled>Select Right </option>
                   <option value="extensions" <?= ($rs->fields['rights'] == "extensions") ? "selected" : "" ?>>Only Extensions</option>
                   <option value="outside" <?= ($rs->fields['rights'] == "outside") ? "selected" : "" ?>>Complete Outgoing</option>
-                  <option value="call_Center" <?= ($rs->fields['rights'] == "call_Center") ? "selected" : "" ?>>Call Center Agent</option>
+                  <option value="call_center" <?= ($rs->fields['rights'] == "call_center") ? "selected" : "" ?>>Call Center Agent</option>
                 </select>
               </div>
 
@@ -276,7 +276,7 @@ $rs = fetch_extention();
 
         ex_right = $(`#ex_right_${id}`).val();
 
-        if (ex_right != "call_Center") {
+        if (ex_right != "call_center") {
           $(`#ex_right_${id}`).removeAttr("disabled");
 
           $(this).on("change paste keyup", function() {

@@ -132,8 +132,8 @@ $rs = $reports->iget_records_pdf(addslashes($txtSearch), $recStartFrom, $page_re
 							<tr>
 								<td>Caller Id</td>
 								<td>Date</td>
-								<td>Time</td>
-								<td>Duration</td>
+								<!-- <td>Time</td> -->
+								<!-- <td>Duration</td> -->
 								<td>Agent Name</td>
 								<td>Play/Download</td>
 
@@ -156,12 +156,12 @@ $rs = $reports->iget_records_pdf(addslashes($txtSearch), $recStartFrom, $page_re
 										<a href="call_detail.php?unique_id=<?= $rs->fields["unique_id"]; ?>&id=<?= $rs->fields["id"]; ?>"><?= $rs->fields["caller_id"]; ?></a>
 									</td>
 									<td class="td" id="call_date_<?= $rs->fields["id"] ?>" class="col-first"><?= $rs->fields["call_datetime"] ?> </td>
-									<td class="td" class="col-first"><?= $rs->fields["call_time"]; ?> </td>
-									<td class="td" id="call_duration_<?= $rs->fields["id"] ?>" class="col-first"><?= $rs->fields["call_duration"]; ?> </td>
+									<!-- <td class="td" class="col-first"><?= $rs->fields["call_time"]; ?> </td> -->
+									<!-- <td class="td" id="call_duration_<?= $rs->fields["id"] ?>" class="col-first"><?= $rs->fields["call_duration"]; ?> </td> -->
 									<td class="td" class="col-first"><?= $rs->fields["full_name"]; ?> </td>
 
 									<td class="col-first" style="padding-top: 35px; padding-bottom: 30px;">
-										<audio controls style="width: 145px; margin: 10px 10px -20px 10px;">
+										<audio controls style="width: 210px; margin: 10px 10px -20px 10px;">
 											<source src="recording/<?= $rs->fields["unique_id"]; ?>.wav"><?= $rs->fields["caller_id"]; ?>
 										</audio>
 									</td>
