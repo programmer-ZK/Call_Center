@@ -1,10 +1,10 @@
 <?php include_once("includes/config.php"); ?>
 <?php
-$page_name = "IVR";
+$page_name = "Robocalls";
 $page_level = "0";
 $page_group_id = "0";
-$page_title = "IVR";
-$page_menu_title = "IVR";
+$page_title = "Robocalls";
+$page_menu_title = "Robocalls";
 ?>
 
 
@@ -138,7 +138,7 @@ $rs = fetch_extention();
 
       <div id="mid-col" class="mid-col">
         <div class="box">
-          <h4>Add New IVR Robocall</h4>
+          <h4>Add New Robocall</h4>
           <h4 class="white">
             <div>
 
