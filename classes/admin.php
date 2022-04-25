@@ -3273,16 +3273,16 @@ function update_extention($id, $ex_num, $ex_prev, $ex_name, $ex_pass, $ex_right)
 
 	global $db_conn;
 
-         $sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
-        $rs = $db_conn->Execute($sql);	
+	$sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
+	$rs = $db_conn->Execute($sql);
 
 	$sip = "[" . $rs->fields['extension_num'] . "]\nusername = " . $rs->fields['extension_num'] . "\ntype = friend\nhost = dynamic\nsecret = " . $rs->fields['password'] . "\ncontext = " . $rs->fields['rights'] . "\ncallerid = " . $rs->fields['extension_num'] . "\nmailbox = " . $rs->fields['extension_num'] . "@" . $rs->fields['rights'] . "\nqualify = yes\ncall-limit = 1";
 
-        $sip_new = "[" . $ex_num . "]\nusername = " . $ex_num . "\ntype = friend\nhost = dynamic\nsecret = " . $ex_pass . "\ncontext = " . $ex_right . "\ncallerid = " . $ex_num . "\nmailbox = " . $ex_num . "@" . $ex_right . "\nqualify = yes\ncall-limit = 1";
+	$sip_new = "[" . $ex_num . "]\nusername = " . $ex_num . "\ntype = friend\nhost = dynamic\nsecret = " . $ex_pass . "\ncontext = " . $ex_right . "\ncallerid = " . $ex_num . "\nmailbox = " . $ex_num . "@" . $ex_right . "\nqualify = yes\ncall-limit = 1";
 
-        $contents = file_get_contents("asterisk_conf/custom_sip.conf");
-        $contents = str_replace($sip, $sip_new, $contents);
-        file_put_contents("asterisk_conf/custom_sip.conf", $contents);
+	$contents = file_get_contents("asterisk_conf/custom_sip.conf");
+	$contents = str_replace($sip, $sip_new, $contents);
+	file_put_contents("asterisk_conf/custom_sip.conf", $contents);
 
 	$sql  = "UPDATE cc_extensions SET ";
 	$sql .= "extension_num='$ex_num',";
@@ -3409,4 +3409,98 @@ function delete_extention_guide($id, $ex)
 	$sql  = "SELECT * FROM cc_extensions WHERE id = '$id'";
 	$rs = $db_conn->Execute($sql);
 	return $rs;
+}
+
+
+function fetch_ivr_robo()
+{
+	global $db_conn;
+
+	$sql  = "SELECT * FROM cc_ivr_robo";
+	return $db_conn->Execute($sql);
+}
+
+function delete_IVR($id)
+{
+	global $db_conn;
+
+	$sql  = "SELECT * FROM cc_ivr_robo where id = '$id' ORDER BY id DESC limit 1";
+
+	$rs = $db_conn->Execute($sql);
+
+	$file_name = $rs->fields['file_name'];
+	$file_dir = "/var/lib/asterisk/sounds/robocalls/$file_name.wav";
+
+	if (unlink($file_dir)) {
+		// file was successfully deleted
+		$sql  = "DELETE FROM cc_ivr_robo WHERE id = '$id'";
+		$db_conn->Execute($sql);
+	} else {
+		// there was a problem deleting the file
+	}
+}
+
+
+function insert_IVR_robocall($ivr_name, $file_name)
+{
+	global $db_conn;
+
+	$sql  = "INSERT into cc_ivr_robo";
+	$sql .= "(ivr_name, file_name ) ";
+	$sql .= " values('$ivr_name', '$file_name')";
+
+	$db_conn->Execute($sql);
+}
+
+function ivr_file_pre_name()
+{
+	global $db_conn;
+
+	$sql  = "SELECT * FROM cc_ivr_robo ORDER BY id DESC limit 1";
+
+	$rs = $db_conn->Execute($sql);
+
+	return $rs->fields['file_name'];
+}
+
+function fetch_robo()
+{
+	global $db_conn;
+	$sql  = "SELECT * FROM cc_robo_primary";
+	return $db_conn->Execute($sql);
+}
+
+function delete_roboCall($id)
+{
+	global $db_conn;
+	$sql  = "DELETE FROM cc_robo_primary WHERE id = '$id'";
+	$db_conn->Execute($sql);
+}
+
+function insert_roboCall($name, $IVR_name, $phone_number, $startTime, $retries)
+{
+	global $db_conn;
+
+	$upload_date = date("Y-m-d H:i:s");
+
+	$sql  = "INSERT into cc_robo_primary";
+	$sql .= "(name, ivr_name, upload_date, phone_number, timetostart, retries, noofcalls ) ";
+	$sql .= " values('$name', '$IVR_name', '$upload_date', '$phone_number', '$startTime', '$retries', 0)";
+
+	$db_conn->Execute($sql);
+}
+
+function if_roboCall_name_exists($name)
+{
+	global $db_conn;
+	$sql        =     "SELECT * FROM cc_robo_primary where name ='$name'";
+	$rs         =     $db_conn->Execute($sql);
+	$rsCount    =     $rs->rowCount();
+
+	if ($rsCount > 0) {
+		return true;
+	}
+	if ($rsCount < 1) {
+		return false;
+	}
 }
