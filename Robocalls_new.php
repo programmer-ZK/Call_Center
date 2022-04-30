@@ -143,7 +143,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $Reader->ChangeSheet($i);
 
       foreach ($Reader as $Row) {
-        $numbers = isset($Row[0]) ? $Row[0] : '';
+        if (isset($Row[0]) && intval($Row[0])) {
+          $numbers =  $Row[0];
+        } else {
+          continue;
+        }
         insert_roboCall(trim($name), $IVR_name, $numbers, $startTime, $retries);
       }
     }
