@@ -58,6 +58,7 @@ $all_agent = new all_agent();
 
   .tbl_tr td {
     text-align: center !important;
+    vertical-align: middle;
   }
 
   .save_btn {
@@ -86,14 +87,14 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == "delete") {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-  $ivr_name = $_REQUEST["ivr_name"];
-  $pre_name = ivr_file_pre_name();
+  $ivr_name         =    $_REQUEST["ivr_name"];
+  $pre_name         =    ivr_file_pre_name();
 
   $file_type        =    "robo_0"; // Default Name
 
   $strLen           =    strlen($pre_name);
   $old_name         =    substr($pre_name, 5, $strLen);
-  $new_num = (int)$old_name + 1;
+  $new_num          =    (int)$old_name + 1;
   $file_type        =    "robo_" . $new_num; // Name will over write here
 
   $target_dir       =    "/var/lib/asterisk/sounds/robocalls/";
@@ -120,12 +121,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     array_push($errors, "IVR name is Required.");
   }
 
+  if (!empty($ivr_name) && if_ivr_roboCall_name_exists($ivr_name)) {
+    array_push($errors, "Name already exists.");
+  }
+
+  if (preg_match('/\s/', trim($ivr_name))) {
+    array_push($errors, "Name should not contain space.");
+  }
+
   // Check if $uploadOk is set to 0 by an error
-  if ($uploadOk == 0 && count($errors) >= 0) {
+  if ($uploadOk == 0 || count($errors) > 0) {
     echo "<b>Sorry,</b> your file was not uploaded. <br>";
     // if everything is ok, try to upload file
   } else {
-    if (move_uploaded_file($_FILES["ivr_file"]["tmp_name"],  $target_dir . $file_type . ".wav")) {
+
+    $copy_file = copy($_FILES["ivr_file"]["tmp_name"], "robo_calls/$file_type.wav");
+
+    if (move_uploaded_file($_FILES["ivr_file"]["tmp_name"], $target_dir . $file_type . ".wav")) {
       echo "<b>Upload status:</b> Success <br> ";
       echo "<b>File Name:</b> " .  $file_type . ".wav <br>";
       echo "<b>Dir/File Name:</b> " .  $target_file . "  <br> ";
@@ -159,7 +171,7 @@ $rs =  fetch_ivr_robo();
               </form>
             </table>
             <p style="margin-top: 20px;"><strong>NOTE :</strong> only wav format with 8000Hz frequency, 16bit resolution and mono channel is supported</p>
-            <p class="errors">
+            <p class="errors" style="margin-top: 5px;">
               <?php
               foreach ($errors as $err) {
                 echo "* " . $err . "<br>";
@@ -206,7 +218,8 @@ $rs =  fetch_ivr_robo();
                 <td><?= $ivr_name ?></td>
                 <td>
                   <audio controls="controls">
-                    <source src=<?= "/var/lib/asterisk/sounds/robocalls/$file_name.wav" ?> type="audio/x-wav">
+                    <source src=<?= "robo_calls/$file_name.wav" ?> type="audio/x-wav">
+                    <!-- /var/www/html/Octopus/robo_calls/robo_1.wav -->
                   </audio>
                 </td>
                 <td>
@@ -228,7 +241,6 @@ $rs =  fetch_ivr_robo();
   <?php include($site_admin_root . "includes/footer.php"); ?>
   <?php $s_no -= 1; ?>
   <script>
-
     // For Confirm Resubmisson Dialog
     if (window.history.replaceState) {
       window.history.replaceState(null, null, window.location.href);

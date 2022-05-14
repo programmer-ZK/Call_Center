@@ -3430,7 +3430,8 @@ function delete_IVR($id)
 
 	$file_name = $rs->fields['file_name'];
 	$file_dir = "/var/lib/asterisk/sounds/robocalls/$file_name.wav";
-
+	
+	unlink("robo_calls/$file_name.wav");
 	if (unlink($file_dir)) {
 		// file was successfully deleted
 		$sql  = "DELETE FROM cc_ivr_robo WHERE id = '$id'";
@@ -3494,6 +3495,22 @@ function if_roboCall_name_exists($name)
 {
 	global $db_conn;
 	$sql        =     "SELECT * FROM cc_robo_primary where name ='$name'";
+	$rs         =     $db_conn->Execute($sql);
+	$rsCount    =     $rs->rowCount();
+
+	if ($rsCount > 0) {
+		return true;
+	}
+	if ($rsCount < 1) {
+		return false;
+	}
+}
+
+
+function if_ivr_roboCall_name_exists($name)
+{
+	global $db_conn;
+	$sql        =     "SELECT * FROM cc_ivr_robo where ivr_name='$name'";
 	$rs         =     $db_conn->Execute($sql);
 	$rsCount    =     $rs->rowCount();
 
