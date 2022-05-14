@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // Allow certain file formats
   if ($imageFileType != "wav") {
-    echo "<b>Sorry, only .wav file is allowed. <br>";
+    array_push($errors, "Sorry, only .wav file is allowed.");
     $uploadOk = 0;
   }
 
@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0 || count($errors) > 0) {
-    echo "<b>Sorry,</b> your file was not uploaded. <br>";
+    array_push($errors, "Sorry, your file was not uploaded.");
     // if everything is ok, try to upload file
   } else {
 
