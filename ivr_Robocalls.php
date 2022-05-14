@@ -104,12 +104,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if ($_FILES["ivr_file"]["error"] > 0) {
     echo "<b>Error:</b> " . $_FILES["ivr_file"]["error"] . "<br>";
-  } else {
-    echo "<b>File Name:</b> " . $_FILES["ivr_file"]["name"] . "<br>";
-    echo "<b>File Type:</b> " . $_FILES["ivr_file"]["type"] . "<br>";
-    echo "<b>File Size:</b> " . ($_FILES["ivr_file"]["size"] / 1024) . " KB<br>";
-    echo "<b>Stored in:</b> " . $_FILES["ivr_file"]["tmp_name"] . " <br>";
   }
+  //  else {
+  //   echo "<b>File Name:</b> " . $_FILES["ivr_file"]["name"] . "<br>";
+  //   echo "<b>File Type:</b> " . $_FILES["ivr_file"]["type"] . "<br>";
+  //   echo "<b>File Size:</b> " . ($_FILES["ivr_file"]["size"] / 1024) . " KB<br>";
+  //   echo "<b>Stored in:</b> " . $_FILES["ivr_file"]["tmp_name"] . " <br>";
+  // }
 
   // Allow certain file formats
   if ($imageFileType != "wav") {
@@ -138,9 +139,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $copy_file = copy($_FILES["ivr_file"]["tmp_name"], "robo_calls/$file_type.wav");
 
     if (move_uploaded_file($_FILES["ivr_file"]["tmp_name"], $target_dir . $file_type . ".wav")) {
-      echo "<b>Upload status:</b> Success <br> ";
-      echo "<b>File Name:</b> " .  $file_type . ".wav <br>";
-      echo "<b>Dir/File Name:</b> " .  $target_file . "  <br> ";
+      // echo "<b>Upload status:</b> Success <br> ";
+      // echo "<b>File Name:</b> " .  $file_type . ".wav <br>";
+      // echo "<b>Dir/File Name:</b> " .  $target_file . "  <br> ";
       insert_IVR_robocall($ivr_name, $file_type);
       $ivr_name = '';
     } else {

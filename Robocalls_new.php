@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // echo "<b>NO. of sheet </b> : " . $totalSheet;
-    echo "<b>Data Inserted in dababase</b><br>";
+    // echo "<b>Data Inserted in dababase</b><br>";
 
     unlink($uploadFilePath);
 
