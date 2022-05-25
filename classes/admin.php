@@ -3430,7 +3430,7 @@ function delete_IVR($id)
 
 	$file_name = $rs->fields['file_name'];
 	$file_dir = "/var/lib/asterisk/sounds/robocalls/$file_name.wav";
-	
+
 	unlink("robo_calls/$file_name.wav");
 	if (unlink($file_dir)) {
 		// file was successfully deleted
@@ -3520,4 +3520,16 @@ function if_ivr_roboCall_name_exists($name)
 	if ($rsCount < 1) {
 		return false;
 	}
+}
+
+function robo_calls_report($fromdate, $todate)
+{
+	global $db_conn;
+	global $db_prefix;
+	$sql = "SELECT * from cc_robo_final where DATE_FORMAT(upload_date, '%Y-%m-%e %H:%i:%s')
+                                                        Between DATE_FORMAT('$fromdate', '%Y-%m-%e %H:%i:%s')
+                                                        AND DATE_FORMAT('$todate', '%Y-%m-%e %H:%i:%s')";
+	$sql .= " ORDER BY id";
+	$rs = $db_conn->Execute($sql);
+	return $rs;
 }

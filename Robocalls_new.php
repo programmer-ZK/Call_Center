@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     unlink($uploadFilePath);
 
     $name = '';
-  }
+  } 
 }
 
 $rs = fetch_robo();
